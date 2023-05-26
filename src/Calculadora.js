@@ -53,7 +53,7 @@ class Calculadora {
      * Comunidad autonoma
      * @type {string} 
      */
-    set comunidad_autonoma(s){
+    set comunidad_autonoma(s) {
         const lista_de_comunidades = [
             'Andalucía',
             'Aragón',
@@ -73,12 +73,12 @@ class Calculadora {
             'País Vasco',
             'Comunidad Valenciana'
         ];
-        if ( !lista_de_comunidades.includes(s) ) {
+        if (!lista_de_comunidades.includes(s)) {
             throw new Error("Comunidad inválida o error tipográfico");
         }
         this._comunidad_autonoma = s;
     }
-    get comunidad_autonoma(){
+    get comunidad_autonoma() {
         return this._comunidad_autonoma;
     }
 
@@ -86,16 +86,13 @@ class Calculadora {
      * Orientación del tejado
      * @type {string} 
      */
-    set orientacion_tejado(s){
-        const lista_de_orientaciones_tejado = [
-            'N', 'S', 'E', 'W'
-        ];
-        if ( !lista_de_orientaciones_tejado.includes(s) ) {
+    set orientacion_tejado(s) {
+        if (!['N', 'S', 'E', 'W'].includes(s)) {
             throw new Error("Orientación tejado inválida o error tipográfico");
         }
         this._orientacion_tejado = s;
     }
-    get orientacion_tejado(){
+    get orientacion_tejado() {
         return this._orientacion_tejado;
     }
 
@@ -103,7 +100,7 @@ class Calculadora {
      * Porcentage de energía a producir por renovables KWH
      * @returns {number}
      */
-    energia_a_cubrir(){
+    energia_a_cubrir() {
         return this.consumo_anual * this.porcentaje_consumo / 100;
     }
 
@@ -112,7 +109,7 @@ class Calculadora {
      * Producción de un pannel
      * @returns {number}
      */
-    produccion_de_un_panel(){
+    produccion_de_un_panel() {
         return 1500;
     }
 
@@ -120,7 +117,7 @@ class Calculadora {
      * Potencia necesaria a instalar(kWp)
      * @returns {number}
      */
-    potencia_necesaria_a_instalar (){
+    potencia_necesaria_a_instalar() {
         return this.energia_a_cubrir() / this.produccion_de_un_panel();
     }
 
@@ -128,7 +125,7 @@ class Calculadora {
      * Coste de instalacion (€)
      * @returns {number}
      */
-    coste_de_instalacion(){
+    coste_de_instalacion() {
         return this.potencia_necesaria_a_instalar() * this.coste_por_kWp;
     }
 
@@ -136,7 +133,7 @@ class Calculadora {
      * Ahorro anual esperado €
      * @returns {number}
      */
-    ahorro_anual_esperado(){
+    ahorro_anual_esperado() {
         return this.energia_a_cubrir() * this.ahorro_p_kWh;
     }
 
@@ -144,7 +141,7 @@ class Calculadora {
      * Años de amortizacion
      * @returns {number}
      */
-    anos_amortizacion(){
+    anos_amortizacion() {
         return this.coste_de_instalacion() / this.ahorro_anual_esperado();
     }
 
@@ -158,26 +155,26 @@ class Calculadora {
 let calc = new Calculadora(5000, 80, "Aragón", "S");
 
 console.log({
-    "Inputs" : {
+    "Inputs": {
         "Consumo actual": calc.consumo_anual,
         "Porcentaje del consumo": calc.porcentaje_consumo,
         "Comunidad autonoma": calc.comunidad_autonoma,
-        "Orientación del tejado" : calc.orientacion_tejado
+        "Orientación del tejado": calc.orientacion_tejado
     },
-    "Constantes" : {
+    "Constantes": {
         "Coste_por_kWp": calc.coste_por_kWp,
-        "Ahorro por kWh" : calc.ahorro_p_kWh
+        "Ahorro por kWh": calc.ahorro_p_kWh
     },
-    "Variables" : {
-        "Producción de un pannel": calc.produccion_de_un_panel(), 
+    "Variables": {
+        "Producción de un pannel": calc.produccion_de_un_panel(),
     },
-    "Outputs" : {
+    "Outputs": {
         "Energia a cubrir": calc.energia_a_cubrir(),
-        "Potencia necesaria a instalar" : calc.potencia_necesaria_a_instalar(),
-        "Coste de instalacion" : calc.coste_de_instalacion(),
-        "Ahorro anual esperado" : calc.ahorro_anual_esperado(),
-        "Factura mensual futura con paneles" : "",
-        "Años amortizacion" : calc.anos_amortizacion(),
-        "Emisiones" : "",
+        "Potencia necesaria a instalar": calc.potencia_necesaria_a_instalar(),
+        "Coste de instalacion": calc.coste_de_instalacion(),
+        "Ahorro anual esperado": calc.ahorro_anual_esperado(),
+        "Factura mensual futura con paneles": "",
+        "Años amortizacion": calc.anos_amortizacion(),
+        "Emisiones": "",
     }
 });
