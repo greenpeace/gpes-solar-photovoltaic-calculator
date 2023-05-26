@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* jshint esversion:6 */
 
 let t1 = new Calculadora(5000, 80, "Aragón", "S");
