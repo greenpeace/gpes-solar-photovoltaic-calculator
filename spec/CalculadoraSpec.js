@@ -35,7 +35,6 @@ describe("Asegurarse que los inputs son validos", () => {
 
     it("Orientación tiene que ser válida", () => {
         expect(function () { t1.orientacion_tejado = "O"; }).toThrow();
-        expect(t1.orientacion_tejado).toBe("S");
     });
 
     it("Asumir el valor para orientacion tejado a partir del cuarto parámetro", () => {

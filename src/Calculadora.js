@@ -74,7 +74,7 @@ class Calculadora {
             'Comunidad Valenciana'
         ];
         if (!lista_de_comunidades.includes(s)) {
-            throw new Error("Comunidad inválida o error tipográfico");
+            throw new Error("Comunidad inválida o error ortográfico");
         }
         this._comunidad_autonoma = s;
     }
@@ -88,7 +88,7 @@ class Calculadora {
      */
     set orientacion_tejado(s) {
         if (!['N', 'S', 'E', 'W'].includes(s)) {
-            throw new Error("Orientación tejado inválida o error tipográfico");
+            throw new Error("Orientación tejado inválida o error ortográfico");
         }
         this._orientacion_tejado = s;
     }
