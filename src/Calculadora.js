@@ -250,10 +250,18 @@ class Calculadora {
 
     /**
      * Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)
-     * @returns 
+     * @returns {number}
      */
     potencia_necesaria_para_consumo_deseado(){
         return this.energia_a_cubrir() / ( this.coeficiente_orientacion_tejado() * this.valor_zona_climatica( this.zona_climatica_de_provincia( this.provincia)) );
+    }
+
+    /**
+     * Nº de paneles a instalar
+     * @returns {number}
+     */
+    numero_paneles_a_instalar(){
+        return Math.round(this.potencia_necesaria_para_consumo_deseado() * 1000 / 450);
     }
 
 }

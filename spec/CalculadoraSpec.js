@@ -96,7 +96,7 @@ describe("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (
 describe("nº de paneles a instalar", () => {
 
     it("nº de paneles a instalar", () => {
-        
+        expect(t1.numero_paneles_a_instalar()).toBe(10);
     });
 
 });
