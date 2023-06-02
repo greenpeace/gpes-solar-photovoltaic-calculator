@@ -113,7 +113,7 @@ describe("Coste de tu instalacion (€) (aproximado)", () => {
 describe("Ahorro anual esperado (€)", () => {
 
     it("Ahorro anual esperado", () => {
-        
+        expect(t1.ahorro_anual_esperado()).toBe(802);
     });
 
 });
@@ -122,7 +122,7 @@ describe("Ahorro anual esperado (€)", () => {
 describe("Años de amortizacion", () => {
 
     it("Años de amortizacion", () => {
-        
+        expect(t1.anos_amortizacion()).toBe(9.9);
     });
 
 });
@@ -131,7 +131,7 @@ describe("Años de amortizacion", () => {
 describe("Emissiones", () => {
 
     it("Emissiones", () => {
-        
+        expect(t1.emissiones()).toBe(1088);
     });
 
 });

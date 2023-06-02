@@ -16,6 +16,8 @@ class Calculadora {
         this.provincia = provincia;
         this.orientacion_tejado = orientacion_tejado;
         this.precio_medio_pannel = 1700;
+        this.ahorrokWh = 0.118;
+        this.co2_kWh = 0.16;
     }
 
     /* ------------------------  INPUTS ------------------------ */
@@ -271,6 +273,29 @@ class Calculadora {
         return Math.round(this.potencia_necesaria_para_consumo_deseado() * this.precio_medio_pannel);
     }
 
+    /**
+     * Ahorro anual esperado (€)
+     * @returns {number}
+     */
+    ahorro_anual_esperado(){
+        return Math.round(this.energia_a_cubrir() * this.ahorrokWh);
+    }
+    /**
+     * Años amortizacion 
+     * @returns {number}
+     */
+    anos_amortizacion(){
+        return Math.round(((this.coste_de_tu_instalacion() / this.ahorro_anual_esperado()) + Number.EPSILON) * 10) / 10;
+    }
+
+    /**
+     * Emissiones
+     * @returns {number}
+     */
+    emissiones(){
+        return this.energia_a_cubrir() * this.co2_kWh;
+    }
+
 }
 
 
@@ -288,19 +313,22 @@ let probar = function (calc) {
             "Tejado orientacion": calc.orientacion_tejado
         },
         "Constantes": {
-            "Precio médio del pannel" : calc.precio_medio_pannel
+            "Precio médio del pannel" : calc.precio_medio_pannel,
+            "Ahorro kWh": calc.ahorrokWh,
+            "Co2 por kWh": calc.co2_kWh
         },
         "Variables": {
             "Energia a cubrir (kWh/year)": calc.energia_a_cubrir(),
+            "Zona climática" : calc.zona_climatica_de_provincia(calc.provincia),
+            "Valor zona climática" : calc.valor_zona_climatica(calc.zona_climatica_de_provincia(calc.provincia))
         },
         "Outputs": {
             "Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)": calc.potencia_necesaria_para_consumo_deseado(),
             "nº de paneles a instalar": calc.numero_paneles_a_instalar(),
             "Coste de tu instalacion (€) (aproximado)": calc.coste_de_tu_instalacion(),
-            "Ahorro anual esperado (€)": null,
-            "Factura mensual futura con paneles": null,
-            "Años amortizacion ": null,
-            "Emisiones": null,
+            "Ahorro anual esperado (€)": calc.ahorro_anual_esperado(),
+            "Años amortizacion ": calc.anos_amortizacion(),
+            "Emisiones": calc.emissiones(),
         }
     });
 };
