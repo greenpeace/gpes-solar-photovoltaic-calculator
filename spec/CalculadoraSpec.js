@@ -103,8 +103,8 @@ describe("nº de paneles a instalar", () => {
 
 describe("Coste de tu instalacion (€) (aproximado)", () => {
 
-    it("Coste de instalación", () => {
-        
+    it("Coste de tu instalacion (€) (aproximado)", () => {
+        expect(t1.coste_de_tu_instalacion()).toBe(7941);
     });
 
 });

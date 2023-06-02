@@ -15,8 +15,7 @@ class Calculadora {
         this.porcentaje_consumo = porcentaje_consumo;
         this.provincia = provincia;
         this.orientacion_tejado = orientacion_tejado;
-        this.coste_por_kWp = 1800;
-        this.ahorro_p_kWh = 0.2;
+        this.precio_medio_pannel = 1700;
     }
 
     /* ------------------------  INPUTS ------------------------ */
@@ -264,6 +263,14 @@ class Calculadora {
         return Math.round(this.potencia_necesaria_para_consumo_deseado() * 1000 / 450);
     }
 
+    /**
+     * Coste de tu instalacion (€) (aproximado)
+     * @returns {number}
+     */
+    coste_de_tu_instalacion(){
+        return Math.round(this.potencia_necesaria_para_consumo_deseado() * this.precio_medio_pannel);
+    }
+
 }
 
 
@@ -281,15 +288,15 @@ let probar = function (calc) {
             "Tejado orientacion": calc.orientacion_tejado
         },
         "Constantes": {
-            
+            "Precio médio del pannel" : calc.precio_medio_pannel
         },
         "Variables": {
-            "Energia a cubrir (kWh/year)": null,
+            "Energia a cubrir (kWh/year)": calc.energia_a_cubrir(),
         },
         "Outputs": {
-            "Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)": null,
-            "nº de paneles a instalar": null,
-            "Coste de tu instalacion (€) (aproximado)": null,
+            "Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)": calc.potencia_necesaria_para_consumo_deseado(),
+            "nº de paneles a instalar": calc.numero_paneles_a_instalar(),
+            "Coste de tu instalacion (€) (aproximado)": calc.coste_de_tu_instalacion(),
             "Ahorro anual esperado (€)": null,
             "Factura mensual futura con paneles": null,
             "Años amortizacion ": null,
@@ -304,7 +311,7 @@ let probar = function (calc) {
  *  Calculadora(consumo_anual, porcentaje_consumo, provincia, orientacion_tejado)
  */
 
-let calc1 = new Calculadora(5000, 80, "Almería", "Sur");
+let calc1 = new Calculadora(6800, 100, "Cádiz", "Este");
 
 probar(calc1);
 
