@@ -1,7 +1,9 @@
 /* eslint-disable no-undef */
 /* jshint esversion:6 */
 
-let t1 = new Calculadora(5000, 80, "Almería", "Sur");
+let t1 = new Calculadora(6800, 100, "Almería", "Este");
+
+// INPUTS
 
 describe("Asegurarse que los inputs son validos", () => {
 
@@ -11,7 +13,7 @@ describe("Asegurarse que los inputs son validos", () => {
     });
 
     it("Asumir el valor para consumo anual a partir del primer parámetro", () => {
-        expect(t1.consumo_anual).toBe(5000);
+        expect(t1.consumo_anual).toBe(6800);
     });
 
     it("Porcentaje tiene que ser un número entero entre 0 y 100", () => {
@@ -22,7 +24,7 @@ describe("Asegurarse que los inputs son validos", () => {
     });
 
     it("Asumir el valor para porcentaje del consumo a partir del segundo parámetro", () => {
-        expect(t1.porcentaje_consumo).toBe(80);
+        expect(t1.porcentaje_consumo).toBe(100);
     });
 
     it("Provincia tiene que ser válida", () => {
@@ -38,61 +40,12 @@ describe("Asegurarse que los inputs son validos", () => {
     });
 
     it("Asumir el valor para orientacion tejado a partir del cuarto parámetro", () => {
-        expect(t1.orientacion_tejado).toBe("Sur");
+        expect(t1.orientacion_tejado).toBe("Este");
     });
 
 });
 
-describe("Energia a cubrir", () => {
-
-    it("Cálculo de energía a cubrir", () => {
-        expect(t1.energia_a_cubrir()).toBe(4000);
-    });
-
-});
-
-describe("Producción de un pannel", () => {
-
-    it("Producción de un pannel, média nacional", () => {
-        expect(t1.produccion_de_un_panel()).toBe(1500);
-    });
-
-});
-
-describe("Potencia necesaria a instalar(kWp)", () => {
-
-    it("Potencia necesaria a instalar(kWp)", () => {
-        expect(t1.potencia_necesaria_a_instalar()).toBeCloseTo(2.67, 1);
-    });
-
-});
-
-describe("Coste de instalación", () => {
-
-    it("Coste de instalación", () => {
-        expect(t1.coste_de_instalacion()).toBe(4800);
-    });
-
-});
-
-
-describe("Ahorro anual esperado", () => {
-
-    it("Ahorro anual esperado", () => {
-        expect(t1.ahorro_anual_esperado()).toBe(800);
-    });
-
-});
-
-
-describe("Años de amortizacion", () => {
-
-    it("Años de amortizacion", () => {
-        expect(t1.anos_amortizacion()).toBe(6);
-    });
-
-});
-
+// VARIABLES
 
 describe("Zona climática", () => {
 
@@ -101,7 +54,7 @@ describe("Zona climática", () => {
     });
 
     it("Valor zona climática", () => {
-        expect(t1.valor_zona_climatica('I')).toBe(1100);
+        expect(t1.valor_zona_climatica('IV')).toBe(1754);
     });
 
 });
@@ -109,7 +62,7 @@ describe("Zona climática", () => {
 describe("Zona climática de la provincia", () => {
 
     it("Valor zona climática de una provincia", () => {
-        expect(t1.zona_climatica_de_provincia('Navarra')).toBe('II');
+        expect(t1.zona_climatica_de_provincia('Cádiz')).toBe('IV');
     });
 
 });
@@ -117,7 +70,68 @@ describe("Zona climática de la provincia", () => {
 describe("Coeficiente orientación del tejado", () => {
 
     it("Ejemplo sur", () => {
-        expect(t1.coeficiente_orientacion_tejado()).toBe(1);
+        expect(t1.coeficiente_orientacion_tejado()).toBe(0.83);
+    });
+
+});
+
+// OUTPUTS
+
+describe("Energia a cubrir (kWh/year)", () => {
+
+    it("Cálculo de energía a cubrir", () => {
+       
+    });
+
+});
+
+describe("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)", () => {
+
+    it("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)", () => {
+        
+    });
+
+});
+
+describe("nº de paneles a instalar", () => {
+
+    it("nº de paneles a instalar", () => {
+        
+    });
+
+});
+
+describe("Coste de tu instalacion (€) (aproximado)", () => {
+
+    it("Coste de instalación", () => {
+        
+    });
+
+});
+
+
+describe("Ahorro anual esperado (€)", () => {
+
+    it("Ahorro anual esperado", () => {
+        
+    });
+
+});
+
+
+describe("Años de amortizacion", () => {
+
+    it("Años de amortizacion", () => {
+        
+    });
+
+});
+
+
+describe("Emissiones", () => {
+
+    it("Emissiones", () => {
+        
     });
 
 });

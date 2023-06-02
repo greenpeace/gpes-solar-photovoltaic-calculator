@@ -239,54 +239,7 @@ class Calculadora {
 
     /* ------------------------  OUTPUTS ------------------------ */
 
-    /**
-     * Porcentage de energía a producir por renovables KWH
-     * @returns {number}
-     */
-    energia_a_cubrir() {
-        return this.consumo_anual * this.porcentaje_consumo / 100;
-    }
-
-    // TODO Media nacional o por CCAA
-    /**
-     * Producción de un pannel
-     * @returns {number}
-     */
-    produccion_de_un_panel() {
-        return 1500;
-    }
-
-    /**
-     * Potencia necesaria a instalar(kWp)
-     * @returns {number}
-     */
-    potencia_necesaria_a_instalar() {
-        return this.energia_a_cubrir() / this.produccion_de_un_panel();
-    }
-
-    /**
-     * Coste de instalacion (€)
-     * @returns {number}
-     */
-    coste_de_instalacion() {
-        return this.potencia_necesaria_a_instalar() * this.coste_por_kWp;
-    }
-
-    /**
-     * Ahorro anual esperado €
-     * @returns {number}
-     */
-    ahorro_anual_esperado() {
-        return this.energia_a_cubrir() * this.ahorro_p_kWh;
-    }
-
-    /**
-     * Años de amortizacion
-     * @returns {number}
-     */
-    anos_amortizacion() {
-        return this.coste_de_instalacion() / this.ahorro_anual_esperado();
-    }
+    
 
 }
 
@@ -299,26 +252,25 @@ class Calculadora {
 let probar = function (calc) {
     console.log({
         "Inputs": {
-            "Consumo actual": calc.consumo_anual,
-            "Porcentaje del consumo": calc.porcentaje_consumo,
-            "Comunidad autonoma": calc.comunidad_autonoma,
-            "Orientación del tejado": calc.orientacion_tejado
+            "¿Cual es tu consumo anual (KWH)?": calc.consumo_anual,
+            "¿Qué % de tu consumo quieres cubrir con autoconsumo solar?": calc.porcentaje_consumo,
+            "¿Dónde vives? (provincia)": calc.comunidad_autonoma,
+            "Tejado orientacion": calc.orientacion_tejado
         },
         "Constantes": {
-            "Coste_por_kWp": calc.coste_por_kWp,
-            "Ahorro por kWh": calc.ahorro_p_kWh
+            
         },
         "Variables": {
-            "Producción de un pannel": calc.produccion_de_un_panel(),
+            "Energia a cubrir (kWh/year)": null,
         },
         "Outputs": {
-            "Energia a cubrir": calc.energia_a_cubrir(),
-            "Potencia necesaria a instalar": calc.potencia_necesaria_a_instalar(),
-            "Coste de instalacion": calc.coste_de_instalacion(),
-            "Ahorro anual esperado": calc.ahorro_anual_esperado(),
-            "Factura mensual futura con paneles": "",
-            "Años amortizacion": calc.anos_amortizacion(),
-            "Emisiones": "",
+            "Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)": null,
+            "nº de paneles a instalar": null,
+            "Coste de tu instalacion (€) (aproximado)": null,
+            "Ahorro anual esperado (€)": null,
+            "Factura mensual futura con paneles": null,
+            "Años amortizacion ": null,
+            "Emisiones": null,
         }
     });
 };
