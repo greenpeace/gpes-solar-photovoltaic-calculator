@@ -239,7 +239,22 @@ class Calculadora {
 
     /* ------------------------  OUTPUTS ------------------------ */
 
-    
+    /**
+     * Energia a cubrir (kWh/year)
+     * esta columna no es output, solo sirve para el resto de calculos
+     * @returns {number}
+     */
+    energia_a_cubrir(){
+        return this.consumo_anual * this.porcentaje_consumo / 100;
+    }
+
+    /**
+     * Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)
+     * @returns 
+     */
+    potencia_necesaria_para_consumo_deseado(){
+        return this.energia_a_cubrir() / ( this.coeficiente_orientacion_tejado() * this.valor_zona_climatica( this.zona_climatica_de_provincia( this.provincia)) );
+    }
 
 }
 

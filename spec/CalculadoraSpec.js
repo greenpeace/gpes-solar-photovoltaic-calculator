@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* jshint esversion:6 */
 
-let t1 = new Calculadora(6800, 100, "Almería", "Este");
+let t1 = new Calculadora(6800, 100, "Cádiz", "Este");
 
 // INPUTS
 
@@ -32,7 +32,7 @@ describe("Asegurarse que los inputs son validos", () => {
     });
 
     it("Asumir el valor para provincia a partir del tercer parámetro", () => {
-        expect(t1.provincia).toBe("Almería");
+        expect(t1.provincia).toBe("Cádiz");
     });
 
     it("Orientación tiene que ser válida", () => {
@@ -80,7 +80,7 @@ describe("Coeficiente orientación del tejado", () => {
 describe("Energia a cubrir (kWh/year)", () => {
 
     it("Cálculo de energía a cubrir", () => {
-       
+        expect(t1.energia_a_cubrir()).toBe(6800);
     });
 
 });
@@ -88,7 +88,7 @@ describe("Energia a cubrir (kWh/year)", () => {
 describe("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)", () => {
 
     it("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)", () => {
-        
+        expect(t1.potencia_necesaria_para_consumo_deseado()).toBeCloseTo(4.67, 2);
     });
 
 });
