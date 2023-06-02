@@ -113,3 +113,11 @@ describe("Zona climática de la provincia", () => {
     });
 
 });
+
+describe("Coeficiente orientación del tejado", () => {
+
+    it("Ejemplo sur", () => {
+        expect(t1.coeficiente_orientacion_tejado()).toBe(1);
+    });
+
+});

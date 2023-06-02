@@ -219,6 +219,21 @@ class Calculadora {
     }
 
     /**
+     * Devuelve el coeficiente de la orientación del tejado
+     * @returns {number}
+     */
+    coeficiente_orientacion_tejado(){
+        const tabla_coeficientes = {
+            Norte : 0,
+            Sur : 1,
+            Este : 0.83,
+            Oeste : 0.83,
+            Plano : 0.59
+        };
+        return tabla_coeficientes[this.orientacion_tejado];
+    }
+
+    /**
      * Porcentage de energía a producir por renovables KWH
      * @returns {number}
      */
