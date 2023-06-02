@@ -119,6 +119,11 @@ class Calculadora {
         return this._provincia;
     }
 
+    /**
+     * Devuelve el valor para una de las 5 zonas climáticas
+     * @param {string} zona 
+     * @returns 
+     */
     valor_zona_climatica(zona){
         if (!['I', 'II', 'III', 'IV', 'V'].includes(zona)) {
             throw new Error("Zona climática invalida");
@@ -131,6 +136,72 @@ class Calculadora {
             V: 1825
         };
         return tabla_valores[zona];
+    }
+
+    /**
+     * Devuelve la zona climática de la provincia
+     * @param {string} provincia 
+     * @returns {string}
+     */
+    zona_climatica_de_provincia(provincia) {
+        const zonas_por_provincia = {
+            'Almería': 'V',
+            'Cádiz': 'IV',
+            'Córdoba': 'V',
+            'Granada': 'IV',
+            'Huelva' : 'V',
+            'Jaén' : 'IV',
+            'Málaga' : 'IV',
+            'Sevilla' : 'V',
+            'Huesca': 'III',
+            'Teruel': 'III',
+            'Zaragoza': 'IV',
+            'Asturias': 'I',
+            'Cantabria': 'I',
+            'Barcelona': 'II',
+            'Girona': 'III',
+            'Lleida': 'III',
+            'Tarragona': 'III',
+            'Albacete': 'I',
+            'Ciudad Real': 'IV',
+            'Cuenca': 'III',
+            'Guadalajara': 'IV',
+            'Toledo': 'IV',
+            'Ávila': 'IV',
+            'Burgos': 'II',
+            'León': 'III',
+            'Palencia': 'II',
+            'Salamanca' : 'III',
+            'Segovia': 'III',
+            'Soria': 'III',
+            'Valladolid': 'II',
+            'Zamora': 'III',
+            'Madrid': 'IV',
+            'Alicante': 'V',
+            'Castellón': 'IV',
+            'Valencia': 'IV',
+            'Badajoz': 'V',
+            'Cáceres': 'V',
+            'A Coruña': 'I',
+            'Lugo': 'II',
+            'Ourense': 'II',
+            'Pontevedra': 'I',
+            'Mallorca': 'IV',
+            'Menorca': 'IV',
+            'Tenerife': 'V',
+            'Lanzarote': 'V',
+            'La Palma': 'V',
+            'La Rioja': 'II',
+            'Murcia': 'IV',
+            'Álava': 'I',
+            'Guipúzcoa': 'I',
+            'Vizcaya': 'I',
+            'Ceuta': 'V',
+            'Melilla': 'V',
+            'Navarra': 'II'
+        };
+
+        return zonas_por_provincia[provincia];
     }
 
     /**
