@@ -124,7 +124,7 @@ class Calculadora {
      * @type {string} 
      */
     set orientacion_tejado(s) {
-        if (!['N', 'S', 'E', 'W'].includes(s)) {
+        if (!['Norte', 'Sur', 'Este', 'Oeste', 'Plano'].includes(s)) {
             throw new Error("Orientación tejado inválida o error ortográfico");
         }
         this._orientacion_tejado = s;
@@ -215,36 +215,15 @@ let probar = function (calc) {
             "Emisiones": "",
         }
     });
-}
+};
+
 
 /**
  * ZONA DE PRUEBAS Cambia la linea abajo 
  *  Calculadora(consumo_anual, porcentaje_consumo, provincia, orientacion_tejado)
  */
 
-let calc = new Calculadora(5000, 80, "Almería", "S");
+let calc1 = new Calculadora(5000, 80, "Almería", "Sur");
 
-console.log({
-    "Inputs": {
-        "Consumo actual": calc.consumo_anual,
-        "Porcentaje del consumo": calc.porcentaje_consumo,
-        "Provincia": calc.provincia,
-        "Orientación del tejado": calc.orientacion_tejado
-    },
-    "Constantes": {
-        "Coste_por_kWp": calc.coste_por_kWp,
-        "Ahorro por kWh": calc.ahorro_p_kWh
-    },
-    "Variables": {
-        "Producción de un pannel": calc.produccion_de_un_panel(),
-    },
-    "Outputs": {
-        "Energia a cubrir": calc.energia_a_cubrir(),
-        "Potencia necesaria a instalar": calc.potencia_necesaria_a_instalar(),
-        "Coste de instalacion": calc.coste_de_instalacion(),
-        "Ahorro anual esperado": calc.ahorro_anual_esperado(),
-        "Factura mensual futura con paneles": "",
-        "Años amortizacion": calc.anos_amortizacion(),
-        "Emisiones": "",
-    }
-});
+probar(calc1);
+

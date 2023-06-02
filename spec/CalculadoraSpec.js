@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* jshint esversion:6 */
 
-let t1 = new Calculadora(5000, 80, "Almería", "S");
+let t1 = new Calculadora(5000, 80, "Almería", "Sur");
 
 describe("Asegurarse que los inputs son validos", () => {
 
@@ -29,7 +29,7 @@ describe("Asegurarse que los inputs son validos", () => {
         expect(function () { t1.provincia = "España"; }).toThrow();
     });
 
-    it("Asumir el valor para CCAA a partir del tercer parámetro", () => {
+    it("Asumir el valor para provincia a partir del tercer parámetro", () => {
         expect(t1.provincia).toBe("Almería");
     });
 
@@ -38,7 +38,7 @@ describe("Asegurarse que los inputs son validos", () => {
     });
 
     it("Asumir el valor para orientacion tejado a partir del cuarto parámetro", () => {
-        expect(t1.orientacion_tejado).toBe("S");
+        expect(t1.orientacion_tejado).toBe("Sur");
     });
 
 });
