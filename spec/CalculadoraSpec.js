@@ -93,9 +93,9 @@ describe("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (
 
 });
 
-describe("nº de paneles a instalar", () => {
+describe("Nº de paneles a instalar", () => {
 
-    it("nº de paneles a instalar", () => {
+    it("Nº de paneles a instalar", () => {
         expect(t1.numero_paneles_a_instalar()).toBe(10);
     });
 
@@ -109,7 +109,6 @@ describe("Coste de tu instalacion (€) (aproximado)", () => {
 
 });
 
-
 describe("Ahorro anual esperado (€)", () => {
 
     it("Ahorro anual esperado", () => {
@@ -118,7 +117,6 @@ describe("Ahorro anual esperado (€)", () => {
 
 });
 
-
 describe("Años de amortizacion", () => {
 
     it("Años de amortizacion", () => {
@@ -126,7 +124,6 @@ describe("Años de amortizacion", () => {
     });
 
 });
-
 
 describe("Emissiones", () => {
 

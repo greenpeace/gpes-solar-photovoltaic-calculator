@@ -126,15 +126,15 @@ class Calculadora {
      * Tejado orientacion
      * @type {string} 
      */
-        set orientacion_tejado(s) {
-            if (!['Norte', 'Sur', 'Este', 'Oeste', 'Plano'].includes(s)) {
-                throw new Error("Orientación tejado inválida o error ortográfico");
-            }
-            this._orientacion_tejado = s;
+    set orientacion_tejado(s) {
+        if (!['Norte', 'Sur', 'Este', 'Oeste', 'Plano'].includes(s)) {
+            throw new Error("Orientación tejado inválida o error ortográfico");
         }
-        get orientacion_tejado() {
-            return this._orientacion_tejado;
-        }
+        this._orientacion_tejado = s;
+    }
+    get orientacion_tejado() {
+        return this._orientacion_tejado;
+    }
 
     /* ------------------------  VARIABLES INTERMÉDIAS ------------------------ */
 
@@ -143,12 +143,12 @@ class Calculadora {
      * @param {string} zona 
      * @returns {number}
      */
-    valor_zona_climatica(zona){
+    valor_zona_climatica(zona) {
         if (!['I', 'II', 'III', 'IV', 'V'].includes(zona)) {
             throw new Error("Zona climática invalida");
         }
-        const tabla_valores ={
-            I : 1100,
+        const tabla_valores = {
+            I: 1100,
             II: 1460,
             III: 1607,
             IV: 1754,
@@ -168,10 +168,10 @@ class Calculadora {
             'Cádiz': 'IV',
             'Córdoba': 'V',
             'Granada': 'IV',
-            'Huelva' : 'V',
-            'Jaén' : 'IV',
-            'Málaga' : 'IV',
-            'Sevilla' : 'V',
+            'Huelva': 'V',
+            'Jaén': 'IV',
+            'Málaga': 'IV',
+            'Sevilla': 'V',
             'Huesca': 'III',
             'Teruel': 'III',
             'Zaragoza': 'IV',
@@ -190,7 +190,7 @@ class Calculadora {
             'Burgos': 'II',
             'León': 'III',
             'Palencia': 'II',
-            'Salamanca' : 'III',
+            'Salamanca': 'III',
             'Segovia': 'III',
             'Soria': 'III',
             'Valladolid': 'II',
@@ -227,13 +227,13 @@ class Calculadora {
      * Devuelve el coeficiente de la orientación del tejado
      * @returns {number}
      */
-    coeficiente_orientacion_tejado(){
+    coeficiente_orientacion_tejado() {
         const tabla_coeficientes = {
-            Norte : 0,
-            Sur : 1,
-            Este : 0.83,
-            Oeste : 0.83,
-            Plano : 0.59
+            Norte: 0,
+            Sur: 1,
+            Este: 0.83,
+            Oeste: 0.83,
+            Plano: 0.59
         };
         return tabla_coeficientes[this.orientacion_tejado];
     }
@@ -245,7 +245,7 @@ class Calculadora {
      * esta columna no es output, solo sirve para el resto de calculos
      * @returns {number}
      */
-    energia_a_cubrir(){
+    energia_a_cubrir() {
         return this.consumo_anual * this.porcentaje_consumo / 100;
     }
 
@@ -253,15 +253,15 @@ class Calculadora {
      * Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)
      * @returns {number}
      */
-    potencia_necesaria_para_consumo_deseado(){
-        return this.energia_a_cubrir() / ( this.coeficiente_orientacion_tejado() * this.valor_zona_climatica( this.zona_climatica_de_provincia( this.provincia)) );
+    potencia_necesaria_para_consumo_deseado() {
+        return this.energia_a_cubrir() / (this.coeficiente_orientacion_tejado() * this.valor_zona_climatica(this.zona_climatica_de_provincia(this.provincia)));
     }
 
     /**
      * Nº de paneles a instalar
      * @returns {number}
      */
-    numero_paneles_a_instalar(){
+    numero_paneles_a_instalar() {
         return Math.round(this.potencia_necesaria_para_consumo_deseado() * 1000 / 450);
     }
 
@@ -269,7 +269,7 @@ class Calculadora {
      * Coste de tu instalacion (€) (aproximado)
      * @returns {number}
      */
-    coste_de_tu_instalacion(){
+    coste_de_tu_instalacion() {
         return Math.round(this.potencia_necesaria_para_consumo_deseado() * this.precio_medio_pannel);
     }
 
@@ -277,14 +277,15 @@ class Calculadora {
      * Ahorro anual esperado (€)
      * @returns {number}
      */
-    ahorro_anual_esperado(){
+    ahorro_anual_esperado() {
         return Math.round(this.energia_a_cubrir() * this.ahorrokWh);
     }
+
     /**
      * Años amortizacion 
      * @returns {number}
      */
-    anos_amortizacion(){
+    anos_amortizacion() {
         return Math.round(((this.coste_de_tu_instalacion() / this.ahorro_anual_esperado()) + Number.EPSILON) * 10) / 10;
     }
 
@@ -292,12 +293,11 @@ class Calculadora {
      * Emissiones
      * @returns {number}
      */
-    emissiones(){
+    emissiones() {
         return this.energia_a_cubrir() * this.co2_kWh;
     }
 
 }
-
 
 
 /**
@@ -313,14 +313,14 @@ let probar = function (calc) {
             "Tejado orientacion": calc.orientacion_tejado
         },
         "Constantes": {
-            "Precio médio del pannel" : calc.precio_medio_pannel,
+            "Precio médio del pannel": calc.precio_medio_pannel,
             "Ahorro kWh": calc.ahorrokWh,
             "Co2 por kWh": calc.co2_kWh
         },
         "Variables": {
             "Energia a cubrir (kWh/year)": calc.energia_a_cubrir(),
-            "Zona climática" : calc.zona_climatica_de_provincia(calc.provincia),
-            "Valor zona climática" : calc.valor_zona_climatica(calc.zona_climatica_de_provincia(calc.provincia))
+            "Zona climática": calc.zona_climatica_de_provincia(calc.provincia),
+            "Valor zona climática": calc.valor_zona_climatica(calc.zona_climatica_de_provincia(calc.provincia))
         },
         "Outputs": {
             "Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)": calc.potencia_necesaria_para_consumo_deseado(),
