@@ -19,8 +19,10 @@ class Calculadora {
         this.ahorro_p_kWh = 0.2;
     }
 
+    /* ------------------------  INPUTS ------------------------ */
+
     /**
-     * Consumo anual en KWH
+     * ¿Cual es tu consumo anual (KWH)?
      * @type {number} Número entero
      */
     set consumo_anual(n) {
@@ -35,7 +37,7 @@ class Calculadora {
     }
 
     /**
-     * Porcentage del comsumo de 0 a 100
+     * ¿Qué % de tu consumo quieres cubrir con autoconsumo solar?
      * @type {number} Número entero
      */
     set porcentaje_consumo(n) {
@@ -50,7 +52,7 @@ class Calculadora {
     }
 
     /**
-     * Comunidad autonoma
+     * ¿Dónde vives? (provincia)
      * @type {string} 
      */
     set provincia(s) {
@@ -120,7 +122,23 @@ class Calculadora {
     }
 
     /**
-     * Devuelve el valor para una de las 5 zonas climáticas
+     * Tejado orientacion
+     * @type {string} 
+     */
+        set orientacion_tejado(s) {
+            if (!['Norte', 'Sur', 'Este', 'Oeste', 'Plano'].includes(s)) {
+                throw new Error("Orientación tejado inválida o error ortográfico");
+            }
+            this._orientacion_tejado = s;
+        }
+        get orientacion_tejado() {
+            return this._orientacion_tejado;
+        }
+
+    /* ------------------------  VARIABLES INTERMÉDIAS ------------------------ */
+
+    /**
+     * Devuelve el valor para cada una de las 5 zonas climáticas
      * @param {string} zona 
      * @returns {number}
      */
@@ -205,20 +223,6 @@ class Calculadora {
     }
 
     /**
-     * Orientación del tejado
-     * @type {string} 
-     */
-    set orientacion_tejado(s) {
-        if (!['Norte', 'Sur', 'Este', 'Oeste', 'Plano'].includes(s)) {
-            throw new Error("Orientación tejado inválida o error ortográfico");
-        }
-        this._orientacion_tejado = s;
-    }
-    get orientacion_tejado() {
-        return this._orientacion_tejado;
-    }
-
-    /**
      * Devuelve el coeficiente de la orientación del tejado
      * @returns {number}
      */
@@ -232,6 +236,8 @@ class Calculadora {
         };
         return tabla_coeficientes[this.orientacion_tejado];
     }
+
+    /* ------------------------  OUTPUTS ------------------------ */
 
     /**
      * Porcentage de energía a producir por renovables KWH
