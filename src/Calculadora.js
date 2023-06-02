@@ -119,6 +119,20 @@ class Calculadora {
         return this._provincia;
     }
 
+    valor_zona_climatica(zona){
+        if (!['I', 'II', 'III', 'IV', 'V'].includes(zona)) {
+            throw new Error("Zona climática invalida");
+        }
+        const tabla_valores ={
+            I : 1100,
+            II: 1460,
+            III: 1607,
+            IV: 1754,
+            V: 1825
+        };
+        return tabla_valores[zona];
+    }
+
     /**
      * Orientación del tejado
      * @type {string} 

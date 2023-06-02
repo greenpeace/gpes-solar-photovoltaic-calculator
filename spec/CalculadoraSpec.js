@@ -92,3 +92,16 @@ describe("Años de amortizacion", () => {
     });
 
 });
+
+
+describe("Zona climática", () => {
+
+    it("Validación zonas climáticas", () => {
+        expect(function () { t1.valor_zona_climatica('Zona I'); }).toThrow();
+    });
+
+    it("Valor zona climática", () => {
+        expect(t1.valor_zona_climatica('I')).toBe(1100);
+    });
+
+});
