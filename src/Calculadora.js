@@ -122,7 +122,7 @@ class Calculadora {
     /**
      * Devuelve el valor para una de las 5 zonas climáticas
      * @param {string} zona 
-     * @returns 
+     * @returns {number}
      */
     valor_zona_climatica(zona){
         if (!['I', 'II', 'III', 'IV', 'V'].includes(zona)) {
