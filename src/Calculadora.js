@@ -309,7 +309,7 @@ let probar = function (calc) {
         "Inputs": {
             "¿Cual es tu consumo anual (KWH)?": calc.consumo_anual,
             "¿Qué % de tu consumo quieres cubrir con autoconsumo solar?": calc.porcentaje_consumo,
-            "¿Dónde vives? (provincia)": calc.comunidad_autonoma,
+            "¿Dónde vives? (provincia)": calc.provincia,
             "Tejado orientacion": calc.orientacion_tejado
         },
         "Constantes": {
