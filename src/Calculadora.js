@@ -7,13 +7,13 @@ class Calculadora {
      * @constructor
      * @param {number} consumo_anual
      * @param {number} porcentaje_consumo
-     * @param {string} comunidad_autonoma
+     * @param {string} provincia
      * @param {string} orientacion_tejado
      */
-    constructor(consumo_anual, porcentaje_consumo, comunidad_autonoma, orientacion_tejado) {
+    constructor(consumo_anual, porcentaje_consumo, provincia, orientacion_tejado) {
         this.consumo_anual = consumo_anual;
         this.porcentaje_consumo = porcentaje_consumo;
-        this.comunidad_autonoma = comunidad_autonoma;
+        this.provincia = provincia;
         this.orientacion_tejado = orientacion_tejado;
         this.coste_por_kWp = 1800;
         this.ahorro_p_kWh = 0.2;
@@ -53,33 +53,70 @@ class Calculadora {
      * Comunidad autonoma
      * @type {string} 
      */
-    set comunidad_autonoma(s) {
-        const lista_de_comunidades = [
-            'Andalucía',
-            'Aragón',
+    set provincia(s) {
+        const lista_de_provincias = [
+            'Almería',
+            'Cádiz',
+            'Córdoba',
+            'Granada',
+            'Huelva',
+            'Jaén',
+            'Málaga',
+            'Sevilla',
+            'Huesca',
+            'Teruel',
+            'Zaragoza',
             'Asturias',
-            'Islas Baleares',
-            'Islas Canarias',
             'Cantabria',
-            'Castilla y León',
-            'Castilla-La Mancha',
-            'Cataluña',
-            'Extremadura',
-            'Galicia',
+            'Barcelona',
+            'Girona',
+            'Lleida',
+            'Tarragona',
+            'Albacete',
+            'Ciudad Real',
+            'Cuenca',
+            'Guadalajara',
+            'Toledo',
+            'Ávila',
+            'Burgos',
+            'León',
+            'Palencia',
+            'Salamanca',
+            'Segovia',
+            'Soria',
+            'Valladolid',
+            'Zamora',
             'Madrid',
-            'Murcia',
-            'Navarra',
+            'Alicante',
+            'Castellón',
+            'Valencia',
+            'Badajoz',
+            'Cáceres',
+            'A Coruña',
+            'Lugo',
+            'Ourense',
+            'Pontevedra',
+            'Mallorca',
+            'Menorca',
+            'Tenerife',
+            'Lanzarote',
+            'La Palma',
             'La Rioja',
-            'País Vasco',
-            'Comunidad Valenciana'
+            'Murcia',
+            'Álava',
+            'Guipúzcoa',
+            'Vizcaya',
+            'Ceuta',
+            'Melilla',
+            'Navarra',
         ];
-        if (!lista_de_comunidades.includes(s)) {
-            throw new Error("Comunidad inválida o error ortográfico");
+        if (!lista_de_provincias.includes(s)) {
+            throw new Error("Provincia inválida o error ortográfico");
         }
-        this._comunidad_autonoma = s;
+        this._provincia = s;
     }
-    get comunidad_autonoma() {
-        return this._comunidad_autonoma;
+    get provincia() {
+        return this._provincia;
     }
 
     /**
@@ -149,16 +186,16 @@ class Calculadora {
 
 /**
  * ZONA DE PRUEBAS Cambia la linea abajo 
- *  Calculadora(consumo_anual, porcentaje_consumo, comunidad_autonoma, orientacion_tejado)
+ *  Calculadora(consumo_anual, porcentaje_consumo, provincia, orientacion_tejado)
  */
 
-let calc = new Calculadora(5000, 80, "Aragón", "S");
+let calc = new Calculadora(5000, 80, "Almería", "S");
 
 console.log({
     "Inputs": {
         "Consumo actual": calc.consumo_anual,
         "Porcentaje del consumo": calc.porcentaje_consumo,
-        "Comunidad autonoma": calc.comunidad_autonoma,
+        "Provincia": calc.provincia,
         "Orientación del tejado": calc.orientacion_tejado
     },
     "Constantes": {

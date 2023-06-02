@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* jshint esversion:6 */
 
-let t1 = new Calculadora(5000, 80, "Aragón", "S");
+let t1 = new Calculadora(5000, 80, "Almería", "S");
 
 describe("Asegurarse que los inputs son validos", () => {
 
@@ -25,12 +25,12 @@ describe("Asegurarse que los inputs son validos", () => {
         expect(t1.porcentaje_consumo).toBe(80);
     });
 
-    it("CCA tiene que ser válida", () => {
-        expect(function () { t1.comunidad_autonoma = "España"; }).toThrow();
+    it("Provincia tiene que ser válida", () => {
+        expect(function () { t1.provincia = "España"; }).toThrow();
     });
 
     it("Asumir el valor para CCAA a partir del tercer parámetro", () => {
-        expect(t1.comunidad_autonoma).toBe("Aragón");
+        expect(t1.provincia).toBe("Almería");
     });
 
     it("Orientación tiene que ser válida", () => {
