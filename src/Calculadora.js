@@ -312,19 +312,19 @@ let probar = function (calc) {
             "¿Dónde vives? (provincia)": calc.provincia,
             "Tejado orientacion": calc.orientacion_tejado
         },
-        "Constantes": {
+        "Constantes (no visibles)": {
             "Precio médio del pannel": calc.precio_medio_pannel,
             "Ahorro kWh": calc.ahorrokWh,
             "Co2 por kWh": calc.co2_kWh
         },
-        "Variables": {
+        "Variables (no visibles)": {
             "Energia a cubrir (kWh/year)": calc.energia_a_cubrir(),
             "Zona climática": calc.zona_climatica_de_provincia(calc.provincia),
             "Valor zona climática": calc.valor_zona_climatica(calc.zona_climatica_de_provincia(calc.provincia))
         },
         "Outputs": {
             "Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)": calc.potencia_necesaria_para_consumo_deseado(),
-            "nº de paneles a instalar": calc.numero_paneles_a_instalar(),
+            "Nº de paneles a instalar": calc.numero_paneles_a_instalar(),
             "Coste de tu instalacion (€) (aproximado)": calc.coste_de_tu_instalacion(),
             "Ahorro anual esperado (€)": calc.ahorro_anual_esperado(),
             "Años amortizacion ": calc.anos_amortizacion(),
