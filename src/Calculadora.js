@@ -140,7 +140,6 @@ class Calculadora {
 
     /**
      * Devuelve el valor para cada una de las 5 zonas climáticas
-     * @param {string} zona 
      * @returns {number}
      */
     valor_zona_climatica() {
@@ -159,7 +158,6 @@ class Calculadora {
 
     /**
      * Devuelve la zona climática de la provincia
-     * @param {string} provincia 
      * @returns {string}
      */
     zona_climatica_de_provincia() {
