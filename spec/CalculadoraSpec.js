@@ -58,7 +58,7 @@ describe("Zona climática", () => {
 describe("Zona climática de la provincia", () => {
 
     it("Valor zona climática de una provincia", () => {
-        expect(t1.zona_climatica_de_provincia('Cádiz')).toBe('IV');
+        expect(t1.zona_climatica_de_provincia()).toBe('IV');
     });
 
 });

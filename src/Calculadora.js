@@ -144,7 +144,7 @@ class Calculadora {
      * @returns {number}
      */
     valor_zona_climatica() {
-        if (!['I', 'II', 'III', 'IV', 'V'].includes(this.zona_climatica_de_provincia(this.provincia))) {
+        if (!['I', 'II', 'III', 'IV', 'V'].includes(this.zona_climatica_de_provincia())) {
             throw new Error("Zona climática invalida");
         }
         const tabla_valores = {
@@ -154,7 +154,7 @@ class Calculadora {
             IV: 1754,
             V: 1825
         };
-        return tabla_valores[this.zona_climatica_de_provincia(this.provincia)];
+        return tabla_valores[this.zona_climatica_de_provincia()];
     }
 
     /**
@@ -162,7 +162,7 @@ class Calculadora {
      * @param {string} provincia 
      * @returns {string}
      */
-    zona_climatica_de_provincia(provincia) {
+    zona_climatica_de_provincia() {
         const zonas_por_provincia = {
             'Almería': 'V',
             'Cádiz': 'IV',
@@ -220,7 +220,7 @@ class Calculadora {
             'Navarra': 'II'
         };
 
-        return zonas_por_provincia[provincia];
+        return zonas_por_provincia[this.provincia];
     }
 
     /**
@@ -319,7 +319,7 @@ let probar = function (calc) {
         },
         "Variables (no visibles)": {
             "Energia a cubrir (kWh/year)": calc.energia_a_cubrir(),
-            "Zona climática": calc.zona_climatica_de_provincia(calc.provincia),
+            "Zona climática": calc.zona_climatica_de_provincia(),
             "Valor zona climática": calc.valor_zona_climatica()
         },
         "Outputs": {
