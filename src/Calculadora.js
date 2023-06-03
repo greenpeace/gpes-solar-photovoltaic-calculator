@@ -143,8 +143,8 @@ class Calculadora {
      * @param {string} zona 
      * @returns {number}
      */
-    valor_zona_climatica(zona) {
-        if (!['I', 'II', 'III', 'IV', 'V'].includes(zona)) {
+    valor_zona_climatica() {
+        if (!['I', 'II', 'III', 'IV', 'V'].includes(this.zona_climatica_de_provincia(this.provincia))) {
             throw new Error("Zona climática invalida");
         }
         const tabla_valores = {
@@ -154,7 +154,7 @@ class Calculadora {
             IV: 1754,
             V: 1825
         };
-        return tabla_valores[zona];
+        return tabla_valores[this.zona_climatica_de_provincia(this.provincia)];
     }
 
     /**
@@ -254,7 +254,7 @@ class Calculadora {
      * @returns {number}
      */
     potencia_necesaria_para_consumo_deseado() {
-        return this.energia_a_cubrir() / (this.coeficiente_orientacion_tejado() * this.valor_zona_climatica(this.zona_climatica_de_provincia(this.provincia)));
+        return this.energia_a_cubrir() / (this.coeficiente_orientacion_tejado() * this.valor_zona_climatica());
     }
 
     /**
@@ -320,7 +320,7 @@ let probar = function (calc) {
         "Variables (no visibles)": {
             "Energia a cubrir (kWh/year)": calc.energia_a_cubrir(),
             "Zona climática": calc.zona_climatica_de_provincia(calc.provincia),
-            "Valor zona climática": calc.valor_zona_climatica(calc.zona_climatica_de_provincia(calc.provincia))
+            "Valor zona climática": calc.valor_zona_climatica()
         },
         "Outputs": {
             "Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)": calc.potencia_necesaria_para_consumo_deseado(),
