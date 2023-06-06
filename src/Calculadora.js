@@ -231,7 +231,7 @@ class Calculadora {
             Sur: 1,
             Este: 0.83,
             Oeste: 0.83,
-            Plano: 0.59
+            Plano: 1
         };
         return tabla_coeficientes[this.orientacion_tejado];
     }
