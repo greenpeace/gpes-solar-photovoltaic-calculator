@@ -3,6 +3,7 @@
 
 let t1 = new Calculadora(6800, 100, "Cádiz", "Este");
 let t2 = new Calculadora(6800, 100, "Cádiz", "Norte");
+let t3 = new Calculadora(3300, 100, "Toledo", "Sur");
 
 // INPUTS
 
@@ -79,6 +80,7 @@ describe("Energia a cubrir (kWh/year)", () => {
 
     it("Cálculo de energía a cubrir", () => {
         expect(t1.energia_a_cubrir()).toBe(6800);
+        expect(t3.energia_a_cubrir()).toBe(3300);
     });
 
 });
@@ -88,6 +90,7 @@ describe("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (
     it("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)", () => {
         expect(t1.potencia_necesaria_para_consumo_deseado()).toBeCloseTo(4.67, 2);
         expect(t2.potencia_necesaria_para_consumo_deseado()).toBe(0);
+        expect(t3.potencia_necesaria_para_consumo_deseado()).toBeCloseTo(1.88, 2);
     });
 
 });
@@ -97,6 +100,7 @@ describe("Nº de paneles a instalar", () => {
     it("Nº de paneles a instalar", () => {
         expect(t1.numero_paneles_a_instalar()).toBe(10);
         expect(t2.numero_paneles_a_instalar()).toBe(0);
+        expect(t3.numero_paneles_a_instalar()).toBe(4);
     });
 
 });
@@ -106,6 +110,7 @@ describe("Coste de tu instalacion (€) (aproximado)", () => {
     it("Coste de tu instalacion (€) (aproximado)", () => {
         expect(t1.coste_de_tu_instalacion()).toBe(7941);
         expect(t2.coste_de_tu_instalacion()).toBe(0);
+        expect(t3.coste_de_tu_instalacion()).toBe(3198);
     });
 
 });
@@ -115,6 +120,7 @@ describe("Ahorro anual esperado (€)", () => {
     it("Ahorro anual esperado", () => {
         expect(t1.ahorro_anual_esperado()).toBe(802);
         expect(t2.ahorro_anual_esperado()).toBe(0);
+        expect(t3.ahorro_anual_esperado()).toBe(389);
     });
 
 });
@@ -124,6 +130,7 @@ describe("Años de amortizacion", () => {
     it("Años de amortizacion", () => {
         expect(t1.anos_amortizacion()).toBe(9.9);
         expect(t2.anos_amortizacion()).toBe(0);
+        expect(t3.anos_amortizacion()).toBe(8.2);
     });
 
 });
@@ -133,6 +140,7 @@ describe("Emissiones", () => {
     it("Emissiones", () => {
         expect(t1.emissiones()).toBe(1088);
         expect(t2.emissiones()).toBe(0);
+        expect(t3.emissiones()).toBe(528);
     });
 
 });

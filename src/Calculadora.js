@@ -355,7 +355,7 @@ let probar = function (calc) {
  *  Calculadora(consumo_anual, porcentaje_consumo, provincia, orientacion_tejado)
  */
 
-let calc1 = new Calculadora(6800, 100, "Cádiz", "Este");
+let calc1 = new Calculadora(3300, 100, "Toledo", "Sur");
 
 probar(calc1);
 
