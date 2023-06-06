@@ -2,6 +2,7 @@
 /* jshint esversion:6 */
 
 let t1 = new Calculadora(6800, 100, "Cádiz", "Este");
+let t2 = new Calculadora(6800, 100, "Cádiz", "Norte");
 
 // INPUTS
 
@@ -67,6 +68,7 @@ describe("Coeficiente orientación del tejado", () => {
 
     it("Ejemplo sur", () => {
         expect(t1.coeficiente_orientacion_tejado()).toBe(0.83);
+        expect(t2.coeficiente_orientacion_tejado()).toBe(0);
     });
 
 });
@@ -85,6 +87,7 @@ describe("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (
 
     it("Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)", () => {
         expect(t1.potencia_necesaria_para_consumo_deseado()).toBeCloseTo(4.67, 2);
+        expect(t2.potencia_necesaria_para_consumo_deseado()).toBe(0);
     });
 
 });
@@ -93,6 +96,7 @@ describe("Nº de paneles a instalar", () => {
 
     it("Nº de paneles a instalar", () => {
         expect(t1.numero_paneles_a_instalar()).toBe(10);
+        expect(t2.numero_paneles_a_instalar()).toBe(0);
     });
 
 });
@@ -101,6 +105,7 @@ describe("Coste de tu instalacion (€) (aproximado)", () => {
 
     it("Coste de tu instalacion (€) (aproximado)", () => {
         expect(t1.coste_de_tu_instalacion()).toBe(7941);
+        expect(t2.coste_de_tu_instalacion()).toBe(0);
     });
 
 });
@@ -109,6 +114,7 @@ describe("Ahorro anual esperado (€)", () => {
 
     it("Ahorro anual esperado", () => {
         expect(t1.ahorro_anual_esperado()).toBe(802);
+        expect(t2.ahorro_anual_esperado()).toBe(0);
     });
 
 });
@@ -117,6 +123,7 @@ describe("Años de amortizacion", () => {
 
     it("Años de amortizacion", () => {
         expect(t1.anos_amortizacion()).toBe(9.9);
+        expect(t2.anos_amortizacion()).toBe(0);
     });
 
 });
@@ -125,6 +132,7 @@ describe("Emissiones", () => {
 
     it("Emissiones", () => {
         expect(t1.emissiones()).toBe(1088);
+        expect(t2.emissiones()).toBe(0);
     });
 
 });

@@ -252,6 +252,9 @@ class Calculadora {
      * @returns {number}
      */
     potencia_necesaria_para_consumo_deseado() {
+        if (this.coeficiente_orientacion_tejado() === 0) {
+            return 0;
+        }
         return this.energia_a_cubrir() / (this.coeficiente_orientacion_tejado() * this.valor_zona_climatica());
     }
 
@@ -260,6 +263,9 @@ class Calculadora {
      * @returns {number}
      */
     numero_paneles_a_instalar() {
+        if (this.coeficiente_orientacion_tejado() === 0) {
+            return 0;
+        }
         return Math.round(this.potencia_necesaria_para_consumo_deseado() * 1000 / 450);
     }
 
@@ -268,6 +274,9 @@ class Calculadora {
      * @returns {number}
      */
     coste_de_tu_instalacion() {
+        if (this.coeficiente_orientacion_tejado() === 0) {
+            return 0;
+        }
         return Math.round(this.potencia_necesaria_para_consumo_deseado() * this.precio_medio_pannel);
     }
 
@@ -276,6 +285,9 @@ class Calculadora {
      * @returns {number}
      */
     ahorro_anual_esperado() {
+        if (this.coeficiente_orientacion_tejado() === 0) {
+            return 0;
+        }
         return Math.round(this.energia_a_cubrir() * this.ahorrokWh);
     }
 
@@ -284,6 +296,9 @@ class Calculadora {
      * @returns {number}
      */
     anos_amortizacion() {
+        if (this.coeficiente_orientacion_tejado() === 0) {
+            return 0;
+        }
         return Math.round(((this.coste_de_tu_instalacion() / this.ahorro_anual_esperado()) + Number.EPSILON) * 10) / 10;
     }
 
@@ -292,6 +307,9 @@ class Calculadora {
      * @returns {number}
      */
     emissiones() {
+        if (this.coeficiente_orientacion_tejado() === 0) {
+            return 0;
+        }
         return this.energia_a_cubrir() * this.co2_kWh;
     }
 
