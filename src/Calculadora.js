@@ -23,7 +23,7 @@ class Calculadora {
     /* ------------------------  INPUTS ------------------------ */
 
     /**
-     * ¿Cual es tu consumo anual (KWH)?
+     * ¿Cual es tu consumo anual (kWh)?
      * @type {number} Número entero
      */
     set consumo_anual(n) {
@@ -325,7 +325,7 @@ class Calculadora {
 let probar = function (calc) {
     console.log({
         "Inputs": {
-            "¿Cual es tu consumo anual (KWH)?": calc.consumo_anual,
+            "¿Cual es tu consumo anual (kWh)?": calc.consumo_anual,
             "¿Qué % de tu consumo quieres cubrir con autoconsumo solar?": calc.porcentaje_consumo,
             "¿Dónde vives? (provincia)": calc.provincia,
             "Tejado orientacion": calc.orientacion_tejado
