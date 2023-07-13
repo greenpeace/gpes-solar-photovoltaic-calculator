@@ -4,6 +4,8 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: var(--font-family);
 }
 
@@ -13,9 +15,15 @@ header {
 
 header h1 {
     color: rgba(255, 255, 255, 1);
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    font-size: 3rem;
+    line-height: 3.4rem;
+    margin: 4vw ;
 }
 
 
 menu {
     padding-left: 0;
+    margin-top: 0;
+    background-color: #fff;
 }
