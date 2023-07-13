@@ -1,6 +1,10 @@
 :root {
     --text-color: #000;
-    --font-family: "sourcesanspro, sans-serif";
+    --font-family: 'Source Sans 3', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
 }
 
 header {
