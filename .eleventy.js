@@ -4,6 +4,7 @@ const CleanCSS = require("clean-css");
 
 module.exports = (function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("src");
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
