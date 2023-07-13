@@ -1,17 +1,25 @@
 {
-  "name": "gpes-energy-consumption-savings",
-  "version": "1.0.0",
-  "description": "Formulas to calculate savings by producing your own energy",
-  "main": "index.js",
-  "scripts": {
-    "test": "jasmine-browser-runner runSpecs",
-    "test-server": "npx jasmine-browser-runner serve"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.41.0",
-    "jasmine-browser-runner": "^2.0.0",
-    "jasmine-core": "^5.0.0"
-  }
+    "name": "gpes-energy-consumption-savings",
+    "version": "1.0.0",
+    "description": "Formulas to calculate savings by producing your own energy",
+    "main": "index.js",
+    "scripts": {
+        "test": "jasmine-browser-runner runSpecs",
+        "test-server": "npx jasmine-browser-runner serve",
+        "build:dev": "MY_ENVIRONMENT=development npx @11ty/eleventy",
+        "build:github": "MY_ENVIRONMENT=github npx @11ty/eleventy",
+        "build:local": "MY_ENVIRONMENT=local npx @11ty/eleventy",
+        "build:staging": "MY_ENVIRONMENT=staging npx @11ty/eleventy",
+        "build:prod": "MY_ENVIRONMENT=prod npx @11ty/eleventy",
+        "server": "MY_ENVIRONMENT=development npx @11ty/eleventy --serve"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@11ty/eleventy": "^2.0.1",
+        "clean-css": "^5.3.2",
+        "eslint": "^8.41.0",
+        "jasmine-browser-runner": "^2.0.0",
+        "jasmine-core": "^5.0.0"
+    }
 }
