@@ -2,3 +2,16 @@
     --text-color: #000;
     --font-family: "sourcesanspro, sans-serif";
 }
+
+header {
+    background-image: url(../img/energia-solar-en-tejados.jpg);
+}
+
+header h1 {
+    color: rgba(255, 255, 255, 1);
+}
+
+
+menu {
+    padding-left: 0;
+}
