@@ -19,6 +19,7 @@ header {
     background-image: url(../img/energia-solar-en-tejados.jpg);
     background-size: cover;
     height: 60vh;
+    background-position-x: 30%;
 }
 
 header h1 {
@@ -165,14 +166,14 @@ menu {
 
 p {
     font-size: 1.12rem;
-    padding: 14px 27px;
+    padding: 10px 27px 0 27px;
 }
 
 .important-text {
     color: var(--text-color2);
     font-size: 1.3rem;
     font-weight: bold;
-    padding: 14px 27px;
+    padding: 34px 27px;
 }
 
 /* *DECISION BOX */
@@ -188,6 +189,11 @@ p {
     text-align: center;
     font-size: 1.13rem;
     margin: 0 0 0.5rem 0;
+}
+
+.row-options {
+    display: inline-flex;
+    flex-direction: column;
 }
 
 .decision-box .option {
@@ -209,12 +215,22 @@ p {
     color: var(--text-color2);
 }
 
+@media screen and (min-width: 470px) {
+    header h1 {
+        margin-top: 26vh;
+    }
+}
+
 @media screen and (min-width: 813px) {
 
-    .hamburger, .title {
+    .hamburger,
+    .title {
         display: none;
     }
-    #topmenu .autoconsumo, #topmenu .calculadora, #topmenu .descarga {
+
+    #topmenu .autoconsumo,
+    #topmenu .calculadora,
+    #topmenu .descarga {
         display: inline-block;
     }
 
@@ -269,9 +285,7 @@ p {
 
     header h1 {
         width: 66vw;
-        margin-top: 28vh;
+        margin-top: 25vh;
     }
-
-
 
 }

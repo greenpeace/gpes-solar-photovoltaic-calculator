@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-{% include "partials/head.njk" %}
+    {% include "partials/head.njk" %}
 </head>
+
 <body class="page-home">
-{% include "partials/header.njk" %}
-    <p>El autoconsumo solar, es decir, instalar placas solares en tu tejado o cerca para generar tu propia energía renovable, es la solución definitiva frente a los altos precios de la energía y una de las mejores herramientas contra el cambio climático.</p>
+    {% include "partials/header.njk" %}
+    <p>El autoconsumo solar, es decir, instalar placas solares en tu tejado o cerca para generar tu propia energía
+        renovable, es la solución definitiva frente a los altos precios de la energía y una de las mejores herramientas
+        contra el cambio climático.</p>
     <div class="important-text">
         ¿Quieres dar el paso pero no sabes por dónde empezar?
     </div>
@@ -13,12 +17,19 @@
         <div class="question">
             Descubre qué opción se adapta más a tus necesidades.
         </div>
-        <div class="option">
-            <a href="javascript:void(0)">tengo piso o casa en propiedad</a>
-        </div>
-        <div class="option">
-            <a href="javascript:void(0)">vivo de alquiler</a>
+        <div class="row-options">
+            <div>
+                <div class="option">
+                    <a href="javascript:void(0)">tengo piso o casa en propiedad</a>
+                </div>
+            </div>
+            <div>
+                <div class="option">
+                    <a href="javascript:void(0)">vivo de alquiler</a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
