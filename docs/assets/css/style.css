@@ -18,12 +18,33 @@ header h1 {
     text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
     font-size: 3rem;
     line-height: 3.4rem;
-    margin: 4vw ;
+    margin: 4vw;
 }
 
 
 menu {
-    padding-left: 0;
-    margin-top: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#topmenu {
     background-color: #fff;
+}
+
+.logo {
+    width: 122px;
+}
+
+.logo img {
+    max-width: 100%;
+}
+
+.hamburger,
+.hamburger img {
+    width: 40px;
+    height: 26px;
+}
+
+#topmenu .autoconsumo, #topmenu .calculadora, #topmenu .descarga {
+    display: none;
 }
