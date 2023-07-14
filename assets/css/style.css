@@ -11,6 +11,8 @@ body {
 
 header {
     background-image: url(../img/energia-solar-en-tejados.jpg);
+    background-size: cover;
+    height: 100vh;
 }
 
 header h1 {
@@ -19,6 +21,7 @@ header h1 {
     font-size: 3rem;
     line-height: 3.4rem;
     margin: 4vw;
+    margin-top: 43vh;
 }
 
 
@@ -29,14 +32,45 @@ menu {
 
 #topmenu {
     background-color: #fff;
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.title {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-left: 27px;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
 .logo {
-    width: 122px;
+    width: 140px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-left: 27px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .logo img {
     max-width: 100%;
+}
+
+
+.hamburger {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin-top: 20px;
 }
 
 .hamburger,
@@ -47,4 +81,19 @@ menu {
 
 #topmenu .autoconsumo, #topmenu .calculadora, #topmenu .descarga {
     display: none;
+}
+
+
+#sidemenu {
+    background: rgba(251, 206, 22, 1);
+    color: rgba(0, 0, 0, 1);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+}
+
+#sidemenu a {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
 }
