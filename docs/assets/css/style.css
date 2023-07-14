@@ -1,6 +1,10 @@
 :root {
     --text-color: #000;
+    --text-color2: rgba(42, 178, 11, 1);
+    ;
     --font-family: 'Source Sans 3', sans-serif;
+    --background-gray: rgba(242, 242, 242, 1);
+    --background-yellow: #FBCE16;
 }
 
 body {
@@ -9,10 +13,12 @@ body {
     font-family: var(--font-family);
 }
 
+/* HEADER */
+
 header {
     background-image: url(../img/energia-solar-en-tejados.jpg);
     background-size: cover;
-    height: 100vh;
+    height: 60vh;
 }
 
 header h1 {
@@ -21,9 +27,10 @@ header h1 {
     font-size: 3rem;
     line-height: 3.4rem;
     margin: 4vw;
-    margin-top: 43vh;
+    margin-top: 9vh;
 }
 
+/* MENU */
 
 menu {
     padding: 0;
@@ -64,13 +71,12 @@ menu {
     max-width: 100%;
 }
 
-
 .hamburger {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 3;
-    margin-top: 20px;
+    margin-top: 27px;
 }
 
 .hamburger,
@@ -79,10 +85,13 @@ menu {
     height: 26px;
 }
 
-#topmenu .autoconsumo, #topmenu .calculadora, #topmenu .descarga {
+#topmenu .autoconsumo,
+#topmenu .calculadora,
+#topmenu .descarga {
     display: none;
 }
 
+/* SIDE MENU */
 
 #sidemenu {
     background: rgba(251, 206, 22, 1);
@@ -96,4 +105,172 @@ menu {
 #sidemenu a {
     color: rgba(0, 0, 0, 1);
     text-decoration: none;
+}
+
+#insidemenu {
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: start;
+}
+
+.topinside {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-left: 27px;
+    margin-top: 16px;
+}
+
+.close2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-top: 27px;
+}
+
+.title2 {
+    font-weight: bold;
+}
+
+.logo2 {
+    width: 140px;
+    margin-top: 10px;
+}
+
+.logo2 img {
+    max-width: 100%;
+}
+
+.menulinks {
+    margin-top: 2rem;
+}
+
+.menulinks div {
+    padding: 10px 0;
+    font-size: 1.3rem;
+}
+
+.menulinks div:nth-child(1),
+.menulinks div:nth-child(2) {
+    border-bottom: 1px solid #000;
+}
+
+/* REST OF THE HOME */
+
+p {
+    font-size: 1.12rem;
+    padding: 14px 27px;
+}
+
+.important-text {
+    color: var(--text-color2);
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 14px 27px;
+}
+
+/* *DECISION BOX */
+
+.decision-box {
+    background-color: var(--background-gray);
+    padding: 3.5rem 0;
+    text-align: center;
+}
+
+.decision-box .question {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.13rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.decision-box .option {
+    color: var(--text-color2);
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1.6rem;
+    background-image: url(../img/l.svg), url(../img/r.svg);
+    background-repeat: no-repeat;
+    background-position: left, right;
+    display: inline-block;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.decision-box .option a {
+    text-decoration: none;
+    color: var(--text-color2);
+}
+
+@media screen and (min-width: 813px) {
+
+    .hamburger, .title {
+        display: none;
+    }
+    #topmenu .autoconsumo, #topmenu .calculadora, #topmenu .descarga {
+        display: inline-block;
+    }
+
+    #topmenu {
+        grid-template-columns: 5fr 7fr 5fr 4fr;
+        grid-template-rows: repeat(1, 1fr);
+        height: 50px;
+        background-color: var(--background-yellow);
+    }
+
+    .logo {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-top: 10px;
+    }
+
+    .autoconsumo {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-top: 12px;
+    }
+
+    .calculadora {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-top: 12px;
+    }
+
+    .descarga {
+        grid-column-start: 4;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-top: 12px;
+    }
+
+    #topmenu a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: bold;
+    }
+
+    header {
+        height: 50vh;
+    }
+
+    header h1 {
+        width: 66vw;
+        margin-top: 28vh;
+    }
+
+
+
 }
