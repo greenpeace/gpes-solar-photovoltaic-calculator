@@ -182,6 +182,19 @@ menu {
     color: var(--text-color2);
 }
 
+.subpage {
+    background-color: #fff;
+    position: absolute;
+    top: 84px;
+    width: 100%;
+    height: 150%;
+}
+
+.subpage>div {
+    display: grid;
+    grid-template-columns: auto;
+}
+
 @media screen and (min-width: 470px) {}
 
 @media screen and (min-width: 813px) {
@@ -242,6 +255,10 @@ menu {
         text-decoration: none;
         color: var(--text-color);
         font-weight: bold;
+    }
+
+    .subpage {
+        top: 50px
     }
 
 }
