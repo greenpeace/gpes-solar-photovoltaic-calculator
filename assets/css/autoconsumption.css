@@ -1,0 +1,56 @@
+/* HEADER */
+
+header {
+    background-image: url(../img/energia-solar-en-tejados.jpg);
+    background-size: cover;
+    height: 60vh;
+    background-position-x: 30%;
+}
+
+header h1 {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    font-size: 3rem;
+    line-height: 3.4rem;
+    margin: 4vw;
+    margin-top: 9vh;
+}
+
+/* REST OF THE HOME */
+
+p {
+    font-size: 1.12rem;
+    padding: 10px 27px 0 27px;
+}
+
+.important-text {
+    color: var(--text-color2);
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 34px 27px;
+    text-align: center;
+}
+
+.row-options {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 470px) {
+    header h1 {
+        margin-top: 26vh;
+    }
+}
+
+@media screen and (min-width: 813px) {
+    /* HEADER */
+
+    header {
+        height: 50vh;
+    }
+
+    header h1 {
+        width: 66vw;
+        margin-top: 25vh;
+    }
+}
