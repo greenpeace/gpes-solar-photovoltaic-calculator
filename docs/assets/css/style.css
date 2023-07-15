@@ -1,3 +1,5 @@
+/* GLOBAL */
+
 :root {
     --text-color: #000;
     --text-color2: rgba(42, 178, 11, 1);
@@ -174,6 +176,7 @@ p {
     font-size: 1.3rem;
     font-weight: bold;
     padding: 34px 27px;
+    text-align: center;
 }
 
 /* *DECISION BOX */
@@ -222,6 +225,8 @@ p {
 }
 
 @media screen and (min-width: 813px) {
+
+    /* MENU */
 
     .hamburger,
     .title {
@@ -279,6 +284,8 @@ p {
         font-weight: bold;
     }
 
+    /* HEADER */
+
     header {
         height: 50vh;
     }
@@ -288,4 +295,11 @@ p {
         margin-top: 25vh;
     }
 
+}
+
+@media screen and (min-width: 1024px) {
+    #topmenu {
+        width: 960px;
+        margin: auto;
+    }
 }
