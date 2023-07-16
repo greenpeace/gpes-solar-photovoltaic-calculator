@@ -40,16 +40,28 @@ header h1 {
     flex-direction: column;
 }
 
-.subpage>div {
+/* SUBPAGES */
+
+.subpage .topsub {
     grid-template-columns: auto;
     grid-template-areas:
-        'title'
-        'text'
-        'image'
+        'titlet'
+        'textt'
+        'imaget'
 }
 
-.subpage img {
+.subpage .topsub img {
     width: 100%;
+}
+
+
+.subpage .bottomsub {
+    grid-template-columns: auto;
+    grid-template-areas:
+        'titleb'
+        'optionab'
+        'optionbb'
+        'backb'
 }
 
 @media screen and (min-width: 470px) {
@@ -74,14 +86,30 @@ header h1 {
         max-width: 60vw;
     }
 
-    .subpage>div {
+    .subpage .topsub {
         grid-template-columns: auto;
-        grid-template-rows: 5rem 1fr;
+        grid-template-rows: 8rem 1fr;
         grid-template-areas:
-            'title image'
-            'text image'
+            'titlet imaget'
+            'textt imaget'
     }
 
+    .subpage .bottomsub {
+        grid-template-columns: auto;
+        justify-content: center;
+        grid-template-areas:
+            'titleb titleb'
+            'optionab optionbb'
+            'backb backb';
+        gap: 30px 60px;
+    }
+
+}
+
+@media screen and (min-width: 885px) {
+    .subpage .topsub {
+        grid-template-rows: 5rem 1fr;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -108,7 +136,7 @@ header h1 {
         max-width: 700px;
     }
 
-    .subpage>div {
+    .subpage .topsub {
         width: 960px;
         margin: auto;
     }

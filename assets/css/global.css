@@ -182,6 +182,23 @@ menu {
     color: var(--text-color2);
 }
 
+.optionback {
+    display: inline-block;
+    text-align: center;
+    background-image: url(../img/arr.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding: 0px 0 3px 15px;
+}
+
+.optionback a {
+    color: rgba(177, 178, 181, 1);
+    text-decoration: none;
+    font-style: italic;
+}
+
+/* SUBPAGES */
+
 .subpage {
     background-color: #fff;
     position: absolute;
@@ -190,9 +207,25 @@ menu {
     height: 150%;
 }
 
-.subpage>div {
+.subpage .topsub {
     display: grid;
     grid-template-columns: auto;
+}
+
+.subpage .bottomsub {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.subpage h1 {
+    color: var(--text-color2);
+    margin-left: 27px;
+    margin-right: 27px;
+}
+
+.subpage p {
+    margin-left: 27px;
+    margin-right: 27px;
 }
 
 @media screen and (min-width: 470px) {}
