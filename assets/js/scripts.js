@@ -25,11 +25,11 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
  * @param {string} element
  * @param {string} animation
  */
-const enter = function (element, animation) {
+const enter = function (element, animation, background = true) {
     const el = document.querySelector(element);
     if (el.hasAttribute("hidden")) {
         el.removeAttribute("hidden");
-        if (document.querySelector("header")) {
+        if (background === true && document.querySelector("header")) {
             document.querySelector("header").classList.add("no-background");
         }
         animateCSS(element, animation).then((message) => {
@@ -43,10 +43,10 @@ const enter = function (element, animation) {
  * @param {string} element
  * @param {string} animation
  */
-const leave = function (element, animation) {
+const leave = function (element, animation, background = true) {
     const el = document.querySelector(element);
     if (!el.hasAttribute("hidden")) {
-        if (document.querySelector("header")) {
+        if (background === true && document.querySelector("header")) {
             document.querySelector("header").classList.remove("no-background");
         }
         animateCSS(element, animation).then((message) => {
