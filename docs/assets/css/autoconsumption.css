@@ -68,6 +68,17 @@ header h1 {
         'backb'
 }
 
+.subpage .bottomsub4 {
+    grid-template-columns: auto;
+    grid-template-areas:
+        'titleb'
+        'optionab'
+        'optionbb'
+        'optionac'
+        'optionad'
+        'backb'
+}
+
 @media screen and (min-width: 470px) {
     header .h1-container {
         margin-top: 26vh;
@@ -104,6 +115,17 @@ header h1 {
         grid-template-areas:
             'titleb titleb'
             'optionab optionbb'
+            'backb backb';
+        gap: 30px 60px;
+    }
+
+    .subpage .bottomsub4 {
+        grid-template-columns: auto;
+        justify-content: center;
+        grid-template-areas:
+            'titleb titleb'
+            'optionab optionbb'
+            'optionac optionad'
             'backb backb';
         gap: 30px 60px;
     }

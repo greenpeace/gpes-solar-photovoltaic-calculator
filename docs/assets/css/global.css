@@ -217,6 +217,11 @@ menu {
     grid-template-columns: auto;
 }
 
+.subpage .bottomsub4 {
+    display: grid;
+    grid-template-columns: auto;
+}
+
 .subpage h1 {
     color: var(--text-color2);
     margin-left: 27px;
