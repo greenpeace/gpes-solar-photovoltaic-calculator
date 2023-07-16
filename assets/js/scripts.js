@@ -29,6 +29,9 @@ const enter = function (element, animation) {
     const el = document.querySelector(element);
     if (el.hasAttribute("hidden")) {
         el.removeAttribute("hidden");
+        if (document.querySelector("header")) {
+            document.querySelector("header").classList.add("no-background");
+        }
         animateCSS(element, animation).then((message) => {
             // Follow up
         });
@@ -43,6 +46,9 @@ const enter = function (element, animation) {
 const leave = function (element, animation) {
     const el = document.querySelector(element);
     if (!el.hasAttribute("hidden")) {
+        if (document.querySelector("header")) {
+            document.querySelector("header").classList.remove("no-background");
+        }
         animateCSS(element, animation).then((message) => {
             // Follow up
             el.setAttribute("hidden", "hidden");

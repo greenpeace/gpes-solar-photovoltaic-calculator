@@ -7,6 +7,10 @@ header {
     background-position-x: 30%;
 }
 
+.no-background {
+    background-image: none;
+}
+
 header .h1-container {
     margin: 4vw;
     margin-top: 9vh;
