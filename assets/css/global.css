@@ -231,6 +231,7 @@ menu {
 .subpage p {
     margin-left: 27px;
     margin-right: 27px;
+    font-size: 1.13rem;
 }
 
 @media screen and (min-width: 470px) {}
