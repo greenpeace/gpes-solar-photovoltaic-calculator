@@ -30,11 +30,11 @@ const enter = function (element, animation, background = true) {
     if (el.hasAttribute("hidden")) {
         el.removeAttribute("hidden");
         if (background === true && document.querySelector("header")) {
-            document.querySelector("header").classList.add("no-background");
+             document.querySelector("header").classList.add("no-background");
         }
-        animateCSS(element, animation).then((message) => {
-            // Follow up
-        });
+        // animateCSS(element, animation).then((message) => {
+        //     // Follow up
+        // });
     }
 };
 
@@ -47,12 +47,12 @@ const leave = function (element, animation, background = true) {
     const el = document.querySelector(element);
     if (!el.hasAttribute("hidden")) {
         if (background === true && document.querySelector("header")) {
-            document.querySelector("header").classList.remove("no-background");
+             document.querySelector("header").classList.remove("no-background");
         }
-        animateCSS(element, animation).then((message) => {
+        // animateCSS(element, animation).then((message) => {
             // Follow up
             el.setAttribute("hidden", "hidden");
-        });
+        // });
     }
 };
 
