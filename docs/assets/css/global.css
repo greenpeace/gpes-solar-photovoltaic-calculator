@@ -201,10 +201,9 @@ menu {
 
 .subpage {
     background-color: #fff;
-    position: absolute;
-    top: 90px;
     width: 100%;
-    height: 150%;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .subpage .topsub {
@@ -336,10 +335,6 @@ menu {
         font-weight: bold;
     }
 
-    .subpage {
-        top: 55px
-    }
-
     .download-box p {
         width: 94vw;
     }
@@ -352,6 +347,11 @@ menu {
 
     .download-box .optionback {
         display: none;
+    }
+
+    .subpage {
+        padding-top: 100px;
+        padding-bottom: 100px;
     }
 
 }
