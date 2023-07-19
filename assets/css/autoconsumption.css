@@ -151,6 +151,10 @@ header h1 {
             'p3bp imagebp'
     }
 
+    .bold-tablet {
+        font-weight: bold;
+    }
+
 }
 
 @media screen and (min-width: 885px) {
