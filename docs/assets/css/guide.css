@@ -1,0 +1,30 @@
+.download-grid {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+        'text'
+        'cover'
+        'form-container'
+}
+
+.text {
+    grid-area: text;
+}
+
+.cover {
+    grid-area: cover;
+    background-color: var(--background-gray);
+}
+
+.form-container {
+    background-color: var(--background-yellow);
+    grid-area: form-container;
+}
+
+@media screen and (min-width: 813px) {
+    .download-grid {
+        grid-template-areas:
+            'text cover'
+            'form-container form-container'
+    }
+}
