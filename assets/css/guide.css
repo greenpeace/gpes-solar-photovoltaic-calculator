@@ -1,5 +1,5 @@
 .download-grid {
-    display: grid;
+    display: none;
     grid-template-columns: auto;
     grid-template-areas:
         'title-guide'
@@ -54,6 +54,37 @@ input[type=checkbox] {
 
 label[for=privacy]{
     margin: 1rem 0 0.8rem 0;
+}
+
+.thankyoubuttons a {
+    text-decoration: none;
+    color:var(--text-color2);
+}
+
+.thank-you-grid, .share-grid, .support-grid {
+    display: none;
+}
+
+.thank-you-grid {
+    display: none;
+    height: calc(100vh - 83px);
+    align-items: center;
+    justify-content: center;
+}
+
+.thank-you-grid>div {
+    width: 320px;
+}
+
+.share-grid {
+    display: grid;
+    height: calc(100vh - 83px);
+    align-items: center;
+    justify-content: center;
+}
+
+.share-grid>div {
+    width: 320px;
 }
 
 @media screen and (min-width: 813px) {

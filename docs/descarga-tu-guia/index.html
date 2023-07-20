@@ -206,17 +206,17 @@
                 <input type="hidden" name="hs_language" id="hs_language" x-model="values.hs_language" value="es" />
                 <div class="form-group">
                     <label for="first_name" class="d-none">Nombre <sup title="Campo obligatório">*</sup></label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" required="required" maxlength="40" autocomplete="given-name" placeholder="Nombre *" x-model="values.first_name" x-on:input="required('first_name'); $store.fname = $el.value" />
+                    <input type="text" class="form-control" id="first_name" name="first_name" required="required" maxlength="40" autocomplete="given-name" x-model="values.first_name" x-on:input="required('first_name'); $store.fname = $el.value" />
                     <div class="error-message" x-text="errors.first_name" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="form-group">
                     <label for="last_name" class="d-none">Apellidos <sup title="Campo obligatório">*</sup> </label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" required="required" maxlength="40" autocomplete="family-name" placeholder="Apellidos *" x-model="values.last_name" x-on:input="required('last_name')" />
+                    <input type="text" class="form-control" id="last_name" name="last_name" required="required" maxlength="40" autocomplete="family-name" x-model="values.last_name" x-on:input="required('last_name')" />
                     <div class="error-message" x-text="errors.last_name" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="d-none">Email <sup title="Campo obligatório">*</sup></label>
-                    <input type="email" class="form-control" id="email" name="email" required="required" maxlength="50" autocomplete="email" placeholder="Email *" x-model="values.email" x-on:input="is_required_email('email'); $store.email = $el.value" x-on:change="is_new_email()"  />
+                    <input type="email" class="form-control" id="email" name="email" required="required" maxlength="50" autocomplete="email" x-model="values.email" x-on:input="is_required_email('email'); $store.email = $el.value" x-on:change="is_new_email()"  />
                     <div class="error-message" x-text="errors.email" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <!--<div class="form-group">
@@ -226,7 +226,7 @@
                 </div> -->
                 <div class="form-group">
                     <label for="phone_number" class="d-none">Teléfono <sup title="Campo obligatório">*</sup> <span class="sr-only">Ej. 623456789</span></label>
-                    <input type="tel" class="form-control" id="phone_number" name="phone_number" maxlength="15" autocomplete="tel-national" required="required" placeholder="Teléfono *" x-model="values.phone_number" x-on:input="is_required_phone('phone_number')" />
+                    <input type="tel" class="form-control" id="phone_number" name="phone_number" maxlength="15" autocomplete="tel-national" required="required" x-model="values.phone_number" x-on:input="is_required_phone('phone_number')" />
                     <div class="error-message" x-text="errors.phone_number" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="privacynotice" data-nosnippet="true">
@@ -246,6 +246,44 @@
 
         </div>
 
+    </div>
+
+    <div class="thank-you-grid" id="thankyoupage" x-show="screen === 'thankyoupage'" x-bind:aria-hidden="not(screen === 'thankyoupage')" x-transition.opacity.duration.200ms aria-hidden="true">
+        <div>
+            <h2>Disfruta de tu guía, Olga</h2>
+            <p>Ya te hemos enviado la guía a <span x-text="$store.email">[...]</span></p>
+            <p>¿Quieres compartirla con tus contactos? ¡Ayúdalos a iniciarse en el autoconsumo solar!</p>
+            <div>
+                <button type="button" class="colored-button" x-on:click="screen = 'sharepage'; $dispatch('thankyou:buttons', { button: 'yes_to_share' });">Si</button>
+                <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'no_to_share' });">No</button>
+            </div>
+        </div>
+    </div>
+    <div class="share-grid" id="sharepage" x-show="screen === 'sharepage'" x-bind:aria-hidden="not(screen === 'sharepage')" x-transition.opacity.duration.200ms="" aria-hidden="true">
+        <div>
+            <h2>Comparte esta guía</h2>
+            <p>Ayuda a otra gente a consumir su propia energía solar.</p>
+            <div class="thankyoubuttons">
+                <a href="https://api.whatsapp.com/send?text=¿Quieres comer alimentos de temporada pero no se te ocurre cómo cocinarlos? Esta guía incluye un calendario de frutas y verduras de temporada, una receta para cada mes del año y mucho más. ¡Descárgala ya aquí! https://es.greenpeace.org/es/frutas-verduras-temporada/descargar-guia/%3Futm_source%3Dwhatsapp%26utm_medium%3Dsocial_network_link%26utm_campaign%3DFrutadetemporada" target="_blank" x-on:click="$dispatch('thankyou:buttons', { button: 'whatsapp' });" aria-label="Whatsapp">
+                    <img src="../assets/img/whatsapp.svg" alt="Whatsapp" />
+                </a>
+                <a href="http://www.facebook.com/sharer.php?u=https://es.greenpeace.org%2Fes%2Ffrutas-verduras-temporada%2Fdescargar-guia%2F" target="_blank" x-on:click="$dispatch('thankyou:buttons', { button: 'facebook' });" aria-label="Facebook">
+                    <img src="../assets/img/facebook.svg" alt="Facebook" />
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=¿Quieres comer alimentos de temporada pero no se te ocurre cómo cocinarlos? Esta guía de @greenpeace_esp incluye un calendario de frutas y verduras de temporada, una receta para cada mes del año y mucho más. ¡Descárgala ya aquí! https://es.greenpeace.org/es/frutas-verduras-temporada/descargar-guia/%3Futm_source%3Dtwitter%26utm_medium%3Dsocial_network_link%26utm_campaign%3DFrutadetemporada&amp;source=webclient" target="_blank" x-on:click="$dispatch('thankyou:buttons', { button: 'twitter' });" aria-label="Twitter">
+                    <img src="../assets/img/twitter.svg" alt="Twitter" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="support-grid" id="givepage" x-show="screen === 'givepage'" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.opacity.duration.200ms="" aria-hidden="true">
+        <div>
+            <h2>Apoya la campaña</h2>
+            <p>En Greenpeace trabajamos para proteger nuestros bosques y defender su biodiversidad. Únete ahora y súmate a la lucha por un planeta sano y en paz.</p>
+            <div style="margin: 25px 0;">
+                <a href="https://es.greenpeace.org/es/que-puedes-hacer-tu/donaciones/" class="colored-button" x-on:click.prevent="$dispatch('thankyou:buttons', { button: 'yes_to_give' }); await delay(1000); window.location.href = $el.getAttribute('href');">Hazte socio/a</a>
+            </div>
+        </div>
     </div>
 
 </body>
