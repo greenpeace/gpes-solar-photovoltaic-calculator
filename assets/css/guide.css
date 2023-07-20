@@ -20,6 +20,7 @@
 .main-image {
     grid-area: main-image;
     background-color: var(--background-gray);
+    padding: 27px 27px 0 27px;
 }
 
 .cover {
@@ -30,6 +31,29 @@
 .form-container {
     background-color: var(--background-yellow);
     grid-area: form-container;
+    padding: 30px 30px 100px 30px;
+}
+
+h2 {
+    font-size: 1.23rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    margin-left: 4px;
+}
+
+.privacynotice {
+    margin-top: 1.3rem;
+}
+
+input[type=checkbox] {
+    margin-left: -3px;
+}
+
+label[for=privacy]{
+    margin: 1rem 0 0.8rem 0;
 }
 
 @media screen and (min-width: 813px) {
@@ -52,4 +76,53 @@
     .cover {
         background-color: #fff;
     }
+}
+
+/* Form */
+
+#signup {
+    max-width: 100%;
+}
+
+.error-message {
+    color: red;
+    margin-left: 1rem;
+}
+
+input {
+    border: 1px solid #495057;
+    background-color: var(--background-yellow);
+    padding: .5rem 1rem;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+input[type=text], input[type=email], input[type=tel] {
+    box-sizing: border-box;
+    width: 100%;
+}  
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.privacynotice {
+    font-size: 85%;
+}
+.privacycontainer {
+    margin-bottom: 1rem;
+}
+
+.colored-button {
+    background-color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: var(--font-family);
+    font-size: 1.1rem;
+    padding: 8px 20px 8px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
 }

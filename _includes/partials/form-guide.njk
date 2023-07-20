@@ -1,75 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de autoconsumo solar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap" onload="this.rel='stylesheet'" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="preload" as="style" href="../assets/css/global.css" onload="this.rel='stylesheet'" />
-    <link rel="preload" as="style" href="../assets/css/guide.css" onload="this.rel='stylesheet'" />
-    <script src="../assets/js/scripts.js" defer></script>
-    <script src="../src/Calculadora.js" defer></script>
-    <meta name="description" content="Cómo puedo hacer autoconsumo solar" />
-</head>
-
-<body class="page-descarga">
-        <menu id="topmenu">
-        <div class="title">Guía de autoconsumo solar</div>
-        <div class="logo"><img src="../assets/img/greenpeace.svg" alt="Greenpeace" width="184" height="29" /></div>
-        <div class="hamburger"><a href="javascript:void(0);" onclick="enter('#sidemenu', 'slideInLeft');"><img src="../assets/img/hamburger.svg" alt="Hamburger" /></a></div>
-        <div class="autoconsumo"><a href="../">¿Cómo hacer autoconsumo solar?</a></div>
-        <div class="calculadora"><a href="">Calculadora de ahorro</a></div>
-        <div class="descarga"><a href="./">Descarga tu guía</a></div>
-    </menu>
-    <menu id="sidemenu" hidden="hidden" class="animate__faster">
-        
-        <div id="insidemenu">
-            <div class="topinside">
-                <div class="title2">Guía de autoconsumo solar</div>
-                <div class="logo2"><img src="assets/img/greenpeace.svg" alt="Greenpeace" width="184" height="29" /></div>
-                <div class="menulinks">
-                    <div><a href="../">¿Cómo hacer autoconsumo solar?</a></div>
-                    <div><a href="">Calculadora de ahorro</a></div>
-                    <div><a href="./">Descarga tu guía</a></div>
-                </div>
-            </div>
-
-            <div class="close2">
-                <a href="javascript:void(0);" onclick="leave('#sidemenu', 'slideOutLeft');">
-                    <img src="assets/img/close.svg" alt="Cerrar" width="26" height="26" />
-                </a>
-            </div>
-
-        </div>
-    </menu>
-
-    <div class="download-grid">
-
-        <h1 class="title-guide">Descarga la guía de autoconsumo solar</h1>
-
-        <div class="text">
-            <p>¿Tiemblas cada vez que llega la factura de la luz?  ¿Tienes miedo a una nueva crisis energética?  ¿Llevas tiempo preguntándote si eso de ponerse placas para autoproducirse tu propia electricidad renovable podría ser la solución pero no sabes cómo dar el paso?
-            </p>
-            <p>Autoproducir tu propia energía puede parecer complicado y caro, pero ya es una realidad para millones de familias porque no es ni lo uno ni lo otro.</p>
-            <p><strong>¿Sabías que ni siquiera es necesario tener un tejado en propiedad para hacerlo?</strong></p>
-        </div>
-
-        <div class="main-image">
-            <img src="../assets/img/portada-descargable.svg" alt="Portada del descargable" />
-        </div>
-        
-        <div class="cover">
-            <p>En Greenpeace hemos elaborado una sencilla y completa guía en la que podrás encontrar la opción que más se ajusta a tus necesidades. Descubre los pasos a seguir para liberarte de los abusivos incrementos de las compañías eléctricas y contribuir a la lucha contra el cambio climático.</p>
-        </div>
-
-        <div class="form-container">
-            <h2>Rellena el formulario y recibirás la guía GRATIS en tu email.</h2>
-
-                        <script>
+            <script>
                 window.last_abtest_variant = "";
             </script>
             <form id="signup" class="form" novalidate x-on:submit.prevent="" x-init="populate_utms()" x-data="{
@@ -220,8 +149,8 @@
                     <div class="error-message" x-text="errors.email" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <!--<div class="form-group">
-                    <label for="id_number" class="d-none"> <sup title="Campo obligatório">*</sup> <span class="sr-only"></span></label>
-                    <input type="text" class="form-control" id="id_number" name="id_number" required="required" maxlength="12" placeholder="" x-model="values.id_number" x-on:input="is_required_id_number('id_number')" />
+                    <label for="id_number" class="d-none">{{ form.label_id_number }} <sup title="Campo obligatório">*</sup> <span class="sr-only">{{ form.example_id_number }}</span></label>
+                    <input type="text" class="form-control" id="id_number" name="id_number" required="required" maxlength="12" placeholder="{{ form.label_id_number }}" x-model="values.id_number" x-on:input="is_required_id_number('id_number')" />
                     <div class="error-message" x-text="errors.id_number"  x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
                 </div> -->
                 <div class="form-group">
@@ -243,11 +172,3 @@
                     <button type="submit" class="colored-button" x-on:click="show_errors = true; validate(); is_valid() && submit_form()"> Descarga la guía » </button>	
                 </div>
             </form>
-
-        </div>
-
-    </div>
-
-</body>
-
-</html>
