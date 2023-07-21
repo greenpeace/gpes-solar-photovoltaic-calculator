@@ -30,10 +30,9 @@ const enter = function (element, animation, background = true) {
     const el = document.querySelector(element);
     if (el.hasAttribute("hidden")) {
         el.removeAttribute("hidden");
-
-        // animateCSS(element, animation).then((message) => {
-        //     // Follow up
-        // });
+        animateCSS(element, animation).then((message) => {
+             // Follow up
+        });
     }
 };
 
@@ -45,14 +44,10 @@ const enter = function (element, animation, background = true) {
 const leave = function (element, animation, background = true) {
     const el = document.querySelector(element);
     if (!el.hasAttribute("hidden")) {
-        // animateCSS(element, animation).then((message) => {
+        animateCSS(element, animation).then((message) => {
             // Follow up
-
-            setTimeout(()=>{
-                el.setAttribute("hidden", "hidden");
-            }, 1000);
-            
-        // });
+            el.setAttribute("hidden", "hidden");
+        });
     }
 };
 
