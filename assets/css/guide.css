@@ -36,6 +36,7 @@
 
 h2 {
     font-size: 1.23rem;
+    color: var(--text-color2);
 }
 
 label {
@@ -74,6 +75,7 @@ label[for=privacy]{
 
 .thank-you-grid>div {
     width: 320px;
+    text-align: center;
 }
 
 .share-grid {
@@ -130,7 +132,7 @@ label[for=privacy]{
 
 .error-message {
     color: red;
-    margin-left: 1rem;
+    margin-left: 0.2rem;
 }
 
 input {
@@ -152,7 +154,7 @@ input[type=text], input[type=email], input[type=tel] {
 }
 
 .privacynotice {
-    font-size: 85%;
+    font-size: 0.94rem;
 }
 .privacycontainer {
     margin-bottom: 1rem;
@@ -169,4 +171,30 @@ input[type=text], input[type=email], input[type=tel] {
     cursor: pointer;
     border: none;
     border-radius: 10px;
+}
+
+a.colored-button {
+    text-decoration: none;
+}
+
+.colored-button.yes {
+    background-color: var(--text-color2);
+}
+
+.line-of-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.thankyoubuttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.form-container > h2 {
+    color: var(--text-color);
 }

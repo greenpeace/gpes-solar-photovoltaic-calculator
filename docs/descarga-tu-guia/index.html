@@ -252,8 +252,8 @@
             <h2>Disfruta de tu guía, Olga</h2>
             <p>Ya te hemos enviado la guía a <span x-text="$store.email">[...]</span></p>
             <p>¿Quieres compartirla con tus contactos? ¡Ayúdalos a iniciarse en el autoconsumo solar!</p>
-            <div>
-                <button type="button" class="colored-button" x-on:click="screen = 'sharepage'; $dispatch('thankyou:buttons', { button: 'yes_to_share' });">Si</button>
+            <div class="line-of-buttons">
+                <button type="button" class="colored-button yes" x-on:click="screen = 'sharepage'; $dispatch('thankyou:buttons', { button: 'yes_to_share' });">Si</button>
                 <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'no_to_share' });">No</button>
             </div>
         </div>
@@ -273,13 +273,14 @@
                     <img src="../assets/img/twitter.svg" alt="Twitter" />
                 </a>
             </div>
+            <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'skip_to_donations' });">Saltar »</button>
         </div>
     </div>
     <div class="support-grid" id="givepage" x-show="screen === 'givepage'" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.opacity.duration.400ms>
         <div>
             <h2>Apoya la campaña</h2>
             <p>En Greenpeace trabajamos para proteger nuestros bosques y defender su biodiversidad. Únete ahora y súmate a la lucha por un planeta sano y en paz.</p>
-            <div style="margin: 25px 0;">
+            <div class="line-of-buttons">
                 <a href="https://es.greenpeace.org/es/que-puedes-hacer-tu/donaciones/" class="colored-button" x-on:click.prevent="$dispatch('thankyou:buttons', { button: 'yes_to_give' }); await delay(1000); window.location.href = $el.getAttribute('href');">Hazte socio/a</a>
             </div>
         </div>
