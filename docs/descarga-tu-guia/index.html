@@ -12,11 +12,15 @@
     <link rel="preload" as="style" href="../assets/css/global.css" onload="this.rel='stylesheet'" />
     <link rel="preload" as="style" href="../assets/css/guide.css" onload="this.rel='stylesheet'" />
     <script src="../assets/js/scripts.js" defer></script>
+    <script src="../assets/js/form.js" defer></script>
+    <script src="../assets/js/alpine.min.js" defer></script>
     <script src="../src/Calculadora.js" defer></script>
     <meta name="description" content="Cómo puedo hacer autoconsumo solar" />
 </head>
 
-<body class="page-descarga">
+<body class="page-descarga" x-data="{
+    screen: 'landingpage'
+}">
         <menu id="topmenu">
         <div class="title">Guía de autoconsumo solar</div>
         <div class="logo"><img src="../assets/img/greenpeace.svg" alt="Greenpeace" width="184" height="29" /></div>
@@ -30,7 +34,7 @@
         <div id="insidemenu">
             <div class="topinside">
                 <div class="title2">Guía de autoconsumo solar</div>
-                <div class="logo2"><img src="assets/img/greenpeace.svg" alt="Greenpeace" width="184" height="29" /></div>
+                <div class="logo2"><img src="../assets/img/greenpeace.svg" alt="Greenpeace" width="184" height="29" /></div>
                 <div class="menulinks">
                     <div><a href="../">¿Cómo hacer autoconsumo solar?</a></div>
                     <div><a href="">Calculadora de ahorro</a></div>
@@ -40,14 +44,14 @@
 
             <div class="close2">
                 <a href="javascript:void(0);" onclick="leave('#sidemenu', 'slideOutLeft');">
-                    <img src="assets/img/close.svg" alt="Cerrar" width="26" height="26" />
+                    <img src="../assets/img/close.svg" alt="Cerrar" width="26" height="26" />
                 </a>
             </div>
 
         </div>
     </menu>
 
-    <div class="download-grid">
+    <div class="download-grid" id="formpage" x-show="screen === 'landingpage'" x-bind:aria-hidden="not(screen === 'landingpage')"  x-transition.opacity.duration.400ms>
 
         <h1 class="title-guide">Descarga la guía de autoconsumo solar</h1>
 
@@ -131,12 +135,7 @@
                     this.errors.form_sent = 'Yes';
                     const answer = await sendToHubspot(this.values);
                     if (answer) {
-                        document.getElementById('visual-header').style.display = 'none';
-                        document.getElementById('visual-header').setAttribute('aria-hidden', 'true');
-                        document.getElementById('formpage').style.display = 'none';
-                        document.getElementById('formpage').setAttribute('aria-hidden', 'true');
-                        document.getElementById('thankspages').style.display = 'flex';
-                        document.getElementById('thankspages').removeAttribute('aria-hidden')
+                        screen = 'thankyoupage';
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                 },
@@ -248,7 +247,7 @@
 
     </div>
 
-    <div class="thank-you-grid" id="thankyoupage" x-show="screen === 'thankyoupage'" x-bind:aria-hidden="not(screen === 'thankyoupage')" x-transition.opacity.duration.200ms aria-hidden="true">
+    <div class="thank-you-grid" id="thankyoupage" x-show="screen === 'thankyoupage'" x-bind:aria-hidden="not(screen === 'thankyoupage')" x-transition.opacity.duration.400ms>
         <div>
             <h2>Disfruta de tu guía, Olga</h2>
             <p>Ya te hemos enviado la guía a <span x-text="$store.email">[...]</span></p>
@@ -259,7 +258,7 @@
             </div>
         </div>
     </div>
-    <div class="share-grid" id="sharepage" x-show="screen === 'sharepage'" x-bind:aria-hidden="not(screen === 'sharepage')" x-transition.opacity.duration.200ms="" aria-hidden="true">
+    <div class="share-grid" id="sharepage" x-show="screen === 'sharepage'" x-bind:aria-hidden="not(screen === 'sharepage')" x-transition.opacity.duration.400ms>
         <div>
             <h2>Comparte esta guía</h2>
             <p>Ayuda a otra gente a consumir su propia energía solar.</p>
@@ -276,7 +275,7 @@
             </div>
         </div>
     </div>
-    <div class="support-grid" id="givepage" x-show="screen === 'givepage'" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.opacity.duration.200ms="" aria-hidden="true">
+    <div class="support-grid" id="givepage" x-show="screen === 'givepage'" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.opacity.duration.400ms>
         <div>
             <h2>Apoya la campaña</h2>
             <p>En Greenpeace trabajamos para proteger nuestros bosques y defender su biodiversidad. Únete ahora y súmate a la lucha por un planeta sano y en paz.</p>

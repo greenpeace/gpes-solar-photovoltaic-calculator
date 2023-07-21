@@ -60,12 +60,7 @@
                     this.errors.form_sent = 'Yes';
                     const answer = await sendToHubspot(this.values);
                     if (answer) {
-                        document.getElementById('visual-header').style.display = 'none';
-                        document.getElementById('visual-header').setAttribute('aria-hidden', 'true');
-                        document.getElementById('formpage').style.display = 'none';
-                        document.getElementById('formpage').setAttribute('aria-hidden', 'true');
-                        document.getElementById('thankspages').style.display = 'flex';
-                        document.getElementById('thankspages').removeAttribute('aria-hidden')
+                        screen = 'thankyoupage';
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                 },

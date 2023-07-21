@@ -5,10 +5,12 @@
     {% include "partials/head-guia.njk" %}
 </head>
 
-<body class="page-descarga">
+<body class="page-descarga" x-data="{
+    screen: 'landingpage'
+}">
     {% include "partials/menu-guia.njk" %}
 
-    <div class="download-grid">
+    <div class="download-grid" id="formpage" x-show="screen === 'landingpage'" x-bind:aria-hidden="not(screen === 'landingpage')"  x-transition.opacity.duration.400ms>
 
         <h1 class="title-guide">Descarga la guía de autoconsumo solar</h1>
 

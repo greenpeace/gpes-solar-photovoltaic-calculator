@@ -1,5 +1,5 @@
 .download-grid {
-    display: none;
+    display: grid;
     grid-template-columns: auto;
     grid-template-areas:
         'title-guide'
@@ -66,7 +66,7 @@ label[for=privacy]{
 }
 
 .thank-you-grid {
-    display: none;
+    display: grid;
     height: calc(100vh - 83px);
     align-items: center;
     justify-content: center;
@@ -85,6 +85,19 @@ label[for=privacy]{
 
 .share-grid>div {
     width: 320px;
+    text-align: center;
+}
+
+.support-grid{
+    display: grid;
+    height: calc(100vh - 83px);
+    align-items: center;
+    justify-content: center;
+}
+
+.support-grid>div {
+    width: 320px;
+    text-align: center;
 }
 
 @media screen and (min-width: 813px) {

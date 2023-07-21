@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* jshint esversion: 6*/
 
 /**
  * Animate.css animation
@@ -66,4 +67,36 @@ const flyTo = function (id, delay = 200) {
             behavior: "smooth"
         });
     }, delay);
+};
+
+/**
+ * Not function for Alpine
+ * @param {boolean} value 
+ * @returns {string}
+ */
+const not = function (value) {
+    if (value) {
+        return "false";
+    } else {
+        return "true";
+    }
+};
+
+
+/**
+ * Trigger an event with an ID
+ * @param {string} elementID 
+ * @param {string} event 
+ * @param {object} detailObject 
+ */
+const trigger = function(elementID, event, detailObject){
+    let cEvent = new CustomEvent(event, {
+        detail : detailObject,
+        bubbles: true,
+        cancelable: true,
+        composed: false
+    });
+
+    const element = document.getElementById(elementID);
+    element.dispatchEvent(cEvent);
 };
