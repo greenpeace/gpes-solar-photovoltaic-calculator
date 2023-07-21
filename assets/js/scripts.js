@@ -30,9 +30,7 @@ const enter = function (element, animation, background = true) {
     const el = document.querySelector(element);
     if (el.hasAttribute("hidden")) {
         el.removeAttribute("hidden");
-        if (background === true && document.querySelector("header")) {
-             document.querySelector("header").classList.add("no-background");
-        }
+
         // animateCSS(element, animation).then((message) => {
         //     // Follow up
         // });
@@ -47,12 +45,13 @@ const enter = function (element, animation, background = true) {
 const leave = function (element, animation, background = true) {
     const el = document.querySelector(element);
     if (!el.hasAttribute("hidden")) {
-        if (background === true && document.querySelector("header")) {
-             document.querySelector("header").classList.remove("no-background");
-        }
         // animateCSS(element, animation).then((message) => {
             // Follow up
-            el.setAttribute("hidden", "hidden");
+
+            setTimeout(()=>{
+                el.setAttribute("hidden", "hidden");
+            }, 1000);
+            
         // });
     }
 };
