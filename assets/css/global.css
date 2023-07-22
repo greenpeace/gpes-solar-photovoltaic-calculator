@@ -274,7 +274,7 @@ menu {
 .download-button a {
     background-color: var(--text-color2);
     padding: 1rem 2rem;
-    color: #fff;
+    color: var(--text-color3);
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
