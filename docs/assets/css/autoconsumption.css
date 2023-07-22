@@ -161,6 +161,10 @@ header h1 {
     .subpage .topsub {
         grid-template-rows: 5rem 1fr;
     }
+
+    .subpage .topsub img {
+        margin-bottom: 80px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
