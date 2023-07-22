@@ -183,6 +183,10 @@ menu {
     margin: 1rem 0;
 }
 
+.decision-box .option.active {
+    background-color: #fff7d9;
+}
+
 .decision-box .option a {
     text-decoration: none;
     color: var(--text-color2);

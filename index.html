@@ -23,12 +23,12 @@
         </div>
         <div class="row-options">
             <div>
-                <div class="option">
+                <div class="option" x-bind:class="level1 === 'en-propriedad' ? 'active' : ''">
                     <a href="javascript:void(0)" x-on:click="level1 ='en-propriedad'; level2=''; flyTo('en-propriedad');">tengo piso o casa en propiedad</a>
                 </div>
             </div>
             <div>
-                <div class="option">
+                <div class="option" x-bind:class="level1 === 'de-alquiler' ? 'active' : ''">
                     <a href="javascript:void(0)" x-on:click="level1 ='de-alquiler'; level2=''; flyTo('de-alquiler');">vivo de alquiler</a>
                 </div>
             </div>
