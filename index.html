@@ -5,7 +5,10 @@
     {% include "partials/head.njk" %}
 </head>
 
-<body class="page-home">
+<body class="page-home" x-data="{
+    level1: '',
+    level2: ''
+}">
     {% include "partials/header.njk" %}
     <p class="center-p">El autoconsumo solar, es decir, instalar placas solares en tu tejado o cerca para generar tu
         propia energía
@@ -21,15 +24,12 @@
         <div class="row-options">
             <div>
                 <div class="option">
-                    <a href="javascript:void(0)" onclick="flyTo('en-propriedad'); enter('#en-propriedad', 'fadeIn');">tengo
-                        piso o casa en
-                        propiedad</a>
+                    <a href="javascript:void(0)" x-on:click="level1 ='en-propriedad'; level2=''; flyTo('en-propriedad');">tengo piso o casa en propiedad</a>
                 </div>
             </div>
             <div>
                 <div class="option">
-                    <a href="javascript:void(0)" onclick="flyTo('de-alquiler'); enter('#de-alquiler', 'fadeIn');">vivo de
-                        alquiler</a>
+                    <a href="javascript:void(0)" x-on:click="level1 ='de-alquiler'; level2=''; flyTo('de-alquiler');">vivo de alquiler</a>
                 </div>
             </div>
         </div>
@@ -46,6 +46,8 @@
     {% include "pages/convence-casero.njk" %}
 
     {% include "pages/invierte-ahorros.njk" %}
+
+    {% include "pages/autoconsumo-colectivo.njk" %}
 
 </body>
 

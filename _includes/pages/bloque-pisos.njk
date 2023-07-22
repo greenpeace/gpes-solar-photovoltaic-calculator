@@ -1,4 +1,4 @@
-    <div id="bloque-pisos" hidden="hidden" class="subpage">
+    <div id="bloque-pisos" x-show="level1 === 'en-propriedad' && level2 === 'bloque-pisos'" class="subpage">
         <div class="topsub2">
             <h1 style="grid-area: titlebp">Si vives en un bloque de pisos...</h1>
             <p style="grid-area: p1bp">El autoconsumo de energía solar también es posible si tienes un piso en un bloque de vecinos/as. Solo se necesita un tejado o espacio próximo lo suficientemente grande para poder realizar la instalación.</p>
@@ -14,12 +14,12 @@
                 <a  href="javascript:void(0)">calculadora solar</a>
             </div>
             <div class="optionback">
-                <a href="javascript:void(0)" onclick="flyTo('en-propriedad'); leave('#bloque-pisos', 'fadeOut', false);">atrás</a>
+                <a href="javascript:void(0)" x-on:click="level2=''; flyTo('en-propriedad');">atrás</a>
             </div>
         </div>
         <div class="outsideback">
             <div class="optionback">
-                <a href="javascript:void(0)" onclick="flyTo('en-propriedad'); leave('#bloque-pisos', 'fadeOut', false);">atrás</a>
+                <a href="javascript:void(0)" x-on:click="level2=''; flyTo('en-propriedad');">atrás</a>
             </div>
         </div>
     </div>

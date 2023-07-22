@@ -1,4 +1,4 @@
-    <div id="vivienda-unifamilar" hidden="hidden" class="subpage">
+    <div id="vivienda-unifamilar" x-show="level1 === 'en-propriedad' && level2 === 'vivienda-unifamilar'" class="subpage">
         <div class="topsub">
             <h1 style="grid-area: titlet">Si tienes una vivienda unifamiliar...</h1>
             <div style="grid-area: textt">
@@ -10,15 +10,15 @@
         <div class="download-box">
             <p>Descubre más información en nuestra <a href="javascript:void(0)">guía de autoconsumo solar</a> y utiliza nuestra calculadora para saber cuánto podrías ahorrarte en la factura de la luz si te pasas al autoconsumo solar.</p>
             <div class="download-button">
-                <a  href="javascript:void(0)">calculadora solar</a>
+                <a href="javascript:void(0)">calculadora solar</a>
             </div>
             <div class="optionback">
-                <a href="javascript:void(0)" onclick="flyTo('en-propriedad'); leave('#vivienda-unifamilar', 'fadeOut', false);">atrás</a>
+                <a href="javascript:void(0)" x-on:click="level2=''; flyTo('en-propriedad');">atrás</a>
             </div>
         </div>
         <div class="outsideback">
             <div class="optionback">
-                <a href="javascript:void(0)" onclick="flyTo('en-propriedad'); leave('#vivienda-unifamilar', 'fadeOut', false);">atrás</a>
+                <a href="javascript:void(0)" x-on:click="level2=''; flyTo('en-propriedad');">atrás</a>
             </div>
         </div>
     </div>

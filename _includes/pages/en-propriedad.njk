@@ -1,4 +1,4 @@
-    <div id="en-propriedad" hidden="hidden" class="subpage">
+    <div id="en-propriedad" x-show="level1 === 'en-propriedad'" class="subpage">
         <div class="topsub">
             <h1 style="grid-area: titlet">Si tienes piso o casa en propiedad...</h1>
             <p style="grid-area: textt">Si tienes una vivienda en propiedad pasarte al autoconsumo de energía solar es muy sencillo, porque solo necesitarás un tejado (o ubicación próxima) en el que poder instalar las placas. El cómo hacerlo varía en función de si vives en una vivienda unifamiliar o en un bloque de pisos.</p>
@@ -10,17 +10,17 @@
             </div>
             <div style="grid-area: optionab">
                 <div class="option">
-                    <a href="javascript:void(0)" onclick="flyTo('vivienda-unifamilar'); enter('#vivienda-unifamilar', 'fadeIn');">vivienda unifamiliar</a>
+                    <a href="javascript:void(0)" x-on:click="level2 = 'vivienda-unifamilar'; flyTo('vivienda-unifamilar');">vivienda unifamiliar</a>
                 </div>
             </div>
             <div style="grid-area: optionbb">
                 <div class="option" >
-                    <a href="javascript:void(0)" onclick="flyTo('bloque-pisos'); enter('#bloque-pisos', 'fadeIn');">bloque de pisos</a>
+                    <a href="javascript:void(0)" x-on:click="level2 = 'bloque-pisos'; flyTo('bloque-pisos');">bloque de pisos</a>
                 </div>
             </div>
             <div style="grid-area: backb">
                 <div class="optionback">
-                    <a href="javascript:void(0)" onclick="flyTo('topmenu'); leave('#en-propriedad', 'fadeOut');">atrás</a>
+                    <a href="javascript:void(0)" x-on:click="level1 = ''; flyTo('topmenu');">atrás</a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-    <div id="de-alquiler" hidden="hidden" class="subpage">
+    <div id="de-alquiler" x-show="level1 === 'de-alquiler'"  class="subpage">
         <div class="topsub">
             <h1 style="grid-area: titlet">Si vives de alquiler...</h1>
             <p style="grid-area: textt">Aunque no tengas un tejado en propiedad, el autoconsumo de energía renovable también es posible. No es necesario tener mucho dinero ni grandes conocimientos para librarse de la dictadura de las grandes energéticas y bajar tu factura de la luz.</p>
@@ -10,27 +10,28 @@
             </div>
             <div style="grid-area: optionab">
                 <div class="option">
-                    <a href="javascript:void(0)" onclick="flyTo('convence-casero'); enter('#convence-casero', 'fadeIn');">convence a tu casero/a</a>
+                    <a href="javascript:void(0)" x-on:click="level2='convence-casero'; flyTo('convence-casero');">convence a tu casero/a</a>
                 </div>
             </div>
             <div style="grid-area: optionbb">
                 <div class="option" >
-                    <a href="javascript:void(0)" onclick="flyTo('invierte-ahorros'); enter('#invierte-ahorros', 'fadeIn');">invierte tus ahorros</a>
+                    <a href="javascript:void(0)" x-on:click="level2='invierte-ahorros'; flyTo('invierte-ahorros');">invierte tus ahorros</a>
                 </div>
             </div>
             <div style="grid-area: optionac">
                 <div class="option">
-                    <a href="javascript:void(0)" onclick="flyTo('topmenu'); enter('#en-propriedad', 'fadeIn');">autoconsumo colectivo</a>
+                    <!-- START HERE -->
+                    <a href="javascript:void(0)" x-on:click="level2='autoconsumo-colectivo'; flyTo('autoconsumo-colectivo');">autoconsumo colectivo</a>
                 </div>
             </div>
             <div style="grid-area: optionad">
                 <div class="option">
-                    <a href="javascript:void(0)" onclick="flyTo('topmenu'); enter('#en-propriedad', 'fadeIn');">presiona a tu ayuntamiento</a>
+                    <a href="javascript:void(0)" x-on:click="level2='presiona-ayuntamiento'; flyTo('presiona-ayuntamiento');">presiona a tu ayuntamiento</a>
                 </div>
             </div>
             <div style="grid-area: backb">
                 <div class="optionback">
-                    <a href="javascript:void(0)" onclick="flyTo('topmenu'); leave('#de-alquiler', 'fadeOut');">atrás</a>
+                    <a href="javascript:void(0)" x-on:click="level1 = ''; flyTo('topmenu');">atrás</a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-    <div id="invierte-ahorros" hidden="hidden" class="subpage">
+    <div id="invierte-ahorros" x-show="level1 === 'de-alquiler' && level2 === 'invierte-ahorros'" class="subpage">
         <div class="topsub2">
             <h1 style="grid-area: titlebp">Si tienes ahorros, desde 50 euros puedes...</h1>
             <p style="grid-area: p1bp">Desde 50 euros ya puedes invertir y convertirte en copropietaria de instalaciones renovables en otro lugar para reducir directamente tu factura o recibir un retorno económico. También puedes prestar tus ahorros a plataformas de inversión social para que otras personas instalen renovables y luego recuperarlos con algo de interés.</p>
@@ -14,7 +14,7 @@
         </div>
         <div style="text-align: center;">
             <div class="optionback">
-                <a href="javascript:void(0)" onclick="flyTo('topmenu'); leave('#invierte-ahorros', 'fadeOut', false);">atrás</a>
+                <a href="javascript:void(0)" x-on:click="level2='';">atrás</a>
             </div>
         </div>
     </div>
