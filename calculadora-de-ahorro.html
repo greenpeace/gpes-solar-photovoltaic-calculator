@@ -5,13 +5,100 @@
     {% include "partials/head-calculadora.njk" %}
 </head>
 
-<body class="page-descarga" x-data="{
+<body class="page-calculadora" x-data="{
 
 }">
     {% include "partials/menu-calculadora.njk" %}
 
-</body>
-
     <h1>Calculadora de ahorro</h1>
 
+    <p>Descubre cuánto puedes ahorrar en tu factura de la luz instalando placas solares y qué necesitarás para hacerlo.</p>
+
+    <form x-data="{
+        calculadora: calc1
+    }">
+
+        <h2>Ajusta los parámetros</h2>
+
+        <div class="question">
+            <label for="consumo_anual">¿Cuál es tu consumo anual (kWh)?</label>
+            <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+            <input type="range" id="consumo_anual" x-model="calculadora.consumo_anual" min="0" max="10000" />
+            <div x-text="calculadora.consumo_anual"></div>
+        </div>
+
+        <div class="question">
+            <label for="porcentaje_consumo">¿Qué porcentaje de tu consumo quieres cubrir con autoconsumo solar?</label>
+            <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+            <input type="range" id="porcentaje_consumo" x-model="calculadora.porcentaje_consumo" min="1" max="100" />
+            <div x-text="calculadora.porcentaje_consumo"></div>
+        </div>
+
+        <div class="question">
+            <label>¿En qué provincia vives?</label>
+            <select x-model="calculadora.provincia">
+                <option>Álava</option>
+                <option>Albacete</option>
+                <option>Alicante</option>
+                <option>Almería</option>
+                <option>Asturias</option>
+                <option>Ávila</option>
+                <option>Barcelona</option>
+                <option>Badajoz</option>
+                <option>Burgos</option>
+                <option>Cáceres</option>
+                <option>Castellón</option>
+                <option>Cádiz</option>
+                <option>Cantabria</option>
+                <option>Ciudad Real</option>
+                <option>Ceuta</option>
+                <option>Córdoba</option>
+                <option>A Coruña</option>
+                <option>Cuenca</option>
+                <option>Formentera</option>
+                <option>Girona</option>
+                <option>Granada</option>
+                <option>Guadalajara</option>
+                <option>Guipúzcoa</option>
+                <option>Huelva</option>
+                <option>Huesca</option>
+                <option>Ibiza</option>
+                <option>Jaén</option>
+                <option>Las Palmas</option>
+                <option>La Rioja</option>
+                <option>León</option>
+                <option>Lleida</option>
+                <option>Lugo</option>
+                <option>Madrid</option>
+                <option>Málaga</option>
+                <option>Mallorca</option>
+                <option>Melilla</option>
+                <option>Menorca</option>
+                <option>Murcia</option>
+                <option>Navarra</option>
+                <option>Ourense</option>
+                <option>Palencia</option>
+                <option>Pontevedra</option>
+                <option>Salamanca</option>
+                <option>Santa Cruz de Tenerife</option>
+                <option>Segovia</option>
+                <option>Sevilla</option>
+                <option>Soria</option>
+                <option>Tarragona</option>
+                <option>Teruel</option>
+                <option>Toledo</option>
+                <option>Valencia</option>
+                <option>Valladolid</option>
+                <option>Vizcaya</option>
+                <option>Zamora</option>
+                <option>Zaragoza</option>
+            </select>
+        </div>
+
+
+    </form>
+
+
+
+</body>
 </html>
