@@ -13,6 +13,15 @@
     --back-button-color:rgba(177, 178, 181, 1);
 }
 
+@media (prefers-contrast: more) {
+    :root {
+        --text-color2: rgba(26, 102, 9, 1);
+        --background-gray: rgba(249, 249, 249, 1);
+        --background-yellow: #f9edb9;
+        --active-color: #fefbef;
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
