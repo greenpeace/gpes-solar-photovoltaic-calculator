@@ -19,7 +19,7 @@
 </head>
 
 <body class="page-calculadora" x-data="{
-
+    calculadora: calc1
 }">
         <menu id="topmenu">
         <div class="title">Guía de autoconsumo solar</div>
@@ -56,7 +56,7 @@
     <p>Descubre cuánto puedes ahorrar en tu factura de la luz instalando placas solares y qué necesitarás para hacerlo.</p>
 
     <form x-data="{
-        calculadora: calc1
+
     }">
 
         <h2>Ajusta los parámetros</h2>
@@ -64,14 +64,14 @@
         <div class="question">
             <label for="consumo_anual">¿Cuál es tu consumo anual (kWh)?</label>
             <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
-            <input type="range" id="consumo_anual" x-model="calculadora.consumo_anual" min="0" max="10000" />
+            <input type="range" id="consumo_anual" x-model="calculadora.consumo_anual" min="0" max="10000" step="100" />
             <div x-text="calculadora.consumo_anual"></div>
         </div>
 
         <div class="question">
             <label for="porcentaje_consumo">¿Qué porcentaje de tu consumo quieres cubrir con autoconsumo solar?</label>
             <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
-            <input type="range" id="porcentaje_consumo" x-model="calculadora.porcentaje_consumo" min="1" max="100" />
+            <input type="range" id="porcentaje_consumo" x-model="calculadora.porcentaje_consumo" min="0" max="100" step="5" />
             <div x-text="calculadora.porcentaje_consumo"></div>
         </div>
 
@@ -136,8 +136,58 @@
             </select>
         </div>
 
+        <div class="question">
+            <label>¿Cuál es la orientación de tu tejado?</label>
+            <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+            <img src="../assets/img/ilustracion-orientacion-tejado.svg" alt="Ilustración orientación del tejado" />
+            <label for="Norte">Norte</label>
+            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Norte" id="Norte" />
+            <label for="Sur">Sur</label>
+            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Sur" id="Sur" />
+            <label for="Este">Este</label>
+            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Este" id="Este" />
+            <label for="Oeste">Oeste</label>
+            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Oeste" id="Oeste" />
+            <label for="Plano">Plano</label>
+            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Plano" id="Plano" />
+        </div>
+
 
     </form>
+
+
+    <div>
+        <h2>Aquí tienes tus resultados</h2>
+        <p>Te los hemos enviado también por e-mail para que los tengas a mano.</p>
+        <h3>Esto es lo que podrías ahorrarte cada año</h3>
+        <div><span x-text="calculadora.ahorro_anual_esperado();"></span>€</div>
+        <div>Ahorro anual indicativo</div>
+        <h3>Y esto es lo que necesitarás</h3>
+        <div class="question">
+            <div x-text="calculadora.numero_paneles_a_instalar();"></div>
+            <div>Número de paneles fotovoltaicos a instalar</div>
+        </div>
+        <div class="question">
+            <div x-text="calculadora.potencia_necesaria_para_consumo_deseado();"></div>
+            <div>Potencia necesaria (kWp) para cubrir tu consumo deseado</div>
+        </div>
+        <div class="question">
+            <div><span x-text="calculadora.coste_de_tu_instalacion()"></span>€</div>
+            <div>Coste de tu instalación (aproximado)</div>
+        </div>
+
+        <div class="question">
+            <div x-text="calculadora.anos_amortizacion();"></div>
+            <div>Años para amortizar la inversión</div>
+        </div>
+
+        <div class="question">
+            <div x-text="calculadora.emissiones();"></div>
+            <div>kg CO2 eq/kWh</div>
+        </div>
+        <h3>¿Quieres dar el siguiente paso?</h3>
+        <p>En Greenpeace hemos elaborado una guía con todo lo que necesitas saber para iniciarte en el autoconsumo de energía solar.</p>
+    </div>
 
 
 
