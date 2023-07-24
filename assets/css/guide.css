@@ -11,10 +11,18 @@
 
 .title-guide {
     grid-area: title-guide;
+    margin: 15px 27px;
+    line-height: 2.3rem;
+}
+
+p {
+    font-size: 1.125rem;
 }
 
 .text {
     grid-area: text;
+    margin: 0 27px;
+    font-size: 1.125rem;
 }
 
 .main-image {
@@ -26,6 +34,8 @@
 .cover {
     grid-area: cover;
     background-color: var(--background-gray);
+    margin: 0 27px;
+    font-size: 1.125rem;
 }
 
 .form-container {
@@ -121,6 +131,10 @@ label[for=privacy]{
     }
     .cover {
         background-color: var(--background-top-menu);
+    }
+
+    h2 {
+        font-size: 1.5rem;
     }
 }
 
