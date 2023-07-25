@@ -14,8 +14,8 @@ async function sendToHubspot(formValues) {
     const id_number = formValues.id_number.replace(/[\.\s-,_\|#]/g, '').toUpperCase();
     const phone = formValues.phone_number.replace(/[\.\s-,_\|#]/g, '');
 
-    const salesforce_campaign = "70108000000iSckAAE"; // api_forms_hubspot_salesforce_campaign_id // Fruta de temporada
-    const api_forms_hubspot_formId = "0a6163f6-f99b-489a-821a-b0ebbf6dd284"; // Fruta de temporada
+    const salesforce_campaign = "70108000000iSckAAE"; // FIXME api_forms_hubspot_salesforce_campaign_id // Fruta de temporada 
+    const api_forms_hubspot_formId = "ba075237-2a48-4b98-8d3a-e3ee285b2110"; // Calculadora solar
     const postURL = "https://api.hsforms.com/submissions/v3/integration/submit/5361482/" + api_forms_hubspot_formId;
 
     const data = JSON.stringify({
