@@ -123,7 +123,7 @@ async function sendToHubspot(formValues, calculadora) {
             },
             {
                 "name": "calculadora_emissiones",
-                "value": calculadora.emissiones()
+                "value": Math.round(calculadora.emissiones())
             },
 
         ],
