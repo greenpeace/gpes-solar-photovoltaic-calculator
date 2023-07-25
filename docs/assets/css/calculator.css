@@ -49,12 +49,30 @@ label[for=privacy]{
     margin: 1rem 0 0.8rem 0;
 }
 
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+
 /* Form */
 
 #signup {
     max-width: 100%;
     background-color: var(--background-gray);
     padding-top: 22px;
+}
+
+fieldset {
+    border: none;
+}
+
+fieldset label, fieldset input {
+    display: inline;
 }
 
 #signup h2 {
