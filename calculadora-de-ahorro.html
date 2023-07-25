@@ -14,8 +14,122 @@
 
     <p>Descubre cuánto puedes ahorrar en tu factura de la luz instalando placas solares y qué necesitarás para hacerlo.</p>
 
-    <form x-data="{
-
+    <form id="signup" class="form" novalidate x-on:submit.prevent="" x-init="populate_utms()" x-data="{
+        values : {
+            utm_medium: '',
+            utm_source: '',
+            utm_campaign: '',
+            utm_content: '',
+            utm_term: '',
+            gclid: '',
+            ip: '',
+            uagent: '',
+            hs_language: 'es',
+            first_name: '',
+            last_name: '',
+            email: '',
+            id_number: '',
+            phone_number: '',
+            privacy: false,
+            is_contact: false,
+        },
+        show_errors: false,
+        errors: { 
+            first_name: '',
+            last_name: '',
+            email: '',
+            id_number: '',
+            phone_number: '',
+            privacy: '',
+            form_sent: ''
+        },
+        async populate_utms(){
+            const utmValues = await stringParams();
+            this.values.utm_medium = utmValues.utm_medium;
+            this.values.utm_source = utmValues.utm_source;
+            this.values.utm_campaign = utmValues.utm_campaign;
+            this.values.utm_content = utmValues.utm_content;
+            this.values.utm_term = utmValues.utm_term;
+            this.values.gclid = utmValues.gclid;
+        }, 
+        validate(){
+            this.required('first_name');
+            this.required('last_name');
+            this.is_required_email('email');
+            /* this.is_required_id_number('id_number'); */
+            this.is_required_phone('phone_number');
+            this.is_checked('privacy');
+        },
+        is_valid(){
+            let valid = true;
+            for ( const i in this.errors ){
+                if ( this.errors[i] != ''){
+                    valid = false;
+                }
+            }
+            return valid;
+        },
+        async submit_form(){
+            this.errors.form_sent = 'Yes';
+            const answer = await sendToHubspot(this.values);
+            if (answer) {
+                screen = 'thankyoupage';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        },
+        async is_new_email(){
+            if ( this.errors.email ==='' ){
+                const rawResponse = await fetch('https://apis.greenpeace.es/email-info/?' + new URLSearchParams({
+                    email: this.values.email
+                }));
+                const content = await rawResponse.json();
+                this.values.is_contact = content.is_contact;
+            } else {
+                this.values.is_contact = false;
+                await console.log('Invalid email');
+            }
+        },
+        required(field_name) {
+            if ( this.values[field_name].trim().length < 2) {
+                this.errors[field_name] = 'Campo obligatorio';
+            } else {
+                this.errors[field_name] = '';
+            }
+        },
+        is_required_email(field_name) {
+            if ( this.values[field_name].trim().length < 2) {
+                this.errors[field_name] = 'Campo obligatorio';
+            } else if ( !isValidEmail(this.values[field_name] ) ) {
+                this.errors[field_name] = 'Un email válido por favor, ej. nombre@dominio.tld';
+            } else {
+                this.errors[field_name] = '';
+            }
+        },
+        is_required_phone(field_name) {
+            if ( this.values[field_name].trim().length < 2) {
+                this.errors[field_name] = 'Campo obligatorio';
+            } else if ( this.values[field_name].trim().length >= 1 && !isValidPhone( this.values[field_name] )) {
+                this.errors[field_name] = 'Tu número de teléfono español por favor';
+            } else {
+                this.errors[field_name] = '';
+            }
+        },
+        /* is_required_id_number(field_name) {
+            if ( this.values[field_name].trim().length < 2) {
+                this.errors[field_name] = 'Campo obligatorio';
+            } else if ( !isValidIdNumber( this.values[field_name]) ){
+                this.errors[field_name] = 'Un DNI o NIE españoles. Por ejemplo 82451384H o X6909535J.';
+            } else {
+                this.errors[field_name] = '';
+            }
+        }, */
+        is_checked(field_name) {
+            if ( this.values[field_name] === false ) {
+                this.errors[field_name] = 'Falta aceptar la política de privacidad';
+            } else {
+                this.errors[field_name] = '';
+            }
+        }
     }">
 
         <h2>Ajusta los parámetros</h2>
@@ -112,6 +226,54 @@
         </div>
 
 
+        <input type="hidden" name="utm_medium" id="utm_medium" x-model="values.utm_medium" />
+        <input type="hidden" name="utm_source" id="utm_source" x-model="values.utm_source" />
+        <input type="hidden" name="utm_campaign" id="utm_campaign" x-model="values.utm_campaign" />
+        <input type="hidden" name="utm_content" id="utm_content" x-model="values.utm_content" />
+        <input type="hidden" name="utm_term" id="utm_term" x-model="values.utm_term" />
+        <input type="hidden" name="en_txn6" id="gclid" x-model="values.gclid" />
+        <input type="hidden" name="en_txn7" id="ip" x-model="values.ip" />
+        <input type="hidden" name="en_txn8" id="uagent" x-model="values.uagent" />
+        <input type="hidden" name="last_abtest_variant" id="last_abtest_variant" value="" />
+        <input type="hidden" name="hs_language" id="hs_language" x-model="values.hs_language" value="es" />
+        <div class="form-group">
+            <label for="first_name" class="d-none">Nombre <sup title="Campo obligatório">*</sup></label>
+            <input type="text" class="form-control" id="first_name" name="first_name" required="required" maxlength="40" autocomplete="given-name" x-model="values.first_name" x-on:input="required('first_name'); $store.fname = $el.value" />
+            <div class="error-message" x-text="errors.first_name" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+        </div>
+        <div class="form-group">
+            <label for="last_name" class="d-none">Apellidos <sup title="Campo obligatório">*</sup> </label>
+            <input type="text" class="form-control" id="last_name" name="last_name" required="required" maxlength="40" autocomplete="family-name" x-model="values.last_name" x-on:input="required('last_name')" />
+            <div class="error-message" x-text="errors.last_name" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="d-none">Email <sup title="Campo obligatório">*</sup></label>
+            <input type="email" class="form-control" id="email" name="email" required="required" maxlength="50" autocomplete="email" x-model="values.email" x-on:input="is_required_email('email'); $store.email = $el.value" x-on:change="is_new_email()"  />
+            <div class="error-message" x-text="errors.email" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+        </div>
+        <!--<div class="form-group">
+            <label for="id_number" class="d-none">{{ form.label_id_number }} <sup title="Campo obligatório">*</sup> <span class="sr-only">{{ form.example_id_number }}</span></label>
+            <input type="text" class="form-control" id="id_number" name="id_number" required="required" maxlength="12" placeholder="{{ form.label_id_number }}" x-model="values.id_number" x-on:input="is_required_id_number('id_number')" />
+            <div class="error-message" x-text="errors.id_number"  x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+        </div> -->
+        <div class="form-group">
+            <label for="phone_number" class="d-none">Teléfono <sup title="Campo obligatório">*</sup> <span class="sr-only">Ej. 623456789</span></label>
+            <input type="tel" class="form-control" id="phone_number" name="phone_number" maxlength="15" autocomplete="tel-national" required="required" x-model="values.phone_number" x-on:input="is_required_phone('phone_number')" />
+            <div class="error-message" x-text="errors.phone_number" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+        </div>
+        <div class="privacynotice" data-nosnippet="true">
+            Quiero recibir información acerca de las campañas de Greenpeace y formas de participación. Al firmar, acepto la política de privacidad. Desde GREENPEACE ESPAÑA trataremos los datos aportados en calidad de Responsable del tratamiento con la finalidad de gestionar nuestra relación contigo, en pro de nuestros objetivos fundacionales, en base al consentimiento o a la ejecución de un acuerdo. Puedes ejercer tus derechos enviando un email a contacto.es@greenpeace.org con el asunto “Protección de Datos”. <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/" class="privacy_policy_link_form">Más información.</a>
+        </div>
+        <div class="privacycontainer">
+            <label for="privacy">
+                <input type="checkbox" id="privacy" name="privacy" value="Y" required="required" x-model="values.privacy" x-on:change="is_checked('privacy')" />
+                <span id="iaccept">Acepto la política de privacidad <sup title="Campo obligatório">*</sup></span>
+                <div class="error-message" x-text="errors.privacy"  x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+            </label>
+        </div>
+        <div class="buttoncontainer">
+            <button type="submit" class="colored-button" x-on:click="show_errors = true; validate(); is_valid() && submit_form()"> Descarga la guía » </button>	
+        </div>
     </form>
 
 
@@ -122,14 +284,17 @@
         <div><span x-text="calculadora.ahorro_anual_esperado();"></span>€</div>
         <div>Ahorro anual indicativo</div>
         <h3>Y esto es lo que necesitarás</h3>
+
         <div class="question">
             <div x-text="calculadora.numero_paneles_a_instalar();"></div>
             <div>Número de paneles fotovoltaicos a instalar</div>
         </div>
+
         <div class="question">
             <div x-text="calculadora.potencia_necesaria_para_consumo_deseado();"></div>
             <div>Potencia necesaria (kWp) para cubrir tu consumo deseado</div>
         </div>
+
         <div class="question">
             <div><span x-text="calculadora.coste_de_tu_instalacion()"></span>€</div>
             <div>Coste de tu instalación (aproximado)</div>
@@ -146,6 +311,7 @@
         </div>
         <h3>¿Quieres dar el siguiente paso?</h3>
         <p>En Greenpeace hemos elaborado una guía con todo lo que necesitas saber para iniciarte en el autoconsumo de energía solar.</p>
+        <a href="javascript:void(0)">descarga tu guía de autoconsumo</a>
     </div>
 
 
