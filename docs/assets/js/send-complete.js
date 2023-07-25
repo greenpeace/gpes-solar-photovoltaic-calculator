@@ -101,7 +101,30 @@ async function sendToHubspot(formValues, calculadora) {
                 "name": "calculadora_orientacion_tejado",
                 "value": calculadora.orientacion_tejado
             },
-
+            {
+                "name": "calculadora_ahorro_anual_esperado",
+                "value": calculadora.ahorro_anual_esperado()
+            },
+            {
+                "name": "calculadora_numero_paneles_a_instalar",
+                "value": calculadora.numero_paneles_a_instalar()
+            },
+            {
+                "name": "calculadora_potencia_necesaria_para_consumo_deseado",
+                "value": calculadora.potencia_necesaria_para_consumo_deseado()
+            },
+            {
+                "name": "calculadora_coste_de_tu_instalacion",
+                "value": calculadora.coste_de_tu_instalacion()
+            },
+            {
+                "name": "calculadora_anos_amortizacion",
+                "value": calculadora.anos_amortizacion()
+            },
+            {
+                "name": "calculadora_emissiones",
+                "value": calculadora.emissiones()
+            },
 
         ],
         "context": {
