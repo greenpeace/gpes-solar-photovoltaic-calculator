@@ -72,7 +72,7 @@
         },
         async submit_form(){
             this.errors.form_sent = 'Yes';
-            const answer = await sendToHubspot(this.values);
+            const answer = await sendToHubspot(this.values, calculadora);
             if (answer) {
                 screen = 'thankyoupage';
             }

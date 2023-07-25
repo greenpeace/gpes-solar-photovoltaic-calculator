@@ -14,7 +14,7 @@
     <script src="../assets/js/scripts.js" defer></script>
     <script src="../assets/js/calculator.js" defer></script>
     <script src="../assets/js/form.js" defer></script>
-    <script src="../assets/js/send-simple.js" defer></script>
+    <script src="../assets/js/send-complete.js" defer></script>
     <script src="../assets/js/alpine.min.js" defer></script>
     <script src="../src/Calculadora.js"></script>
     <meta name="description" content="Cómo puedo hacer autoconsumo solar" />
@@ -115,7 +115,7 @@
         },
         async submit_form(){
             this.errors.form_sent = 'Yes';
-            const answer = await sendToHubspot(this.values);
+            const answer = await sendToHubspot(this.values, calculadora);
             if (answer) {
                 screen = 'thankyoupage';
             }
