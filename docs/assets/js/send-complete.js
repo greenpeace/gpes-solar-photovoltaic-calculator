@@ -111,7 +111,7 @@ async function sendToHubspot(formValues, calculadora) {
             },
             {
                 "name": "calculadora_potencia_necesaria_para_consumo_deseado",
-                "value": calculadora.potencia_necesaria_para_consumo_deseado()
+                "value": Math.round((calculadora.potencia_necesaria_para_consumo_deseado() + Number.EPSILON) * 100) / 100 
             },
             {
                 "name": "calculadora_coste_de_tu_instalacion",
