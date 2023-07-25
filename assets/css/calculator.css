@@ -5,8 +5,25 @@
     padding: 15px;
 }
 
+.question label {
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.actual_value {
+    color: var(--footnote-color);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 2.2rem;
+    margin: 27px;
+}
+
 p {
     font-size: 1.125rem;
+    margin: 27px;
 }
 
 h2 {
@@ -37,6 +54,11 @@ label[for=privacy]{
 #signup {
     max-width: 100%;
     background-color: var(--background-gray);
+    padding-top: 22px;
+}
+
+#signup h2 {
+    margin: 3px 11px;
 }
 
 .error-message {
@@ -93,6 +115,7 @@ select {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 1);
     border: 0.5px solid rgba(144, 144, 144, 1);
+    padding: 7px;
 }
 
 /* INPUT RANGE */
@@ -164,6 +187,7 @@ input[type=range] {
   .personal_data {
     background-color: var(--background-yellow);
     padding: 27px;
+    margin-top: 13px;
   }
 
   .personal_data h2 {
