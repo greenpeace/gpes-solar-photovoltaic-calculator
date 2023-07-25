@@ -268,7 +268,7 @@
             <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Plano" id="Plano" />
         </div>
 
-        <div x-show="screen ==='landing'" x-transition.duration.300ms>
+        <div x-show="screen ==='landing'" x-bind:aria-hidden="not(screen ==='landing')" x-transition.duration.300ms>
             <input type="hidden" name="utm_medium" id="utm_medium" x-model="values.utm_medium" />
             <input type="hidden" name="utm_source" id="utm_source" x-model="values.utm_source" />
             <input type="hidden" name="utm_campaign" id="utm_campaign" x-model="values.utm_campaign" />

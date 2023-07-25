@@ -82,7 +82,15 @@ async function sendToHubspot(formValues, calculadora) {
             {
                 "name": "mobilephone",
                 "value": /^[67]\d{8}$/.test(phone) ? phone : ""
+            },
+
+            // Calculadora values
+            {
+                "name": "calculadora_consumo_anual",
+                "value": calculadora.consumo_anual
             }
+
+
         ],
         "context": {
             "hutk": cookie_read("hubspotutk"),
