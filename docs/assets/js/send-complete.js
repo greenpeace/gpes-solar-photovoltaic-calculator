@@ -88,7 +88,19 @@ async function sendToHubspot(formValues, calculadora) {
             {
                 "name": "calculadora_consumo_anual",
                 "value": calculadora.consumo_anual
-            }
+            },
+            {
+                "name": "calculadora_porcentaje_consumo",
+                "value": calculadora.porcentaje_consumo
+            },
+            {
+                "name": "calculadora_provincia",
+                "value": calculadora.provincia
+            },
+            {
+                "name": "calculadora_orientacion_tejado",
+                "value": calculadora.orientacion_tejado
+            },
 
 
         ],
