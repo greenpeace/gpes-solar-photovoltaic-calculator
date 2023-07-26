@@ -296,7 +296,7 @@
     </form>
 
 
-    <div class="results" x-bind:aria-hidden="not(screen ==='thankyoupage')">
+    <div class="results" x-show="screen ==='thankyoupage'" x-bind:aria-hidden="not(screen ==='thankyoupage')">
         <h2>Aquí tienes tus resultados</h2>
         <p>Te los hemos enviado también por e-mail para que los tengas a mano.</p>
 
@@ -341,7 +341,9 @@
         </div>
         <h3>¿Quieres dar el siguiente paso?</h3>
         <p>En Greenpeace hemos elaborado una guía con todo lo que necesitas saber para iniciarte en el autoconsumo de energía solar.</p>
-        <a href="javascript:void(0)">descarga tu guía de autoconsumo</a>
+        <div class="download-button">
+            <a href="javascript:void(0)">descarga tu guía</a>
+        </div>
     </div>
 
 
