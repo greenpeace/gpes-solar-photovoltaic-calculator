@@ -13,6 +13,7 @@
 .actual_value {
     color: var(--footnote-color);
     text-align: center;
+    display: block;
 }
 
 h1 {
@@ -139,56 +140,61 @@ select {
 /* INPUT RANGE */
 
 input[type=range] {
-    height: 34px;
-    -webkit-appearance: none;
-    margin: 10px 0;
-    width: 100%;
-    background: transparent;
-  }
-  input[type=range]:focus {
-    outline: none;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 12px;
-    cursor: pointer;
-    box-shadow: 0px 0px 0px #000000;
-    background: var(--text-color2);
-    border-radius: 5px;
-    border: 0px solid #000000;
-  }
-  input[type=range]::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #5C5C5C;
-    border: 1px solid #E6E6E6;
-    height: 26px;
-    width: 26px;
-    border-radius: 26px;
-    background: #F2F2F2;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -7.5px;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: var(--text-color2);
-  }
-  input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 12px;
-    cursor: pointer;
-    box-shadow: 0px 0px 0px #000000;
-    background: var(--text-color2);
-    border-radius: 5px;
-    border: 0px solid #000000;
-  }
-  input[type=range]::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #5C5C5C;
-    border: 1px solid #E6E6E6;
-    height: 26px;
-    width: 26px;
-    border-radius: 26px;
-    background: #F2F2F2;
-    cursor: pointer;
-  }
+  cursor: pointer;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #2AB20B;
+  height: 13px;
+  border-radius: 13px;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: #2AB20B;
+  height: 13px;
+  border-radius: 13px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  margin-top: -6px;
+  background-color: #F2F2F2;
+  border: 1px solid #8a8a8a;
+  height: 25px;
+  width: 25px;
+  border-radius: 53px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  margin-top: -6px;
+  background-color: #F2F2F2;
+  border: 1px solid #8a8a8a;
+  height: 25px;
+  width: 25px;
+  border-radius: 53px;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid #053a5f;
+  outline: 2px solid #053a5f;
+  outline-offset: 0.125rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid #053a5f;
+  outline: 2px solid #053a5f;
+  outline-offset: 0.125rem;
+}
  
 
   .house {
