@@ -339,7 +339,7 @@
     </form>
 
 
-    <div class="results"  x-bind:aria-hidden="not(screen ==='thankyoupage')">
+    <div class="results" x-show="screen ==='thankyoupage'" x-bind:aria-hidden="not(screen ==='thankyoupage')">
         <h2>Aquí tienes tus resultados</h2>
         <p>Te los hemos enviado también por e-mail para que los tengas a mano.</p>
 
