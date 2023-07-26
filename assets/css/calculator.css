@@ -220,13 +220,33 @@ input[type="range"]:focus::-moz-range-thumb {
 
   .results {
     background-color: var(--background-gray);
+    padding-top: 5px;
   }
+
+  .results h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 27px;
+  }
+
+  .results h3 {
+    max-width: 325px;
+    margin: auto;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    text-align: center;
+    color: var(--text-color2);
+    font-size: 1.13rem;
+  }
+
 
 .result_box_large {
     padding-top: 10px;
     border-radius: 30px;
     background-color: var(--background-top-menu);
     height: 119px;
+    max-width: 325px;
+    margin:auto
   }
 
 .result_box_large .strong_result {
@@ -252,6 +272,7 @@ input[type="range"]:focus::-moz-range-thumb {
     justify-content: center;
     gap: 16px;
     max-width: 340px;
+    margin:auto;
   } 
 
 .result_box_small {
