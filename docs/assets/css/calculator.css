@@ -295,6 +295,11 @@ input[type="range"]:focus::-moz-range-thumb {
 
 
   @media screen and (min-width: 813px) {
+
+    body {
+      background-color: var(--background-gray);
+    }
+
     .house {
         grid-template-columns: auto auto;
         grid-template-areas:
@@ -302,5 +307,21 @@ input[type="range"]:focus::-moz-range-thumb {
             'porcentaje_consumo orientacion_tejado'
             'provincia orientacion_tejado';
         gap: 2px;
+        margin: auto;
+        max-width: 91vw;
+        margin-bottom: 4vw;
     }
+
+    #signup h2 {
+      margin: 5px 5vw;
+    }
+
+    h1 {
+      margin: 40px 5vw 5px 5vw;
+    }
+
+    p {
+      margin: 27px 5vw;
+    }
+
   }
