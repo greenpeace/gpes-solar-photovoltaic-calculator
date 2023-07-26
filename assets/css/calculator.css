@@ -357,6 +357,10 @@ input[type="range"]:focus::-moz-range-thumb {
         font-size: 2.25rem;
     }
 
+    body {
+        padding-bottom: 30px;
+    }
+
     .lead {
         width: 935px;
         margin: auto;
@@ -376,6 +380,39 @@ input[type="range"]:focus::-moz-range-thumb {
     .personal_data {
         padding-left: 0;
         padding-right: 0;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: 
+            'form_h2 form_h2'
+            'form_first_name form_privacy_notice'
+            'form_last_name form_privacy_notice'
+            'form_email form_privacy'
+            'form_phone form_button'
+
+        ;
+        border-radius: 10px;
+        margin: 8px;
+    }
+
+    .form-group {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .privacynotice {
+        padding-right: 29px;
+    }
+
+    label[for=phone_number] {
+        margin-top: 10px;
+    }
+
+    #signup .personal_data h2 {
+        margin: 15px 24px;
+    }
+
+    .house {
+        margin-bottom: 20px;
     }
 
   }

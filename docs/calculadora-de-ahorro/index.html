@@ -286,7 +286,7 @@
         </div>
 
         <div x-show="screen ==='landing'" x-bind:aria-hidden="not(screen ==='landing')" x-transition.duration.300ms class="personal_data">
-            <h2>Rellena el formulario y te enviaremos los resultados por email</h2>
+            <h2 style="grid-area: form_h2;">Rellena el formulario y te enviaremos los resultados por email</h2>
             <input type="hidden" name="utm_medium" id="utm_medium" x-model="values.utm_medium" />
             <input type="hidden" name="utm_source" id="utm_source" x-model="values.utm_source" />
             <input type="hidden" name="utm_campaign" id="utm_campaign" x-model="values.utm_campaign" />
@@ -297,17 +297,17 @@
             <input type="hidden" name="en_txn8" id="uagent" x-model="values.uagent" />
             <input type="hidden" name="last_abtest_variant" id="last_abtest_variant" value="" />
             <input type="hidden" name="hs_language" id="hs_language" x-model="values.hs_language" value="es" />
-            <div class="form-group">
+            <div class="form-group" style="grid-area: form_first_name;">
                 <label for="first_name" class="d-none">Nombre <sup title="Campo obligatório">*</sup></label>
                 <input type="text" class="form-control" id="first_name" name="first_name" required="required" maxlength="40" autocomplete="given-name" x-model="values.first_name" x-on:input="required('first_name'); $store.fname = $el.value" />
                 <div class="error-message" x-text="errors.first_name" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="grid-area: form_last_name;">
                 <label for="last_name" class="d-none">Apellidos <sup title="Campo obligatório">*</sup> </label>
                 <input type="text" class="form-control" id="last_name" name="last_name" required="required" maxlength="40" autocomplete="family-name" x-model="values.last_name" x-on:input="required('last_name')" />
                 <div class="error-message" x-text="errors.last_name" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="grid-area: form_email;">
                 <label for="email" class="d-none">Email <sup title="Campo obligatório">*</sup></label>
                 <input type="email" class="form-control" id="email" name="email" required="required" maxlength="50" autocomplete="email" x-model="values.email" x-on:input="is_required_email('email'); $store.email = $el.value" x-on:change="is_new_email()"  />
                 <div class="error-message" x-text="errors.email" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
@@ -317,22 +317,22 @@
                 <input type="text" class="form-control" id="id_number" name="id_number" required="required" maxlength="12" placeholder="" x-model="values.id_number" x-on:input="is_required_id_number('id_number')" />
                 <div class="error-message" x-text="errors.id_number"  x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
             </div> -->
-            <div class="form-group">
+            <div class="form-group" style="grid-area: form_phone;">
                 <label for="phone_number" class="d-none">Teléfono <sup title="Campo obligatório">*</sup> <span class="sr-only">Ej. 623456789</span></label>
                 <input type="tel" class="form-control" id="phone_number" name="phone_number" maxlength="15" autocomplete="tel-national" required="required" x-model="values.phone_number" x-on:input="is_required_phone('phone_number')" />
                 <div class="error-message" x-text="errors.phone_number" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
             </div>
-            <div class="privacynotice" data-nosnippet="true">
+            <div class="privacynotice" data-nosnippet="true" style="grid-area: form_privacy_notice;">
                 Quiero recibir información acerca de las campañas de Greenpeace y formas de participación. Al firmar, acepto la política de privacidad. Desde GREENPEACE ESPAÑA trataremos los datos aportados en calidad de Responsable del tratamiento con la finalidad de gestionar nuestra relación contigo, en pro de nuestros objetivos fundacionales, en base al consentimiento o a la ejecución de un acuerdo. Puedes ejercer tus derechos enviando un email a contacto.es@greenpeace.org con el asunto “Protección de Datos”. <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/" class="privacy_policy_link_form">Más información.</a>
             </div>
-            <div class="privacycontainer">
+            <div class="privacycontainer" style="grid-area: form_privacy;">
                 <label for="privacy">
                     <input type="checkbox" id="privacy" name="privacy" value="Y" required="required" x-model="values.privacy" x-on:change="is_checked('privacy')" />
                     <span id="iaccept">Acepto la política de privacidad <sup title="Campo obligatório">*</sup></span>
                     <div class="error-message" x-text="errors.privacy"  x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
                 </label>
             </div>
-            <div class="buttoncontainer">
+            <div class="buttoncontainer" style="grid-area: form_button;">
                 <button type="submit" class="colored-button" x-on:click="show_errors = true; validate(); is_valid() && submit_form()"> Descarga la guía » </button>	
             </div>
         </div>
