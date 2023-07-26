@@ -288,6 +288,14 @@ input[type="range"]:focus::-moz-range-thumb {
     text-align: center;
 }
 
+.results p {
+    max-width: 510px;
+    margin: auto;
+    text-align: center;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
 .result_box_small .strong_result {
     font-weight: bold;
     font-size: 2.25rem;
@@ -316,12 +324,26 @@ input[type="range"]:focus::-moz-range-thumb {
       margin: 5px 5vw;
     }
 
+    #signup .personal_data h2 {
+        margin: 14px 0vw;
+    }
+
     h1 {
-      margin: 40px 5vw 5px 5vw;
+        margin: 40px 5vw 5px 5vw;
     }
 
     p {
-      margin: 27px 5vw;
+        margin: 27px 5vw;
+    }
+
+    .personal_data {
+        background-color: var(--background-top-menu);
+        padding-left: 20vw;
+        padding-right: 20vw;
+    }
+
+    input[type=text], input[type=email], input[type=tel] {
+        background-color: var(--background-top-menu);
     }
 
   }
