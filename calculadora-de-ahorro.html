@@ -136,18 +136,18 @@
 
         <div class="house">
 
-            <div class="question" style="grid-area: consumo_anual;">
-                <label for="consumo_anual">¿Cuál es tu consumo anual (kWh)?</label>
-                <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
-                <input type="range" id="consumo_anual" x-model="calculadora.consumo_anual" min="0" max="10000" step="100" />
-                <output x-text="calculadora.consumo_anual" class="actual_value"></output>
+            <div class="question questiongrid" style="grid-area: consumo_anual;">
+                <label style="grid-area: questiongrid_label;" for="consumo_anual">¿Cuál es tu consumo anual (kWh)?</label>
+                <div style="grid-area: questiongrid_icon;"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+                <input style="grid-area: questiongrid_input;" type="range" id="consumo_anual" x-model="calculadora.consumo_anual" min="0" max="10000" step="100" />
+                <output style="grid-area: questiongrid_output;" x-text="calculadora.consumo_anual" class="actual_value"></output>
             </div>
 
-            <div class="question" style="grid-area: porcentaje_consumo;">
-                <label for="porcentaje_consumo">¿Qué porcentaje de tu consumo quieres cubrir con autoconsumo solar?</label>
-                <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
-                <input type="range" id="porcentaje_consumo" x-model="calculadora.porcentaje_consumo" min="0" max="100" step="5" />
-                <output class="actual_value"><span x-text="calculadora.porcentaje_consumo"></span>%</output>
+            <div class="question questiongrid" style="grid-area: porcentaje_consumo;">
+                <label style="grid-area: questiongrid_label;" for="porcentaje_consumo">¿Qué porcentaje de tu consumo quieres cubrir con autoconsumo solar?</label>
+                <div style="grid-area: questiongrid_icon;"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+                <input style="grid-area: questiongrid_input;" type="range" id="porcentaje_consumo" x-model="calculadora.porcentaje_consumo" min="0" max="100" step="5" />
+                <output style="grid-area: questiongrid_output;" class="actual_value"><span x-text="calculadora.porcentaje_consumo"></span>%</output>
             </div>
 
             <div class="question" style="grid-area: provincia;">
