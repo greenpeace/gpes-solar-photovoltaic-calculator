@@ -137,6 +137,12 @@ select {
     padding: 7px;
 }
 
+legend {
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+
 /* INPUT RANGE */
 
 input[type=range] {
@@ -309,7 +315,7 @@ input[type="range"]:focus::-moz-range-thumb {
     }
 
     .house {
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
         grid-template-areas:
             'consumo_anual orientacion_tejado'
             'porcentaje_consumo orientacion_tejado'
@@ -390,6 +396,7 @@ input[type="range"]:focus::-moz-range-thumb {
             'form_phone form_button'
 
         ;
+        column-gap: 8px;
         border-radius: 10px;
         margin: 8px;
     }
@@ -400,7 +407,7 @@ input[type="range"]:focus::-moz-range-thumb {
     }
 
     .privacynotice {
-        padding-right: 29px;
+        padding-right: 39px;
     }
 
     label[for=phone_number] {
@@ -412,7 +419,13 @@ input[type="range"]:focus::-moz-range-thumb {
     }
 
     .house {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
+        column-gap: 30px;
+        width: 960px;
+    }
+
+    .tejadoquestion {
+        width: 404px;
     }
 
   }
