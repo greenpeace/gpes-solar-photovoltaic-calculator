@@ -223,25 +223,37 @@
                     <legend>¿Cuál es la orientación de tu tejado?</legend>
                     <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
                     <img src="../assets/img/ilustracion-orientacion-tejado.svg" alt="Ilustración orientación del tejado" />
-                    <div>
-                        <label for="Norte">N<span class="sr-only"> - Norte</span></label>
-                        <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Norte" id="Norte" />
-                    </div>
-                    <div>
-                        <label for="Sur">S<span class="sr-only"> - Sur</span></label>
-                        <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Sur" id="Sur" />
-                    </div>
-                    <div>
-                        <label for="Este">E<span class="sr-only"> - Este</span></label>
-                        <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Este" id="Este" />
-                    </div>
-                    <div>
-                        <label for="Oeste">O<span class="sr-only"> - Oeste</span></label>
-                        <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Oeste" id="Oeste" />
-                    </div>
-                    <div>
-                        <label for="Plano">Plano</label>
-                        <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" value="Plano" id="Plano" />
+                    <div id="cardinal-container">
+    
+                        <div class="cardinal norte">
+                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Norte" value="Norte" class="custom-radio">
+                            <label for="Norte" x-bind:class="calculadora.orientacion_tejado === 'Norte' ? 'pointing' : ''">N<span class="sr-only"> - Norte</span></label>
+                            <img src="../assets/img/n.svg" />
+                        </div>
+                
+                        <div class="cardinal sur">
+                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Sur" value="Sur" class="custom-radio" checked>
+                            <label for="Sur" x-bind:class="calculadora.orientacion_tejado === 'Sur' ? 'pointing' : ''">S<span class="sr-only"> - Sur</span></label>
+                            <img src="../assets/img/s.svg" />
+                        </div>
+                
+                        <div class="cardinal este">
+                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Este" value="Este" class="custom-radio">
+                            <label for="Este" x-bind:class="calculadora.orientacion_tejado === 'Este' ? 'pointing' : ''">E<span class="sr-only"> - Este</span></label>
+                            <img src="../assets/img/e.svg" />
+                        </div>
+                
+                        <div class="cardinal oeste">
+                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Oeste" value="Oeste" class="custom-radio">
+                            <label for="Oeste" x-bind:class="calculadora.orientacion_tejado === 'Oeste' ? 'pointing' : ''">O<span class="sr-only"> - Oeste</span></label>
+                            <img src="../assets/img/o.svg" />
+                        </div>
+                
+                        <div class="cardinal plano">
+                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Plano" value="Plano" class="custom-radio">
+                            <label for="Plano" x-bind:class="calculadora.orientacion_tejado === 'Plano' ? 'pointing' : ''">Plano</label>
+                        </div>
+                
                     </div>
                 </fieldset>
                 

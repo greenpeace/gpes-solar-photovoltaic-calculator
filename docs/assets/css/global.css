@@ -12,6 +12,10 @@
     --active-color: #fff7d9;
     --back-button-color:rgba(177, 178, 181, 1);
     --footnote-color: rgba(144, 144, 144, 1);
+
+    --color: #999;
+    --checked-color: rgba(42, 178, 11, 1);
+    --bg-color: #e8e8e8;
 }
 
 @media (prefers-contrast: more) {
