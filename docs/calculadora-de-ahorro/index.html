@@ -261,10 +261,10 @@
                 </select>
             </div>
 
-            <div class="question tejadoquestion" style="grid-area: orientacion_tejado;">
+            <div class="question tejadoquestion" style="grid-area: orientacion_tejado;" x-data="{ explaination: false }">
                 <fieldset>
                     <legend>¿Cuál es la orientación de tu tejado?</legend>
-                    <div><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+                    <div x-on:click="explaination = 'true'; flyTo('oritejado')"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
                     <img src="../assets/img/ilustracion-orientacion-tejado.svg" alt="Ilustración orientación del tejado" />
                     <div id="cardinal-container">
     
@@ -299,6 +299,13 @@
                 
                     </div>
                 </fieldset>
+
+                <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" x-transition.duration.300ms class="infobox" id="oritejado">
+                    <p><strong>Orientación e inclinación de tu tejado</strong></p>
+                    <p>La orientación e inclinación son aspectos fundamentales para optimizar el rendimiento de tus placas. Sur, este, oeste o plano y sus combinaciones serán perfectas según tus hábitos de consumo: si consumes por las mañanas te interesará este, sur o plano; si consumes más por la tarde oeste, sur o plano.</p>
+                    <p>La orientación norte debes descartarla por su menor rendimiento y buscar otras opciones.</p>
+                    <p>Las inclinaciones de tejado más habituales, de entre 20-30º, serían correctas. Tu instalador podrá asesorarte sobre alternativas si son diferentes.</p>
+                </div>
                 
             </div>
 
