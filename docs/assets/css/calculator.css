@@ -315,7 +315,14 @@ input[type="range"]:focus::-moz-range-thumb {
     'questiongrid_label questiongrid_icon'
     'questiongrid_input questiongrid_input'
     'questiongrid_output questiongrid_output'
+    'questiongrid_explaination questiongrid_explaination'
     ;
+    column-gap: 5px;
+}
+
+.infobox p {
+    font-size: 1rem;
+    margin: 16px 0;
 }
 
 

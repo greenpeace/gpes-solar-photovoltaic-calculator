@@ -179,18 +179,25 @@
 
         <div class="house">
 
-            <div class="question questiongrid" style="grid-area: consumo_anual;">
+            <div class="question questiongrid" style="grid-area: consumo_anual;" x-data="{ explaination: false }">
                 <label style="grid-area: questiongrid_label;" for="consumo_anual">¿Cuál es tu consumo anual (kWh)?</label>
-                <div style="grid-area: questiongrid_icon;"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = 'true'"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
                 <input style="grid-area: questiongrid_input;" type="range" id="consumo_anual" x-model="calculadora.consumo_anual" min="0" max="10000" step="100" />
                 <output style="grid-area: questiongrid_output;" x-text="calculadora.consumo_anual" class="actual_value"></output>
+                <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" style="grid-area: questiongrid_explaination;" x-transition.duration.300ms class="infobox">
+                    <p>Es muy fácil. Mira en tu factura de la luz. Busca dentro del apartado “información sobre tu consumo eléctrico” los datos relativos a tu consumo anual (número expresado en kWh, 2.000-3.500 kWh por ejemplo). Ten en cuenta que tu consumo de electricidad aumentará si en el futuro decides electrificar algún consumo (cambio de calefacción o agua caliente a aerotermia, coche eléctrico, etc), pero el consumo energético total disminuirá considerablemente, al ser más eficientes.</p>
+                </div>
             </div>
 
-            <div class="question questiongrid" style="grid-area: porcentaje_consumo;">
+            <div class="question questiongrid" style="grid-area: porcentaje_consumo;" x-data="{ explaination: false }">
                 <label style="grid-area: questiongrid_label;" for="porcentaje_consumo">¿Qué porcentaje de tu consumo quieres cubrir con autoconsumo solar?</label>
-                <div style="grid-area: questiongrid_icon;"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = 'true'"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
                 <input style="grid-area: questiongrid_input;" type="range" id="porcentaje_consumo" x-model="calculadora.porcentaje_consumo" min="0" max="100" step="5" />
                 <output style="grid-area: questiongrid_output;" class="actual_value"><span x-text="calculadora.porcentaje_consumo"></span>%</output>
+                <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" style="grid-area: questiongrid_explaination;" x-transition.duration.300ms class="infobox">
+                    <p>Si vives en un bloque de vecinos...</p>
+                    <p>Ten en cuenta que, si usáis vuestro tejado, el espacio disponible para las placas será más limitado que en las viviendas unifamiliares. Es habitual que cada vivienda pueda cubrir 1,5 kW de potencia, suficiente para satisfacer 1.500-2.200 kWh de energía al año.</p>
+                </div>
             </div>
 
             <div class="question" style="grid-area: provincia;">
