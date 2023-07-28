@@ -389,9 +389,28 @@ input[type="radio"] {
         ;
 }
 
+#botom_tejado {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    'cardinal-container'
+    'north-alert'
+    'cardinal-image'
+    ;
+    justify-content: center;
+}
+
+#botom_tejado > img {
+    margin: auto;
+}
+
+#botom_tejado .error p {
+    font-size: 0.8rem;
+}
+
 #cardinal-container {
     position: relative;
-    max-width: 200px;
+    width: 200px;
     height: 200px;
     margin: auto;
 }

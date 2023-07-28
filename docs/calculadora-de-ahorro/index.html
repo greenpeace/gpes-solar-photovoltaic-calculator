@@ -267,39 +267,44 @@
                         <legend style="grid-area: tejado_legend;">¿Cuál es la orientación de tu tejado?</legend>
                         <div style="grid-area: tejado_infoicon;" x-on:click="explaination = 'true'; flyTo('oritejado')"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
                     </div>
-                    <div id="cardinal-container">
-    
-                        <div class="cardinal norte">
-                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Norte" value="Norte" class="custom-radio">
-                            <label for="Norte" x-bind:class="calculadora.orientacion_tejado === 'Norte' ? 'pointing' : ''">N<span class="sr-only"> - Norte</span></label>
-                            <img src="../assets/img/n.svg" alt="&uarr;" width="16" height="16" />
+                    <div id="botom_tejado">
+                        <div id="cardinal-container" style="grid-area: cardinal-container;">
+                            <div class="cardinal norte">
+                                <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Norte" value="Norte" class="custom-radio">
+                                <label for="Norte" x-bind:class="calculadora.orientacion_tejado === 'Norte' ? 'pointing' : ''">N<span class="sr-only"> - Norte</span></label>
+                                <img src="../assets/img/n.svg" alt="&uarr;" width="16" height="16" />
+                            </div>
+                    
+                            <div class="cardinal sur">
+                                <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Sur" value="Sur" class="custom-radio" checked>
+                                <label for="Sur" x-bind:class="calculadora.orientacion_tejado === 'Sur' ? 'pointing' : ''">S<span class="sr-only"> - Sur</span></label>
+                                <img src="../assets/img/s.svg" alt="&darr;" width="16" height="16" />
+                            </div>
+                    
+                            <div class="cardinal este">
+                                <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Este" value="Este" class="custom-radio" style="margin-right: 6px;">
+                                <label for="Este" x-bind:class="calculadora.orientacion_tejado === 'Este' ? 'pointing' : ''" style="margin-right: 3px; margin-top: 1px;">E<span class="sr-only"> - Este</span></label>
+                                <img src="../assets/img/e.svg" alt="&rarr;" width="16" height="16" />
+                            </div>
+                    
+                            <div class="cardinal oeste">
+                                <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Oeste" value="Oeste" class="custom-radio">
+                                <label for="Oeste" x-bind:class="calculadora.orientacion_tejado === 'Oeste' ? 'pointing' : ''" style="margin-top: 2px;">O<span class="sr-only"> - Oeste</span></label>
+                                <img src="../assets/img/o.svg" alt="&harr;" width="16" height="16" />
+                            </div>
+                    
+                            <div class="cardinal plano">
+                                <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Plano" value="Plano" class="custom-radio">
+                                <label for="Plano" x-bind:class="calculadora.orientacion_tejado === 'Plano' ? 'pointing' : ''">Plano</label>
+                            </div>
+                    
                         </div>
-                
-                        <div class="cardinal sur">
-                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Sur" value="Sur" class="custom-radio" checked>
-                            <label for="Sur" x-bind:class="calculadora.orientacion_tejado === 'Sur' ? 'pointing' : ''">S<span class="sr-only"> - Sur</span></label>
-                            <img src="../assets/img/s.svg" alt="&darr;" width="16" height="16" />
+                        <div x-show="calculadora.orientacion_tejado === 'Norte'" style="grid-area: north-alert;" class="error">
+                            <p>La orientación norte debes descartarla por su menor rendimiento y buscar otras opciones.</p>
                         </div>
-                
-                        <div class="cardinal este">
-                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Este" value="Este" class="custom-radio" style="margin-right: 6px;">
-                            <label for="Este" x-bind:class="calculadora.orientacion_tejado === 'Este' ? 'pointing' : ''" style="margin-right: 3px; margin-top: 1px;">E<span class="sr-only"> - Este</span></label>
-                            <img src="../assets/img/e.svg" alt="&rarr;" width="16" height="16" />
-                        </div>
-                
-                        <div class="cardinal oeste">
-                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Oeste" value="Oeste" class="custom-radio">
-                            <label for="Oeste" x-bind:class="calculadora.orientacion_tejado === 'Oeste' ? 'pointing' : ''" style="margin-top: 2px;">O<span class="sr-only"> - Oeste</span></label>
-                            <img src="../assets/img/o.svg" alt="&harr;" width="16" height="16" />
-                        </div>
-                
-                        <div class="cardinal plano">
-                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Plano" value="Plano" class="custom-radio">
-                            <label for="Plano" x-bind:class="calculadora.orientacion_tejado === 'Plano' ? 'pointing' : ''">Plano</label>
-                        </div>
-                
+                        <img style="grid-area: cardinal-image;" src="../assets/img/ilustracion-orientacion-tejado.svg" width="171" height="153" alt="Ilustración orientación del tejado" />
                     </div>
-                    <img src="../assets/img/ilustracion-orientacion-tejado.svg" width="171" height="153" alt="Ilustración orientación del tejado" />
+
 
                 </fieldset>
 

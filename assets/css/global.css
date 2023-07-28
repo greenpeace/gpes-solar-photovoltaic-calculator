@@ -67,6 +67,10 @@ menu {
     font-weight: bold;
 }
 
+.error {
+    color: var(--text-error);
+}
+
 .logo {
     width: 140px;
     grid-column-start: 1;
