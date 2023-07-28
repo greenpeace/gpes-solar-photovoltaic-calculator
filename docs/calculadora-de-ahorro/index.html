@@ -27,7 +27,7 @@
         <menu id="topmenu">
         <div class="title">Guía de autoconsumo solar</div>
         <div class="logo"><img src="../assets/img/greenpeace.svg" alt="Greenpeace" width="184" height="29" /></div>
-        <div class="hamburger"><a href="javascript:void(0);" onclick="enter('#sidemenu', 'slideInLeft');"><img src="../assets/img/hamburger.svg" alt="Hamburger" /></a></div>
+        <div class="hamburger"><a href="javascript:void(0);" onclick="enter('#sidemenu', 'slideInLeft');"><img src="../assets/img/hamburger.svg" width="37" height="26" alt="Hamburger" /></a></div>
         <div class="autoconsumo"><a href="../">¿Cómo hacer autoconsumo solar?</a></div>
         <div class="calculadora"><a href="./">Calculadora de ahorro</a></div>
         <div class="descarga"><a href="../descarga-tu-guia/">Descarga tu guía</a></div>
@@ -181,7 +181,7 @@
 
             <div class="question questiongrid" style="grid-area: consumo_anual;" x-data="{ explaination: false }">
                 <label style="grid-area: questiongrid_label;" for="consumo_anual">¿Cuál es tu consumo anual (kWh)?</label>
-                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = 'true'"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = 'true'"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
                 <input style="grid-area: questiongrid_input;" type="range" id="consumo_anual" x-model="calculadora.consumo_anual" min="0" max="10000" step="100" />
                 <output style="grid-area: questiongrid_output;" x-text="calculadora.consumo_anual" class="actual_value"></output>
                 <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" style="grid-area: questiongrid_explaination;" x-transition.duration.300ms class="infobox">
@@ -191,7 +191,7 @@
 
             <div class="question questiongrid" style="grid-area: porcentaje_consumo;" x-data="{ explaination: false }">
                 <label style="grid-area: questiongrid_label;" for="porcentaje_consumo">¿Qué porcentaje de tu consumo quieres cubrir con autoconsumo solar?</label>
-                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = 'true'"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
+                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = 'true'"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
                 <input style="grid-area: questiongrid_input;" type="range" id="porcentaje_consumo" x-model="calculadora.porcentaje_consumo" min="0" max="100" step="5" />
                 <output style="grid-area: questiongrid_output;" class="actual_value"><span x-text="calculadora.porcentaje_consumo"></span>%</output>
                 <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" style="grid-area: questiongrid_explaination;" x-transition.duration.300ms class="infobox">
@@ -264,32 +264,32 @@
             <div class="question tejadoquestion" style="grid-area: orientacion_tejado;" x-data="{ explaination: false }">
                 <fieldset>
                     <legend>¿Cuál es la orientación de tu tejado?</legend>
-                    <div x-on:click="explaination = 'true'; flyTo('oritejado')"><a href="javascript:void(0);"><img src="../assets/img/i.svg" alt="Más información" /></a></div>
-                    <img src="../assets/img/ilustracion-orientacion-tejado.svg" alt="Ilustración orientación del tejado" />
+                    <div x-on:click="explaination = 'true'; flyTo('oritejado')"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
+                    <img src="../assets/img/ilustracion-orientacion-tejado.svg" width="171" height="153" alt="Ilustración orientación del tejado" />
                     <div id="cardinal-container">
     
                         <div class="cardinal norte">
                             <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Norte" value="Norte" class="custom-radio">
                             <label for="Norte" x-bind:class="calculadora.orientacion_tejado === 'Norte' ? 'pointing' : ''">N<span class="sr-only"> - Norte</span></label>
-                            <img src="../assets/img/n.svg" />
+                            <img src="../assets/img/n.svg" alt="&uarr;" width="16" height="16" />
                         </div>
                 
                         <div class="cardinal sur">
                             <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Sur" value="Sur" class="custom-radio" checked>
                             <label for="Sur" x-bind:class="calculadora.orientacion_tejado === 'Sur' ? 'pointing' : ''">S<span class="sr-only"> - Sur</span></label>
-                            <img src="../assets/img/s.svg" />
+                            <img src="../assets/img/s.svg" alt="&darr;" width="16" height="16" />
                         </div>
                 
                         <div class="cardinal este">
                             <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Este" value="Este" class="custom-radio">
                             <label for="Este" x-bind:class="calculadora.orientacion_tejado === 'Este' ? 'pointing' : ''">E<span class="sr-only"> - Este</span></label>
-                            <img src="../assets/img/e.svg" />
+                            <img src="../assets/img/e.svg" alt="&rarr;" width="16" height="16" />
                         </div>
                 
                         <div class="cardinal oeste">
                             <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Oeste" value="Oeste" class="custom-radio">
                             <label for="Oeste" x-bind:class="calculadora.orientacion_tejado === 'Oeste' ? 'pointing' : ''">O<span class="sr-only"> - Oeste</span></label>
-                            <img src="../assets/img/o.svg" />
+                            <img src="../assets/img/o.svg" alt="&harr;" width="16" height="16" />
                         </div>
                 
                         <div class="cardinal plano">
@@ -382,7 +382,7 @@
             <div class="result_box_small">
                 <div x-text="calculadora.numero_paneles_a_instalar();" class="strong_result"></div>
                 <div>Número de paneles fotovoltaicos a instalar</div>
-                <div><a href="javascript:void(0);"><img src="../assets/img/i2.svg" alt="Más información" /></a></div>
+                <div><a href="javascript:void(0);"><img src="../assets/img/i2.svg" width="19" height="19" alt="Más información" /></a></div>
             </div>
 
             <div class="result_box_small">
@@ -393,7 +393,7 @@
             <div class="result_box_small">
                 <div class="strong_result"><span x-text="calculadora.coste_de_tu_instalacion()"></span>€</div>
                 <div>Coste de tu instalación (aproximado)</div>
-                <div><a href="javascript:void(0);"><img src="../assets/img/i2.svg" alt="Más información" /></a></div>
+                <div><a href="javascript:void(0);"><img src="../assets/img/i2.svg" width="19" height="19" alt="Más información" /></a></div>
             </div>
 
             <div class="result_box_small">
