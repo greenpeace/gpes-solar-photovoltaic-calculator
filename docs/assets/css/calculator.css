@@ -450,7 +450,7 @@ input[type="radio"] {
 
 .este {
     right: 0;
-    top: calc(50% - 26px);
+    top: calc(50% - 29px);
     flex-direction: row;
     width: 72px;
     height: 35px;
@@ -459,7 +459,7 @@ input[type="radio"] {
 
 .oeste {
     left: 0;
-    top: calc(50% - 26px);
+    top: calc(50% - 29px);
     flex-direction: row-reverse;
     width: 72px;
     height: 35px;
