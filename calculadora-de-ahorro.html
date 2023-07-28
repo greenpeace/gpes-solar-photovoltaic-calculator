@@ -224,7 +224,6 @@
                         <legend style="grid-area: tejado_legend;">¿Cuál es la orientación de tu tejado?</legend>
                         <div style="grid-area: tejado_infoicon;" x-on:click="explaination = 'true'; flyTo('oritejado')"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
                     </div>
-                    <img src="../assets/img/ilustracion-orientacion-tejado.svg" width="171" height="153" alt="Ilustración orientación del tejado" />
                     <div id="cardinal-container">
     
                         <div class="cardinal norte">
@@ -240,14 +239,14 @@
                         </div>
                 
                         <div class="cardinal este">
-                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Este" value="Este" class="custom-radio">
-                            <label for="Este" x-bind:class="calculadora.orientacion_tejado === 'Este' ? 'pointing' : ''">E<span class="sr-only"> - Este</span></label>
+                            <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Este" value="Este" class="custom-radio" style="margin-right: 6px;">
+                            <label for="Este" x-bind:class="calculadora.orientacion_tejado === 'Este' ? 'pointing' : ''" style="margin-right: 3px; margin-top: 1px;">E<span class="sr-only"> - Este</span></label>
                             <img src="../assets/img/e.svg" alt="&rarr;" width="16" height="16" />
                         </div>
                 
                         <div class="cardinal oeste">
                             <input type="radio" name="orientacion_tejado" x-model="calculadora.orientacion_tejado" id="Oeste" value="Oeste" class="custom-radio">
-                            <label for="Oeste" x-bind:class="calculadora.orientacion_tejado === 'Oeste' ? 'pointing' : ''">O<span class="sr-only"> - Oeste</span></label>
+                            <label for="Oeste" x-bind:class="calculadora.orientacion_tejado === 'Oeste' ? 'pointing' : ''" style="margin-top: 2px;">O<span class="sr-only"> - Oeste</span></label>
                             <img src="../assets/img/o.svg" alt="&harr;" width="16" height="16" />
                         </div>
                 
@@ -257,6 +256,8 @@
                         </div>
                 
                     </div>
+                    <img src="../assets/img/ilustracion-orientacion-tejado.svg" width="171" height="153" alt="Ilustración orientación del tejado" />
+
                 </fieldset>
 
                 <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" x-transition.duration.300ms class="infobox" id="oritejado">
