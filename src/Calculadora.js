@@ -298,7 +298,7 @@ class Calculadora {
      * @returns {number}
      */
     anos_amortizacion() {
-        if (this.coeficiente_orientacion_tejado() === 0) {
+        if (this.coeficiente_orientacion_tejado() === 0 || this.porcentaje_consumo === 0) {
             return 0;
         }
         return Math.round(((this.coste_de_tu_instalacion() / this.ahorro_anual_esperado()) + Number.EPSILON) * 10) / 10;
