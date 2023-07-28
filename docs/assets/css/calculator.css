@@ -318,6 +318,7 @@ input[type="range"]:focus::-moz-range-thumb {
     'questiongrid_explaination questiongrid_explaination'
     ;
     column-gap: 5px;
+    align-content: baseline;
 }
 
 .infobox p {
@@ -376,6 +377,16 @@ input[type="radio"] {
 
 .pointing {
     color: var(--checked-color)
+}
+
+/* CARDINAL */
+
+#top_tejado {
+    display: grid;
+    grid-template-columns: 1fr 20px;
+    grid-template-areas:
+        'tejado_legend tejado_infoicon'
+        ;
 }
 
 #cardinal-container {

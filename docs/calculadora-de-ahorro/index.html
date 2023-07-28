@@ -263,8 +263,10 @@
 
             <div class="question tejadoquestion" style="grid-area: orientacion_tejado;" x-data="{ explaination: false }">
                 <fieldset>
-                    <legend>¿Cuál es la orientación de tu tejado?</legend>
-                    <div x-on:click="explaination = 'true'; flyTo('oritejado')"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
+                    <div id="top_tejado">
+                        <legend style="grid-area: tejado_legend;">¿Cuál es la orientación de tu tejado?</legend>
+                        <div style="grid-area: tejado_infoicon;" x-on:click="explaination = 'true'; flyTo('oritejado')"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
+                    </div>
                     <img src="../assets/img/ilustracion-orientacion-tejado.svg" width="171" height="153" alt="Ilustración orientación del tejado" />
                     <div id="cardinal-container">
     
