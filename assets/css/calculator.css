@@ -436,7 +436,7 @@ input[type="radio"] {
     left: calc(50% - 11px);
     flex-direction: column-reverse;
     width: 22px; 
-    height: 60px;
+    height: 63px;
     gap: 2px
 }
 .sur {
@@ -444,7 +444,7 @@ input[type="radio"] {
     left: calc(50% - 11px);
     flex-direction: column;
     width: 22px;
-    height: 60px;
+    height: 63px;
     gap: 2px;
 }
 
