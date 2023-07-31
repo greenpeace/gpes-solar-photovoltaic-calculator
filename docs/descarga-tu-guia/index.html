@@ -11,6 +11,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="preload" as="style" href="../assets/css/global.css" onload="this.rel='stylesheet'" />
     <link rel="preload" as="style" href="../assets/css/guide.css" onload="this.rel='stylesheet'" />
+        <!-- Statistics I -->
+    <script src="https://www.googleoptimize.com/optimize.js?id=GTM-PC6RHL6"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43128098-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+        });
+        gtag('js', new Date());
+
+        window.googleTrackingConfig = {
+            'custom_map': {
+                'dimension1': 'ExistingOrNew',
+                'dimension2': 'CookiePrivacyVariant'
+            }
+        };
+
+        const enableGoogleOptimize = false;
+    </script>
+    <!-- / Statistics I -->
+
+
+    <script src="../assets/js/analytics.js" defer></script>
+    <script src="../assets/js/cookieTrackingManager.js" defer></script>
     <script src="../assets/js/scripts.js" defer></script>
     <script src="../assets/js/form.js" defer></script>
     <script src="../assets/js/send-simple.js" defer></script>
@@ -19,7 +45,8 @@
 </head>
 
 <body class="page-descarga" x-data="{
-    screen: 'landingpage'
+    screen: 'landingpage',
+    showModal: false
 }">
         <menu id="topmenu">
         <div class="title">Guía de autoconsumo solar</div>
@@ -285,6 +312,122 @@
             </div>
         </div>
     </div>
+
+
+	<div class="modal" x-show="showModal" :class="{ 'modal-visible-overflow': showModal }">
+
+		<div class="modal-inside" x-show="showModal" x-data="{ 
+                modalDialog: 1,
+                init(){
+                    cookieTrackingManager.read();
+                    if ( cookieTrackingManager.needToAskConsent() ) {
+                        this.showModal = true;
+                        setTimeout(function(){
+                            document.getElementById('butyes').focus();
+                         }, 1000);
+                    } else {
+                        trackingScripts.initAll();
+                    }
+                },
+                values: {
+                    cookiesAnalitics: false,
+                    cookiesSegmentation: false,
+                    cookiesAdvertisement: false,
+                    cookiesMandatory: true
+                },
+                accept(){
+                    cookieTrackingManager.consent.allowAll = true;
+                    delete(cookieTrackingManager.consent.denyAll);
+                    cookieTrackingManager.write();
+                    trackingScripts.initAll();
+                    this.showModal = false;
+                },
+                configure(){
+                    this.modalDialog = 2;
+                },
+                acceptAll(){
+                    cookieTrackingManager.consent.allowAll = true;
+                    delete(cookieTrackingManager.consent.denyAll);
+                    cookieTrackingManager.write();
+                    trackingScripts.initAll();
+                    this.showModal = false;
+                },
+                refuseAll(){
+                    cookieTrackingManager.consent.denyAll = true;
+                    delete(cookieTrackingManager.consent.allowAll);
+                    cookieTrackingManager.erraseAll(); 
+                    trackingScripts.initAll();
+                    this.showModal = false;
+                },
+                okSelected(){
+                    cookieTrackingManager.consent.cats = {};
+                    cookieTrackingManager.consent.cats.analytics = this.values.cookiesAnalitics;
+                    cookieTrackingManager.consent.cats.segmentation = this.values.cookiesSegmentation;
+                    cookieTrackingManager.consent.cats.advertisement = this.values.cookiesAdvertisement;
+                    cookieTrackingManager.write();
+                    trackingScripts.initAll();
+                    this.showModal = false;
+                }
+            }">
+
+			<div x-show="modalDialog === 1" x-bind:aria-hidden="not(modalDialog === 1)">
+				<h2>Tu privacidad nos importa</h2>
+				<p>En Greenpeace utilizamos cookies propias y de terceros para mejorar y personalizar tu experiencia en nuestra web, así como con fines analíticos, para ofrecer funciones de redes sociales y mostrarte publicidad personalizada en base a un perfil elaborado a partir de tus hábitos de navegación. Para más información puedes consultar nuestra política de cookies <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/?tracking=deny_all#cookies" x-on:click="checkPolicy(); $dipatch('cookies:checkpolicy')" aria-label="política de privacidad">AQUÍ</a>.</p>
+				<p>Puedes aceptar todas las cookies mediante el botón “Aceptar” o puedes aceptarlas de forma concreta, modificar su selección o rechazar su uso pulsando en “Configuración de Privacidad”."</p>
+				<div class="modal-bt-row">
+					<button class="popup-yes" id="butyes" x-on:click="accept(); $dispatch('cookies:accept');">Aceptar</button>
+					<button class="popup-no" x-on:click="configure(); $dispatch('cookies:config');">Configuración de privacidad</button>
+				</div>
+			</div>
+
+			<div x-show="modalDialog === 2" x-bind:aria-hidden="not(modalDialog === 2)">
+				<h2>Configuración de privacidad</h2>
+				<p>Este sitio web utiliza cookies para obtener datos de navegación y de uso de la página por parte de los usuarios y usuarias. Puedes ver más información en nuestra <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/?tracking=deny_all#cookies">Política de Cookies</a>. A continuación puedes leer más sobre ellas y elegir cuáles aceptas y cuáles rechazas mientras estás en nuestra web.</p>
+                <div class="modal-bt-row">
+					<button class="popup-yes" x-on:click="acceptAll(); $dispatch('cookies:acceptall');">Aceptar todas</button>
+					<button class="popup-no" x-on:click="refuseAll(); $dispatch('cookies:denytall');">Rechazar todas</button>
+				</div>
+                <form>
+                    <div>
+                        <input type="checkbox" value="" id="cookiesAnalitics" x-model="values.cookiesAnalitics">
+                        <label for="cookiesAnalitics">
+                            Cookies analíticas
+                        </label>
+                        <p>Permiten analizar el comportamiento de los usuarios/as en nuestra página de manera anónima</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="" id="cookiesSegmentation" x-model="values.cookiesSegmentation">
+                        <label for="cookiesSegmentation">
+                            Cookies de segmentación
+                        </label>
+                        <p>Permiten a nuestra web ofrecer contenido optimizado y personalizado</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="" id="cookiesAdvertisement" x-model="values.cookiesAdvertisement">
+                        <label for="cookiesAdvertisement">
+                            Cookies publicitarias
+                        </label>
+                        <p>Permiten analizar la eficacia de la publicidad online y mostrar anuncios relevantes en otros sitios</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="" id="cookiesMandatory" checked="" disabled="" x-model="values.cookiesMandatory">
+                        <label>
+                           Cookies esenciales
+                        </label>
+                        <p>Permiten a la página funcionar correctamente y recordar las preferencias de cookies de los usuarios y usuarias</p>
+                    </div>
+                    <div class="modal-bt-row">
+					    <button type="button" class="popup-yes" x-on:click="okSelected(); $dispatch('cookies:ok')"> &nbsp; OK &nbsp; </button>
+				    </div>
+                </form>
+			</div>
+
+		</div>
+
+	</div><!-- / Modal overlay -->
+
+
+<div id="twitterAds"></div><div id="hubspotEmbed"></div>
 
 </body>
 

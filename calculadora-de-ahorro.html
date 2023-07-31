@@ -8,7 +8,8 @@
 <body class="page-calculadora" x-data="{
     calculadora: calc1,
     screen: 'landing',
-    results_notes: ''
+    results_notes: '',
+    showModal: false
 }">
     {% include "partials/menu-calculadora.njk" %}
 
@@ -397,7 +398,9 @@
         </div>
     </div>
 
+    {% include "partials/cookie-modal.njk" %}
 
+    <div id="twitterAds"></div><div id="hubspotEmbed"></div>
 
 </body>
 </html>

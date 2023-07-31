@@ -6,7 +6,8 @@
 </head>
 
 <body class="page-descarga" x-data="{
-    screen: 'landingpage'
+    screen: 'landingpage',
+    showModal: false
 }">
     {% include "partials/menu-guia.njk" %}
 
@@ -38,6 +39,10 @@
     </div>
 
 {% include "partials/thank-you.njk" %}
+
+{% include "partials/cookie-modal.njk" %}
+
+<div id="twitterAds"></div><div id="hubspotEmbed"></div>
 
 </body>
 
