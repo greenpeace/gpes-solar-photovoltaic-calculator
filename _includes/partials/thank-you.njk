@@ -1,6 +1,6 @@
     <div class="thank-you-grid" id="thankyoupage" x-show="screen === 'thankyoupage'" x-bind:aria-hidden="not(screen === 'thankyoupage')" x-transition.duration.300ms>
         <div>
-            <h2>Disfruta de tu guía, Olga</h2>
+            <h2>Disfruta de tu guía, <span x-text="$store.fname"></span></h2>
             <p>Ya te hemos enviado la guía a <span x-text="$store.email">[...]</span></p>
             <p>¿Quieres compartirla con tus contactos? ¡Ayúdalos a iniciarse en el autoconsumo solar!</p>
             <div class="line-of-buttons">
