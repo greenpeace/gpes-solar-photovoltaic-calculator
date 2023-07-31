@@ -566,8 +566,9 @@ menu {
 
 .modal-bt-row {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 0.5rem 0 1.5rem 0;
+    gap: 15px;
 }
 
 .modal-bt-row button {
@@ -575,10 +576,16 @@ menu {
     border: none;
     border-radius: 10px;
     color: var(--second-color);
-    padding: 10px 20px 10px 20px;
+    padding: 10px 15px 10px 15px;
     font-family: var(--headers-font);
     font-size: 1.1rem;
     cursor: pointer;
+}
+
+@media screen and (max-width: 440px) {
+    .modal-bt-row {
+        flex-direction: column;
+    }
 }
 
 .modal-bt-row .popup-no {
