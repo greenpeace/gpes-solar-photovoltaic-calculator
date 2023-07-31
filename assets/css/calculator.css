@@ -516,6 +516,24 @@ input[type="radio"] {
     gap: 2px;
 }
 
+.results-notes {
+    width: 325px;
+    margin: auto;
+    margin-top: 1.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.results-notes p, .results-notes h3 {
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.results-notes h3 {
+    padding-left: 8px;
+}
+
+
 /* MEDIA QUERIES */
 
   @media screen and (min-width: 813px) {

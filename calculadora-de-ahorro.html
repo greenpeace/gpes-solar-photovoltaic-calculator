@@ -7,7 +7,8 @@
 
 <body class="page-calculadora" x-data="{
     calculadora: calc1,
-    screen: 'landing'
+    screen: 'landing',
+    results_notes: ''
 }">
     {% include "partials/menu-calculadora.njk" %}
 
@@ -345,11 +346,11 @@
 
         <h3>Y esto es lo que necesitarás</h3>
 
-        <div class="results4">
+        <div class="results4" id="results4">
             <div class="result_box_small">
                 <div x-text="calculadora.numero_paneles_a_instalar();" class="strong_result"></div>
                 <div>Número de paneles fotovoltaicos a instalar</div>
-                <div><a href="javascript:void(0);"><img src="../assets/img/i2.svg" width="19" height="19" alt="Más información" /></a></div>
+                <div><a href="javascript:void(0);" x-on:click="results_notes = 'paneles'; flyTo('results4')"><img src="../assets/img/i2.svg" width="19" height="19" alt="Más información" /></a></div>
             </div>
 
             <div class="result_box_small">
@@ -360,13 +361,27 @@
             <div class="result_box_small">
                 <div class="strong_result"><span x-text="calculadora.coste_de_tu_instalacion()"></span>€</div>
                 <div>Coste de tu instalación (aproximado)</div>
-                <div><a href="javascript:void(0);"><img src="../assets/img/i2.svg" width="19" height="19" alt="Más información" /></a></div>
+                <div><a href="javascript:void(0);" x-on:click="results_notes = 'coste';  flyTo('results4');"><img src="../assets/img/i2.svg" width="19" height="19" alt="Más información" /></a></div>
             </div>
 
             <div class="result_box_small">
                 <div x-text="calculadora.anos_amortizacion();" class="strong_result"></div>
                 <div>Años para amortizar la inversión</div>
             </div>
+        </div>
+
+        <div class="results-notes">
+            <div x-show="results_notes === 'paneles'" x-bind:aria-hidden="not(results_notes === 'paneles')">
+                <h3>Número de paneles fotovoltaicos a instalar</h3>
+                <p>El número de paneles fotovoltaicos a instalar dependerá únicamente de la cantidad de energía que necesites (si sois muchos en casa, usas el aire acondicionado, usas mucho el horno, tienes aerotermia, coche eléctrico, etc) y del tipo de panel (de mayor o menor potencia). No depende del tamaño de la casa ni del tejado.</p>
+            </div>
+
+            <div x-show="results_notes === 'coste'" x-bind:aria-hidden="not(results_notes === 'coste')">
+                <h3>Coste de tu instalación (€) (aproximado)</h3>
+                <p>El coste de tu instalación dependerá del tamaño de la misma y de la calidad de los materiales elegidos. A mayor calidad, mayor inversión, pero también mayores beneficios (rentabilidad y rendimiento). Sin embargo, los costes han caído un 90% en los últimos 30 años.</p>
+                <p>No olvides que a día de hoy hay numerosas fórmulas para financiar tus placas (incluso alquilarlas a otra empresa), así como numerosas bonificaciones, subvenciones y desgravaciones fiscales (IRPF). El coste final puede bajar drásticamente.</p>
+            </div>
+
         </div>
 
         <h3>Además, reducirás tus emisiones en:</h3>
