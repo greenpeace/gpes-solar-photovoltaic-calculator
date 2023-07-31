@@ -2,7 +2,7 @@
     margin: 10px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 1);
-    padding: 15px;
+    padding: 10px 15px 5px 15px;
 }
 
 .question label {
@@ -135,6 +135,7 @@ select {
     background-color: rgba(255, 255, 255, 1);
     border: 0.5px solid rgba(144, 144, 144, 1);
     padding: 7px;
+    margin-bottom: 15px;
 }
 
 legend {
@@ -398,6 +399,46 @@ input[type="radio"] {
     'cardinal-image'
     ;
     justify-content: center;
+}
+
+#img-orientacion-tejado {
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 480px) {
+    #botom_tejado {
+        grid-template-columns: 5fr 5fr;
+        grid-template-areas: 
+        'cardinal-image cardinal-container'
+        'north-alert north-alert'
+        ;
+        justify-content:space-evenly;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 620px) {
+    #botom_tejado {
+        justify-content: center;
+    }
+
+    #img-orientacion-tejado {
+        width: 80%;
+    }
+
+}
+
+@media screen and (min-width: 813px) {
+    #botom_tejado {
+        grid-template-columns: auto;
+        grid-template-areas: 
+        'cardinal-container'
+        'north-alert'
+        'cardinal-image'
+        ;
+        justify-content: center;
+    }
 }
 
 #botom_tejado > img {

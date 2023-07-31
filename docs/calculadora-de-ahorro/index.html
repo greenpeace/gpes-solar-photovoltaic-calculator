@@ -302,7 +302,9 @@
                         <div x-show="calculadora.orientacion_tejado === 'Norte'" x-bind:aria-hidden="not(calculadora.orientacion_tejado === 'Norte')" x-transition.duration.300ms style="grid-area: north-alert;" class="error">
                             <p>La orientación norte debes descartarla por su menor rendimiento y buscar otras opciones.</p>
                         </div>
-                        <img style="grid-area: cardinal-image;" src="../assets/img/ilustracion-orientacion-tejado.svg" width="171" height="153" alt="Ilustración orientación del tejado" />
+                        <div style="grid-area: cardinal-image;" >
+                            <img src="../assets/img/ilustracion-orientacion-tejado.svg" width="171" height="153" alt="Ilustración orientación del tejado" id="img-orientacion-tejado" />
+                        </div>
                     </div>
 
 
@@ -373,7 +375,7 @@
     </form>
 
 
-    <div class="results" x-show="screen ==='thankyoupage'" x-bind:aria-hidden="not(screen ==='thankyoupage')">
+    <div class="results" x-bind:aria-hidden="not(screen ==='thankyoupage')">
         <h2>Aquí tienes tus resultados</h2>
         <p>Te los hemos enviado también por e-mail para que los tengas a mano.</p>
 
