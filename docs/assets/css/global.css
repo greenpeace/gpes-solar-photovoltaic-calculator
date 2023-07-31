@@ -562,6 +562,7 @@ menu {
 .modal-inside label {
     font-weight: var(--bold-font-weight);
     display: inline;
+    font-weight: bold;
 }
 
 .modal-bt-row {
