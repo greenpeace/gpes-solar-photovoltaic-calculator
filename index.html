@@ -7,7 +7,8 @@
 
 <body class="page-home" x-data="{
     level1: '',
-    level2: ''
+    level2: '',
+    showModal: true
 }">
     {% include "partials/header.njk" %}
     <p class="center-p">El autoconsumo solar, es decir, instalar placas solares en tu tejado o cerca para generar tu
@@ -50,6 +51,9 @@
     {% include "pages/autoconsumo-colectivo.njk" %}
 
     {% include "pages/presiona-ayuntamiento.njk" %}
+
+    <!-- Modal -->
+    {% include "partials/cookie-modal.njk" %}
 
 </body>
 
