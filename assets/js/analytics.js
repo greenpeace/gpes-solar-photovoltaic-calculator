@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* jshint esversion:6 */
 
 const trackingScripts = {
@@ -21,9 +22,7 @@ const trackingScripts = {
             this.googleAnalyticsFooter();
         }
 
-        if (cookieTrackingManager.canItrack("segmentation")) {
-
-        }
+        if (cookieTrackingManager.canItrack("segmentation")) { /* empty */ }
         
         if (cookieTrackingManager.canItrack("advertisement")) {
             gtag('consent', 'update', {'ad_storage': 'granted'});
