@@ -157,7 +157,7 @@ input[type=range] {
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #2AB20B;
+  background-color: var(--text-color2);
   height: 13px;
   border-radius: 13px;
 }
