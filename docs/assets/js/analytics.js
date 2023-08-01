@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* jshint esversion:6 */
 
@@ -47,9 +48,6 @@ const trackingScripts = {
      * Google Analytics, footer part
      */
     googleAnalyticsFooter: function () {
-
-        let contentLabels =[];
-        let contentTags =[];
 
         if ( typeof gtag === "function") {           
             gtag('config', 'G-7NL9SM5MNP', googleTrackingConfig);
@@ -165,40 +163,26 @@ const trackingScripts = {
 
 
 /**
- * On popup close
- */
- document.addEventListener("popup:close", function (e) {
-    gtag("event", "Click", {
-        'event_category': "FrutaTemporada",
-        'event_label': "ClosePopup",
-        'value': 0
-    });
-});
-
-/**
- * On popup download
- */
- document.addEventListener("popup:download", function (e) {
-    gtag("event", "Click", {
-        'event_category': "FrutaTemporada",
-        'event_label': "DownloadPopup",
-        'value': 0
-    });
-});
-
-/**
  * On form submit sucessfuly
  */
  document.addEventListener('form:submit', function (e) {
     const existingOrNew = e.detail.was_contact ? 'Existing' :'New';
     gtag("event", "Signup", {
-        "event_category": 'FrutaTemporada',
+        "event_category": 'Autoconsumo',
         "event_label" : "?FIXME",
         "value": 0, // FIXME Nuevo valor para firma
         "new_email" : existingOrNew == "New" ? true : false,
         "has_phone" : true,
         "has_zip" : false
     });
+
+    if ( existingOrNew == "New"){
+        gtag('event', "generate_lead", {
+            "currency" : "EUR",
+            "value": includesPhone === "Yes" ? 5 : 1.5
+        });
+    }
+
     if ( typeof(fbq) == "function" && cookieTrackingManager.canItrack("advertisement") ) {
         fbq('track', 'PageView');
         fbq('track', 'Lead');
@@ -386,24 +370,10 @@ const delayedOutbrain = function(){
     const clickedButton = e.detail.button;
 
     gtag("event", "Click", {
-        'event_category': "FrutaTemporada",
+        'event_category': "Autoconsumo",
         'event_label': clickedButton,
         'value': 0
     });
 
 });
 
-/**
- * On clics in end of the page buttons
- */
- document.addEventListener('button:end_page', function (e) {
-
-    const clickedButton = e.detail.button;
-
-    gtag("event", "Click", {
-        'event_category': "FrutaTemporada",
-        'event_label': clickedButton,
-        'value': 0
-    });
-
-});

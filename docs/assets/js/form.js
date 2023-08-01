@@ -33,7 +33,7 @@ async function stringParams() {
     }
 
     if ( paramsObj.gclid !== "" && paramsObj.utm_campaign === "") {
-        paramsObj.utm_campaign = "FrutaTemporada";
+        paramsObj.utm_campaign = "Autoconsumo";
     }
 
     if ( ["adwords", "google"].includes(paramsObj.utm_source) && ["ppc", "cpc"].includes(paramsObj.utm_medium) ) {
