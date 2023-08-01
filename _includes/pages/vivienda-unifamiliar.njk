@@ -8,9 +8,9 @@
             <img style="grid-area: imaget" src="assets/img/ilustracion-casa-unifamiliar-placas.svg" width="360" height="346" alt="Ilustración de una vivienda con cuatro paneles solares." />
         </div>
         <div class="download-box">
-            <p>Descubre más información en nuestra <a href="javascript:void(0)">guía de autoconsumo solar</a> y utiliza nuestra calculadora para saber cuánto podrías ahorrarte en la factura de la luz si te pasas al autoconsumo solar.</p>
+            <p>Descubre más información en nuestra <a href="javascript:goTo('./descarga-tu-guia/')" x-on:click="$dispatch('autoconsumo:buttons', { button: 'guia' })">guía de autoconsumo solar</a> y utiliza nuestra calculadora para saber cuánto podrías ahorrarte en la factura de la luz si te pasas al autoconsumo solar.</p>
             <div class="download-button">
-                <a href="javascript:void(0)">calculadora solar</a>
+                <a href="javascript:goTo('./descarga-tu-guia/')" x-on:click="$dispatch('autoconsumo:buttons', { button: 'guia' })">calculadora solar</a>
             </div>
             <div class="optionback">
                 <a href="javascript:void(0)" x-on:click="level2=''; flyTo('en-propriedad');">atrás</a>

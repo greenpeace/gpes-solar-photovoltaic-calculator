@@ -10,12 +10,12 @@
             </div>
             <div style="grid-area: optionab">
                 <div class="option" x-bind:class="level2 === 'vivienda-unifamilar' ? 'active' : ''">
-                    <a href="javascript:void(0)" x-on:click="level2 = 'vivienda-unifamilar'; flyTo('vivienda-unifamilar');">vivienda unifamiliar</a>
+                    <a href="javascript:void(0)" x-on:click="level2 = 'vivienda-unifamilar'; flyTo('vivienda-unifamilar'); $dispatch('autoconsumo:buttons', { button: 'vivienda-unifamilar' });">vivienda unifamiliar</a>
                 </div>
             </div>
             <div style="grid-area: optionbb">
                 <div class="option" x-bind:class="level2 === 'bloque-pisos' ? 'active' : ''">
-                    <a href="javascript:void(0)" x-on:click="level2 = 'bloque-pisos'; flyTo('bloque-pisos');">bloque de pisos</a>
+                    <a href="javascript:void(0)" x-on:click="level2 = 'bloque-pisos'; flyTo('bloque-pisos'); $dispatch('autoconsumo:buttons', { button: 'bloque-pisos' });">bloque de pisos</a>
                 </div>
             </div>
             <div style="grid-area: backb">

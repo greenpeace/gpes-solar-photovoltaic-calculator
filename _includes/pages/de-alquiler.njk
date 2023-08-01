@@ -10,22 +10,22 @@
             </div>
             <div style="grid-area: optionab">
                 <div class="option" x-bind:class="level2 === 'convence-casero' ? 'active' : ''">
-                    <a href="javascript:void(0)" x-on:click="level2='convence-casero'; flyTo('convence-casero');">convence a tu casero/a</a>
+                    <a href="javascript:void(0)" x-on:click="level2='convence-casero'; flyTo('convence-casero'); $dispatch('autoconsumo:buttons', { button: 'convence-casero' });">convence a tu casero/a</a>
                 </div>
             </div>
             <div style="grid-area: optionbb">
                 <div class="option" x-bind:class="level2 === 'invierte-ahorros' ? 'active' : ''">
-                    <a href="javascript:void(0)" x-on:click="level2='invierte-ahorros'; flyTo('invierte-ahorros');">invierte tus ahorros</a>
+                    <a href="javascript:void(0)" x-on:click="level2='invierte-ahorros'; flyTo('invierte-ahorros'); $dispatch('autoconsumo:buttons', { button: 'invierte-ahorros' });">invierte tus ahorros</a>
                 </div>
             </div>
             <div style="grid-area: optionac">
                 <div class="option" x-bind:class="level2 === 'autoconsumo-colectivo' ? 'active' : ''">
-                    <a href="javascript:void(0)" x-on:click="level2='autoconsumo-colectivo'; flyTo('autoconsumo-colectivo');">autoconsumo colectivo</a>
+                    <a href="javascript:void(0)" x-on:click="level2='autoconsumo-colectivo'; flyTo('autoconsumo-colectivo'); $dispatch('autoconsumo:buttons', { button: 'autoconsumo-colectivo' });">autoconsumo colectivo</a>
                 </div>
             </div>
             <div style="grid-area: optionad">
                 <div class="option" x-bind:class="level2 === 'presiona-ayuntamiento' ? 'active' : ''">
-                    <a href="javascript:void(0)" x-on:click="level2='presiona-ayuntamiento'; flyTo('presiona-ayuntamiento');">presiona a tu ayuntamiento</a>
+                    <a href="javascript:void(0)" x-on:click="level2='presiona-ayuntamiento'; flyTo('presiona-ayuntamiento'); $dispatch('autoconsumo:buttons', { button: 'presiona-ayuntamiento' });">presiona a tu ayuntamiento</a>
                 </div>
             </div>
             <div style="grid-area: backb">

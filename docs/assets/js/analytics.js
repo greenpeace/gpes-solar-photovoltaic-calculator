@@ -377,3 +377,17 @@ const delayedOutbrain = function(){
 
 });
 
+/**
+ * On clics autoconsumo page
+ */
+document.addEventListener('autoconsumo:buttons', function (e) {
+
+    const clickedButton = e.detail.button;
+
+    gtag("event", "Click", {
+        'event_category': "Autoconsumo",
+        'event_label': clickedButton,
+        'value': 0
+    });
+
+});

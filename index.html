@@ -25,12 +25,12 @@
         <div class="row-options">
             <div>
                 <div class="option" x-bind:class="level1 === 'en-propriedad' ? 'active' : ''">
-                    <a href="javascript:void(0)" x-on:click="level1 ='en-propriedad'; level2=''; flyTo('en-propriedad');">tengo piso o casa en propiedad</a>
+                    <a href="javascript:void(0)" x-on:click="level1 ='en-propriedad'; level2=''; flyTo('en-propriedad'); $dispatch('autoconsumo:buttons', { button: 'en-propriedad' });">tengo piso o casa en propiedad</a>
                 </div>
             </div>
             <div>
                 <div class="option" x-bind:class="level1 === 'de-alquiler' ? 'active' : ''">
-                    <a href="javascript:void(0)" x-on:click="level1 ='de-alquiler'; level2=''; flyTo('de-alquiler');">vivo de alquiler</a>
+                    <a href="javascript:void(0)" x-on:click="level1 ='de-alquiler'; level2=''; flyTo('de-alquiler'); $dispatch('autoconsumo:buttons', { button: 'de-alquiler' });">vivo de alquiler</a>
                 </div>
             </div>
         </div>

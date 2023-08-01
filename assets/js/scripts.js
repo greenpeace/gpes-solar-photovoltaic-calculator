@@ -94,3 +94,9 @@ const trigger = function(elementID, event, detailObject){
     const element = document.getElementById(elementID);
     element.dispatchEvent(cEvent);
 };
+
+const goTo = function(url){
+    setTimeout(function(){
+        window.location.href = url;
+    }, 500);
+}
