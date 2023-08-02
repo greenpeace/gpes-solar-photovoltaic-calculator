@@ -1,0 +1,39 @@
+    <!-- THANK YOU CALC -->
+    <div class="thank-you-grid" id="thankyoupage" x-show="screen === 'thankyoupage-2'" x-bind:aria-hidden="not(screen === 'thankyoupage')" x-transition.duration.300ms>
+        <div>
+            <h2>Disfruta de tu guía, <span x-text="$store.fname"></span></h2>
+            <p>Ya te hemos enviado la guía a <span x-text="$store.email">[...]</span></p>
+            <p>¿Quieres compartirla con tus contactos? ¡Ayúdalos a iniciarse en el autoconsumo solar!</p>
+            <div class="line-of-buttons">
+                <button type="button" class="colored-button yes" x-on:click="screen = 'sharepage'; $dispatch('thankyou:buttons', { button: 'yes_to_share' });">Si</button>
+                <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'no_to_share' });">No</button>
+            </div>
+        </div>
+    </div>
+    <div class="share-grid" id="sharepage" x-show="screen === 'sharepage'" x-bind:aria-hidden="not(screen === 'sharepage')" x-transition.duration.300ms>
+        <div>
+            <h2>Comparte esta guía</h2>
+            <p>Ayuda a otra gente a consumir su propia energía solar.</p>
+            <div class="thankyoubuttons">
+                <a href="https://api.whatsapp.com/send?text=¿Quieres comer alimentos de temporada pero no se te ocurre cómo cocinarlos? Esta guía incluye un calendario de frutas y verduras de temporada, una receta para cada mes del año y mucho más. ¡Descárgala ya aquí! https://es.greenpeace.org/es/frutas-verduras-temporada/descargar-guia/%3Futm_source%3Dwhatsapp%26utm_medium%3Dsocial_network_link%26utm_campaign%3DFrutadetemporada" target="_blank" x-on:click="$dispatch('thankyou:buttons', { button: 'whatsapp' });" aria-label="Whatsapp">
+                    <img src="../assets/img/whatsapp.svg" width="41" height="41" alt="Whatsapp" />
+                </a>
+                <a href="http://www.facebook.com/sharer.php?u=https://es.greenpeace.org%2Fes%2Ffrutas-verduras-temporada%2Fdescargar-guia%2F" target="_blank" x-on:click="$dispatch('thankyou:buttons', { button: 'facebook' });" aria-label="Facebook">
+                    <img src="../assets/img/facebook.svg" width="41" height="41" alt="Facebook" />
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=¿Quieres comer alimentos de temporada pero no se te ocurre cómo cocinarlos? Esta guía de @greenpeace_esp incluye un calendario de frutas y verduras de temporada, una receta para cada mes del año y mucho más. ¡Descárgala ya aquí! https://es.greenpeace.org/es/frutas-verduras-temporada/descargar-guia/%3Futm_source%3Dtwitter%26utm_medium%3Dsocial_network_link%26utm_campaign%3DFrutadetemporada&amp;source=webclient" target="_blank" x-on:click="$dispatch('thankyou:buttons', { button: 'twitter' });" aria-label="Twitter">
+                    <img src="../assets/img/twitter.svg" width="41" height="41" alt="Twitter" />
+                </a>
+            </div>
+            <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'skip_to_donations' });">Saltar »</button>
+        </div>
+    </div>
+    <div class="support-grid" id="givepage" x-show="screen === 'givepage'" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.duration.300ms>
+        <div>
+            <h2>Apoya la campaña</h2>
+            <p>En Greenpeace trabajamos para proteger nuestros bosques y defender su biodiversidad. Únete ahora y súmate a la lucha por un planeta sano y en paz.</p>
+            <div class="line-of-buttons">
+                <a href="https://es.greenpeace.org/es/que-puedes-hacer-tu/donaciones/" class="colored-button" x-on:click.prevent="$dispatch('thankyou:buttons', { button: 'yes_to_give' }); await delay(1000); window.location.href = $el.getAttribute('href');">Hazte socio/a</a>
+            </div>
+        </div>
+    </div>

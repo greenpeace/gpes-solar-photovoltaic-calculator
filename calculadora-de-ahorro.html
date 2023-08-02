@@ -8,17 +8,18 @@
 <body class="page-calculadora" x-data="{
     calculadora: calc1,
     screen: 'landing',
+    show_params : true,
     results_notes: '',
     showModal: false,
     ahorro_anual_esperado : false
 }">
     {% include "partials/menu-calculadora.njk" %}
 
-    <h1>Calculadora de ahorro solar</h1>
+    <h1 x-show="show_params" x-bind:aria-hidden="not(show_params)" >Calculadora de ahorro solar</h1>
 
-    <p class="lead">Descubre cuánto puedes ahorrar en tu factura de la luz instalando placas solares y qué necesitarás para hacerlo.</p>
+    <p x-show="show_params" x-bind:aria-hidden="not(show_params)" class="lead">Descubre cuánto puedes ahorrar en tu factura de la luz instalando placas solares y qué necesitarás para hacerlo.</p>
 
-    <form id="signup" class="form" novalidate x-on:submit.prevent="" x-init="populate_utms()" x-data="{
+    <form id="signup" x-show="show_params" x-bind:aria-hidden="not(show_params)" class="form" novalidate x-on:submit.prevent="" x-init="populate_utms()" x-data="{
         values : {
             utm_medium: '',
             utm_source: '',
@@ -335,7 +336,7 @@
     </form>
 
 
-    <div class="results" x-show="screen ==='thankyoupage'" x-bind:aria-hidden="not(screen ==='thankyoupage')">
+    <div class="results" x-show="screen ==='thankyoupage'" x-transition.duration.300ms x-bind:aria-hidden="not(screen ==='thankyoupage')">
         <h2>Aquí tienes tus resultados</h2>
         <p>Te los hemos enviado también por e-mail para que los tengas a mano.</p>
 
@@ -401,9 +402,11 @@
         <h3>¿Quieres dar el siguiente paso?</h3>
         <p>En Greenpeace hemos elaborado una guía con todo lo que necesitas saber para iniciarte en el autoconsumo de energía solar.</p>
         <div class="download-button">
-            <a href="javascript:void(0)">descarga tu guía</a>
+            <a href="javascript:void(0)" x-on:click="screen = 'thankyoupage-2'; show_params = false;">descarga tu guía</a>
         </div>
     </div>
+
+    {% include "partials/thank-you-calc.njk" %}
 
     {% include "partials/cookie-modal.njk" %}
 
