@@ -141,20 +141,20 @@
 
             <div class="question questiongrid" style="grid-area: consumo_anual;" x-data="{ explaination: false }">
                 <label style="grid-area: questiongrid_label;" for="consumo_anual">¿Cuál es tu consumo anual (kWh)?</label>
-                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = 'true'"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
+                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = !explaination"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
                 <input style="grid-area: questiongrid_input;" type="range" id="consumo_anual" x-model="calculadora.consumo_anual" min="0" max="10000" step="100" />
                 <output style="grid-area: questiongrid_output;" x-text="calculadora.consumo_anual" class="actual_value"></output>
-                <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" style="grid-area: questiongrid_explaination;" x-transition.duration.300ms class="infobox">
+                <div x-show="explaination === true" x-bind:aria-hidden="not(explaination === true)" style="grid-area: questiongrid_explaination;" x-transition.duration.300ms class="infobox">
                     <p>Es muy fácil. Mira en tu factura de la luz. Busca dentro del apartado “información sobre tu consumo eléctrico” los datos relativos a tu consumo anual (número expresado en kWh, 2.000-3.500 kWh por ejemplo). Ten en cuenta que tu consumo de electricidad aumentará si en el futuro decides electrificar algún consumo (cambio de calefacción o agua caliente a aerotermia, coche eléctrico, etc), pero el consumo energético total disminuirá considerablemente, al ser más eficientes.</p>
                 </div>
             </div>
 
             <div class="question questiongrid" style="grid-area: porcentaje_consumo;" x-data="{ explaination: false }">
                 <label style="grid-area: questiongrid_label;" for="porcentaje_consumo">¿Qué porcentaje de tu consumo quieres cubrir con autoconsumo solar?</label>
-                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = 'true'"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
+                <div style="grid-area: questiongrid_icon;" x-on:click="explaination = !explaination"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
                 <input style="grid-area: questiongrid_input;" type="range" id="porcentaje_consumo" x-model="calculadora.porcentaje_consumo" min="0" max="100" step="5" />
                 <output style="grid-area: questiongrid_output;" class="actual_value"><span x-text="calculadora.porcentaje_consumo"></span>%</output>
-                <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" style="grid-area: questiongrid_explaination;" x-transition.duration.300ms class="infobox">
+                <div x-show="explaination === true" x-bind:aria-hidden="not(explaination === true)" style="grid-area: questiongrid_explaination;" x-transition.duration.300ms class="infobox">
                     <p>Si vives en un bloque de vecinos...</p>
                     <p>Ten en cuenta que, si usáis vuestro tejado, el espacio disponible para las placas será más limitado que en las viviendas unifamiliares. Es habitual que cada vivienda pueda cubrir 1,5 kW de potencia, suficiente para satisfacer 1.500-2.200 kWh de energía al año.</p>
                 </div>
@@ -225,7 +225,7 @@
                 <fieldset>
                     <div id="top_tejado">
                         <legend style="grid-area: tejado_legend;">¿Cuál es la orientación de tu tejado?</legend>
-                        <div style="grid-area: tejado_infoicon;" x-on:click="explaination = 'true'; flyTo('oritejado')"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
+                        <div style="grid-area: tejado_infoicon;" x-on:click="explaination = !explaination; if (explaination) { flyTo('oritejado')}"><a href="javascript:void(0);"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
                     </div>
                     <div id="botom_tejado">
                         <div id="cardinal-container" style="grid-area: cardinal-container;">
@@ -270,7 +270,7 @@
 
                 </fieldset>
 
-                <div x-show="explaination === 'true'" x-bind:aria-hidden="not(explaination === 'true')" x-transition.duration.300ms class="infobox" id="oritejado">
+                <div x-show="explaination === true" x-bind:aria-hidden="not(explaination === true)" x-transition.duration.300ms class="infobox" id="oritejado">
                     <p><strong>Orientación e inclinación de tu tejado</strong></p>
                     <p>La orientación e inclinación son aspectos fundamentales para optimizar el rendimiento de tus placas. Sur, este, oeste o plano y sus combinaciones serán perfectas según tus hábitos de consumo: si consumes por las mañanas te interesará este, sur o plano; si consumes más por la tarde oeste, sur o plano.</p>
                     <p>La orientación norte debes descartarla por su menor rendimiento y buscar otras opciones.</p>
@@ -335,18 +335,17 @@
     </form>
 
 
-    <div class="results" x-bind:aria-hidden="not(screen ==='thankyoupage')">
+    <div class="results" x-show="screen ==='thankyoupage'" x-bind:aria-hidden="not(screen ==='thankyoupage')">
         <h2>Aquí tienes tus resultados</h2>
         <p>Te los hemos enviado también por e-mail para que los tengas a mano.</p>
 
         <h3>Esto es lo que podrías ahorrarte cada año</h3>
 
-        <div class="result_box_large">
-            <div><a href="javascript:void(0);" x-on:click="ahorro_anual_esperado = true"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
-            <div class="strong_result"><span x-text="calculadora.ahorro_anual_esperado();"></span>€</div>
-            <div class="footnote">Ahorro anual esperado</div>
-            <div x-show="ahorro_anual_esperado" x-bind:aria-hidden="not(ahorro_anual_esperado)" class="ahorro_anual_esperado">
-                <p><strong>Ahorro anual esperado</strong></p>
+        <div class="result_box_large result_box_large_grid">
+            <div style="grid-area: icon-info; margin-top: 5px;"><a href="javascript:void(0);" x-on:click="ahorro_anual_esperado = ! ahorro_anual_esperado"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
+            <div style="grid-area: result; margin-left:40px;"  class="strong_result"><span x-text="calculadora.ahorro_anual_esperado();"></span>€</div>
+            <div style="grid-area: footnote"  class="footnote">Ahorro anual esperado</div>
+            <div style="grid-area: moreinfo" x-show="ahorro_anual_esperado" x-transition.duration.300ms x-bind:aria-hidden="not(ahorro_anual_esperado)" class="ahorro_anual_esperado">
                 <p>El ahorro anual dependerá principalmente del consumo eléctrico que hagas, si desplazas tus consumos a las horas en las que tus paneles producen, de la capacidad de producción de tus paneles y de la evolución del precio de la luz. Recuerda que puedes reducir aún más tu factura de la luz compensando los excedentes que produces y no usas. Para ello hay varias opciones: "compensación simplificada" o "batería virtual".</p>
                 <p>Para el cálculo del ahorro, desde Greenpeace hemos considerado el precio medio de energía del año 2021 en el mercado regulado PVPC (0.118€/kWh), ya que el del año 2022 fue históricamente anómalo y muy elevado. Este valor no está garantizado a futuro.</p>
                 <p>Además, recuerda que existen numerosos incentivos o bonificaciones disponibles anuales con tu ayuntamiento (como los descuentos al IBI o al ICIO). El ahorro final puede ser muy importante.</p>

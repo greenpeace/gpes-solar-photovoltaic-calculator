@@ -249,13 +249,23 @@ input[type="range"]:focus::-moz-range-thumb {
   }
 
 
+.result_box_large_grid {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    grid-template-areas: 
+        'result icon-info'
+        'footnote footnote'
+        'moreinfo moreinfo'
+    ;
+}
+
 .result_box_large {
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 30px;
     background-color: var(--background-top-menu);
     max-width: 325px;
-    margin:auto
+    margin:auto;
   }
 
 .result_box_large .strong_result {
