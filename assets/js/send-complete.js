@@ -110,16 +110,16 @@ async function sendToHubspot(formValues, calculadora) {
                 "value": calculadora.numero_paneles_a_instalar()
             },
             {
-                "name": "calculadora_potencia_necesaria_para_consumo_deseado",
-                "value": Math.round((calculadora.potencia_necesaria_para_consumo_deseado() + Number.EPSILON) * 100) / 100 
+                "name": "calculadora_potencia_necesaria_para_consumo_deseado_2",
+                "value": String(Math.round((calculadora.potencia_necesaria_para_consumo_deseado() + Number.EPSILON) * 100) / 100).replace(".", ",") 
             },
             {
                 "name": "calculadora_coste_de_tu_instalacion",
                 "value": calculadora.coste_de_tu_instalacion()
             },
             {
-                "name": "calculadora_anos_amortizacion",
-                "value": calculadora.anos_amortizacion()
+                "name": "calculadora_anos_amortizacion_2",
+                "value": String(calculadora.anos_amortizacion()).replace(".", ",")
             },
             {
                 "name": "calculadora_emissiones",
