@@ -251,9 +251,9 @@ input[type="range"]:focus::-moz-range-thumb {
 
 .result_box_large {
     padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 30px;
     background-color: var(--background-top-menu);
-    height: 119px;
     max-width: 325px;
     margin:auto
   }
@@ -272,6 +272,11 @@ input[type="range"]:focus::-moz-range-thumb {
     color: var(--footnote-color);
     font-weight: bold;
     font-size: 0.875rem;
+}
+
+.result_box_large .ahorro_anual_esperado p {
+    text-align: left;
+    margin: 1rem;
 }
 
 .results4 {

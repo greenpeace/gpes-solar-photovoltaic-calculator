@@ -48,7 +48,8 @@
     calculadora: calc1,
     screen: 'landing',
     results_notes: '',
-    showModal: false
+    showModal: false,
+    ahorro_anual_esperado : false
 }">
         <menu id="topmenu">
         <div class="title">Guía de autoconsumo solar</div>
@@ -401,15 +402,22 @@
     </form>
 
 
-    <div class="results" x-show="screen ==='thankyoupage'" x-bind:aria-hidden="not(screen ==='thankyoupage')">
+    <div class="results" x-bind:aria-hidden="not(screen ==='thankyoupage')">
         <h2>Aquí tienes tus resultados</h2>
         <p>Te los hemos enviado también por e-mail para que los tengas a mano.</p>
 
         <h3>Esto es lo que podrías ahorrarte cada año</h3>
 
         <div class="result_box_large">
+            <div><a href="javascript:void(0);" x-on:click="ahorro_anual_esperado = true"><img src="../assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
             <div class="strong_result"><span x-text="calculadora.ahorro_anual_esperado();"></span>€</div>
             <div class="footnote">Ahorro anual esperado</div>
+            <div x-show="ahorro_anual_esperado" x-bind:aria-hidden="not(ahorro_anual_esperado)" class="ahorro_anual_esperado">
+                <p><strong>Ahorro anual esperado</strong></p>
+                <p>El ahorro anual dependerá principalmente del consumo eléctrico que hagas, si desplazas tus consumos a las horas en las que tus paneles producen, de la capacidad de producción de tus paneles y de la evolución del precio de la luz. Recuerda que puedes reducir aún más tu factura de la luz compensando los excedentes que produces y no usas. Para ello hay varias opciones: "compensación simplificada" o "batería virtual".</p>
+                <p>Para el cálculo del ahorro, desde Greenpeace hemos considerado el precio medio de energía del año 2021 en el mercado regulado PVPC (0.118€/kWh), ya que el del año 2022 fue históricamente anómalo y muy elevado. Este valor no está garantizado a futuro.</p>
+                <p>Además, recuerda que existen numerosos incentivos o bonificaciones disponibles anuales con tu ayuntamiento (como los descuentos al IBI o al ICIO). El ahorro final puede ser muy importante.</p>
+            </div>
         </div>
 
         <h3>Y esto es lo que necesitarás</h3>
