@@ -106,7 +106,7 @@
         <div id="en-propriedad" x-show="level1 === 'en-propriedad'" x-bind:aria-hidden="not(level1 === 'en-propriedad')" class="subpage" x-transition.duration.300ms>
         <div class="topsub">
             <h1 style="grid-area: titlet">Si tienes piso o casa en propiedad...</h1>
-            <p style="grid-area: textt">Si tienes una vivienda en propiedad pasarte al autoconsumo de energía solar es muy sencillo, porque solo necesitarás un tejado (o ubicación próxima) en el que poder instalar las placas. El cómo hacerlo varía en función de si vives en una vivienda unifamiliar o en un bloque de pisos.</p>
+            <p style="grid-area: textt">Si tienes una vivienda en propiedad pasarte al autoconsumo de energía solar es muy sencillo porque solo necesitarás un tejado (o ubicación próxima) en el que poder instalar las placas. El cómo hacerlo varía en función de si vives en una vivienda unifamiliar o en un bloque de pisos.</p>
             <img style="grid-area: imaget" src="assets/img/ilustracion-tejado-placas.svg" width="360" height="341" alt="Ilustración de placas sobre un tejado al sol" />
         </div>
         <div class="bottomsub decision-box">
@@ -181,7 +181,7 @@
         <div class="download-box">
             <p>Descubre más información en nuestra <a href="javascript:goTo('./descarga-tu-guia/')" x-on:click="$dispatch('autoconsumo:buttons', { button: 'guia' })">guía de autoconsumo solar</a> y utiliza nuestra calculadora para saber cuánto podrías ahorrarte en la factura de la luz si te pasas al autoconsumo solar.</p>
             <div class="download-button">
-                <a href="javascript:goTo('./descarga-tu-guia/')" x-on:click="$dispatch('autoconsumo:buttons', { button: 'guia' })">calculadora solar</a>
+                <a href="javascript:goTo('./calculadora-de-ahorro/')" x-on:click="$dispatch('autoconsumo:buttons', { button: 'calculadora' })">calculadora solar</a>
             </div>
             <div class="optionback">
                 <a href="javascript:void(0)" x-on:click="level2=''; flyTo('en-propriedad');">atrás</a>
@@ -207,7 +207,7 @@
         <div class="download-box">
             <p>Descubre más información en nuestra <a href="javascript:goTo('./descarga-tu-guia/')" x-on:click="$dispatch('autoconsumo:buttons', { button: 'guia' });">guía de autoconsumo solar</a> y utiliza nuestra calculadora para saber cuánto podrías ahorrarte en la factura de la luz si te pasas al autoconsumo solar.</p>
             <div class="download-button">
-                <a  href="javascript:goTo('./descarga-tu-guia/')" x-on:click="$dispatch('autoconsumo:buttons', { button: 'guia' });">calculadora solar</a>
+                <a  href="javascript:goTo('./calculadora-de-ahorro/')" x-on:click="$dispatch('autoconsumo:buttons', { button: 'calculadora' });">calculadora solar</a>
             </div>
             <div class="optionback">
                 <a href="javascript:void(0)" x-on:click="level2=''; flyTo('en-propriedad');">atrás</a>
@@ -290,7 +290,7 @@
             <div style="grid-area: imagebp">
                 <img src="assets/img/ilustracion-ayuntamient-conectado-casa.svg" width="360" height="343" alt="Ilustracion ayuntamiento, energías renovables y red" />
             </div>
-            <p style="grid-area: p2bp">Conoce más detalles sobre esta opción en nuestra guía de autoconsumo solar.</p>
+            <p style="grid-area: p2bp"><strong>Conoce más detalles sobre esta opción en nuestra guía de autoconsumo solar.</strong></p>
         </div>
         <div>
             <div class="download-button">
