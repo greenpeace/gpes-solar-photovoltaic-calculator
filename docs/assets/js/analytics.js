@@ -179,7 +179,7 @@ const trackingScripts = {
     if ( existingOrNew == "New"){
         gtag('event', "generate_lead", {
             "currency" : "EUR",
-            "value": includesPhone === "Yes" ? 5 : 1.5
+            "value":  5
         });
     }
 
