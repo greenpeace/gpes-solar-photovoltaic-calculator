@@ -121,6 +121,7 @@ input[type=text], input[type=email], input[type=tel] {
     cursor: pointer;
     border: none;
     border-radius: 10px;
+    margin: 5px 3px;
 }
 
 a.colored-button {
@@ -549,6 +550,58 @@ input[type="radio"] {
 }
 
 
+/* THANK YOU */
+
+.thankyoubuttons a {
+    text-decoration: none;
+    color:var(--text-color2);
+}
+
+.thank-you-grid, .share-grid, .support-grid {
+    display: none;
+}
+
+.thank-you-grid {
+    display: grid;
+    height: calc(100vh - 83px);
+    align-items: center;
+    justify-content: center;
+}
+
+.thank-you-grid>div {
+    width: 320px;
+    text-align: center;
+}
+
+.share-grid {
+    display: grid;
+    height: calc(100vh - 83px);
+    align-items: center;
+    justify-content: center;
+}
+
+.share-grid>div {
+    width: 320px;
+    text-align: center;
+}
+
+.support-grid{
+    display: grid;
+    height: calc(100vh - 83px);
+    align-items: center;
+    justify-content: center;
+}
+
+.support-grid>div {
+    width: 320px;
+    text-align: center;
+}
+
+.support-grid p {
+    margin: 20px 0 30px 0;
+}
+
+
 /* MEDIA QUERIES */
 
   @media screen and (min-width: 813px) {
@@ -583,6 +636,10 @@ input[type="radio"] {
 
     p {
         margin: 27px 5vw;
+    }
+
+    .thank-you-grid p, .share-grid p {
+        margin: 27px 0;
     }
 
     .personal_data {
