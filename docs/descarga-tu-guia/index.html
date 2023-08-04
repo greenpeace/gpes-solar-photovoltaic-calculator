@@ -230,17 +230,17 @@
                 <div class="form-group">
                     <label for="first_name" class="d-none">Nombre <sup title="Campo obligatório">*</sup></label>
                     <input type="text" class="form-control" id="first_name" name="first_name" required="required" maxlength="40" autocomplete="given-name" x-model="values.first_name" x-on:input="required('first_name'); $store.fname = $el.value" />
-                    <div class="error-message" x-text="errors.first_name" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+                    <div class="error-message" x-text="errors.first_name" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="form-group">
                     <label for="last_name" class="d-none">Apellidos <sup title="Campo obligatório">*</sup> </label>
                     <input type="text" class="form-control" id="last_name" name="last_name" required="required" maxlength="40" autocomplete="family-name" x-model="values.last_name" x-on:input="required('last_name')" />
-                    <div class="error-message" x-text="errors.last_name" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+                    <div class="error-message" x-text="errors.last_name" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="d-none">Email <sup title="Campo obligatório">*</sup></label>
                     <input type="email" class="form-control" id="email" name="email" required="required" maxlength="50" autocomplete="email" x-model="values.email" x-on:input="is_required_email('email'); $store.email = $el.value" x-on:change="is_new_email()"  />
-                    <div class="error-message" x-text="errors.email" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+                    <div class="error-message" x-text="errors.email" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <!--<div class="form-group">
                     <label for="id_number" class="d-none"> <sup title="Campo obligatório">*</sup> <span class="sr-only"></span></label>
@@ -250,7 +250,7 @@
                 <div class="form-group">
                     <label for="phone_number" class="d-none">Teléfono <sup title="Campo obligatório">*</sup> <span class="sr-only">Ej. 623456789</span></label>
                     <input type="tel" class="form-control" id="phone_number" name="phone_number" maxlength="15" autocomplete="tel-national" required="required" x-model="values.phone_number" x-on:input="is_required_phone('phone_number')" />
-                    <div class="error-message" x-text="errors.phone_number" x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+                    <div class="error-message" x-text="errors.phone_number" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="privacynotice" data-nosnippet="true">
                     Quiero recibir información acerca de las campañas de Greenpeace y formas de participación. Al firmar, acepto la política de privacidad. Desde GREENPEACE ESPAÑA trataremos los datos aportados en calidad de Responsable del tratamiento con la finalidad de gestionar nuestra relación contigo, en pro de nuestros objetivos fundacionales, en base al consentimiento o a la ejecución de un acuerdo. Puedes ejercer tus derechos enviando un email a contacto.es@greenpeace.org con el asunto “Protección de Datos”. <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/" class="privacy_policy_link_form">Más información.</a>
@@ -259,7 +259,7 @@
                     <label for="privacy">
                         <input type="checkbox" id="privacy" name="privacy" value="Y" required="required" x-model="values.privacy" x-on:change="is_checked('privacy')" />
                         <span id="iaccept">Acepto la política de privacidad <sup title="Campo obligatório">*</sup></span>
-                        <div class="error-message" x-text="errors.privacy"  x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+                        <div class="error-message" x-text="errors.privacy"  x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                     </label>
                 </div>
                 <div class="buttoncontainer">
@@ -271,7 +271,7 @@
 
     </div>
 
-    <div class="thank-you-grid" id="thankyoupage" x-show="screen === 'thankyoupage'" x-bind:aria-hidden="not(screen === 'thankyoupage')" x-transition.duration.300ms>
+    <div class="thank-you-grid" id="thankyoupage" x-show="screen === 'thankyoupage'" style="display:none;" x-bind:aria-hidden="not(screen === 'thankyoupage')" x-transition.duration.300ms>
         <div>
             <h2>Disfruta de tu guía, <span x-text="$store.fname"></span></h2>
             <p>Ya te hemos enviado la guía a <span x-text="$store.email">[...]</span></p>
@@ -282,7 +282,7 @@
             </div>
         </div>
     </div>
-    <div class="share-grid" id="sharepage" x-show="screen === 'sharepage'" x-bind:aria-hidden="not(screen === 'sharepage')" x-transition.duration.300ms>
+    <div class="share-grid" id="sharepage" x-show="screen === 'sharepage'" style="display:none;" x-bind:aria-hidden="not(screen === 'sharepage')" x-transition.duration.300ms>
         <div>
             <h2>Comparte esta guía</h2>
             <p>Ayuda a otra gente a consumir su propia energía solar.</p>
@@ -300,7 +300,7 @@
             <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'skip_to_donations' });">Saltar »</button>
         </div>
     </div>
-    <div class="support-grid" id="givepage" x-show="screen === 'givepage'" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.duration.300ms>
+    <div class="support-grid" id="givepage" x-show="screen === 'givepage'" style="display:none;" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.duration.300ms>
         <div>
             <h2>Apoya la campaña</h2>
             <p>En Greenpeace trabajamos para proteger nuestros bosques y defender su biodiversidad. Únete ahora y súmate a la lucha por un planeta sano y en paz.</p>
@@ -311,7 +311,7 @@
     </div>
 
 
-	<div class="modal" x-show="showModal" :class="{ 'modal-visible-overflow': showModal }">
+	<div class="modal" x-show="showModal" style="display:none;" :class="{ 'modal-visible-overflow': showModal }">
 
 		<div class="modal-inside" x-show="showModal" x-data="{ 
                 modalDialog: 1,
@@ -377,7 +377,7 @@
 				</div>
 			</div>
 
-			<div x-show="modalDialog === 2" x-bind:aria-hidden="not(modalDialog === 2)">
+			<div x-show="modalDialog === 2" style="display:none;" x-bind:aria-hidden="not(modalDialog === 2)">
 				<h2>Configuración de privacidad</h2>
 				<p>Este sitio web utiliza cookies para obtener datos de navegación y de uso de la página por parte de los usuarios y usuarias. Puedes ver más información en nuestra <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/?tracking=deny_all#cookies">Política de Cookies</a>. A continuación puedes leer más sobre ellas y elegir cuáles aceptas y cuáles rechazas mientras estás en nuestra web.</p>
                 <div class="modal-bt-row">

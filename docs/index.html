@@ -103,7 +103,7 @@
         </div>
     </div>
 
-        <div id="en-propriedad" x-show="level1 === 'en-propriedad'" x-bind:aria-hidden="not(level1 === 'en-propriedad')" class="subpage" x-transition.duration.300ms>
+        <div id="en-propriedad" style="display:none;" x-show="level1 === 'en-propriedad'" x-bind:aria-hidden="not(level1 === 'en-propriedad')" class="subpage" x-transition.duration.300ms>
         <div class="topsub">
             <h1 style="grid-area: titlet">Si tienes piso o casa en propiedad...</h1>
             <p style="grid-area: textt">Si tienes una vivienda en propiedad pasarte al autoconsumo de energía solar es muy sencillo porque solo necesitarás un tejado (o ubicación próxima) en el que poder instalar las placas. El cómo hacerlo varía en función de si vives en una vivienda unifamiliar o en un bloque de pisos.</p>
@@ -131,7 +131,7 @@
         </div>
     </div>
 
-        <div id="de-alquiler" x-show="level1 === 'de-alquiler'" x-bind:aria-hidden="not(level1 === 'de-alquiler')" class="subpage" x-transition.duration.300ms>
+        <div id="de-alquiler" style="display:none;" x-show="level1 === 'de-alquiler'" x-bind:aria-hidden="not(level1 === 'de-alquiler')" class="subpage" x-transition.duration.300ms>
         <div class="topsub">
             <h1 style="grid-area: titlet">Si vives de alquiler...</h1>
             <p style="grid-area: textt">Aunque no tengas un tejado en propiedad, el autoconsumo de energía renovable también es posible. No es necesario tener mucho dinero ni grandes conocimientos para librarse de la dictadura de las grandes energéticas y bajar tu factura de la luz.</p>
@@ -169,7 +169,7 @@
         </div>
     </div>
 
-        <div id="vivienda-unifamilar" x-show="level1 === 'en-propriedad' && level2 === 'vivienda-unifamilar'" x-bind:aria-hidden="not(level1 === 'en-propriedad' && level2 === 'vivienda-unifamilar')" class="subpage" x-transition.duration.300ms>
+        <div id="vivienda-unifamilar" style="display:none;" x-show="level1 === 'en-propriedad' && level2 === 'vivienda-unifamilar'" x-bind:aria-hidden="not(level1 === 'en-propriedad' && level2 === 'vivienda-unifamilar')" class="subpage" x-transition.duration.300ms>
         <div class="topsub">
             <h1 style="grid-area: titlet">Si tienes una vivienda unifamiliar...</h1>
             <div style="grid-area: textt">
@@ -194,7 +194,7 @@
         </div>
     </div>
 
-        <div id="bloque-pisos" x-show="level1 === 'en-propriedad' && level2 === 'bloque-pisos'" x-bind:aria-hidden="not(level1 === 'en-propriedad' && level2 === 'bloque-pisos')" class="subpage" x-transition.duration.300ms>
+        <div id="bloque-pisos" style="display:none;" x-show="level1 === 'en-propriedad' && level2 === 'bloque-pisos'" x-bind:aria-hidden="not(level1 === 'en-propriedad' && level2 === 'bloque-pisos')" class="subpage" x-transition.duration.300ms>
         <div class="topsub2">
             <h1 style="grid-area: titlebp">Si vives en un bloque de pisos...</h1>
             <p style="grid-area: p1bp">El autoconsumo de energía solar también es posible si tienes un piso en un bloque de vecinos/as. Solo se necesita un tejado o espacio próximo lo suficientemente grande para poder realizar la instalación.</p>
@@ -220,7 +220,7 @@
         </div>
     </div>
 
-        <div id="convence-casero" x-show="level1 === 'de-alquiler' && level2 === 'convence-casero'" x-bind:aria-hidden="not(level1 === 'de-alquiler' && level2 === 'convence-casero')"  class="subpage" x-transition.duration.300ms>
+        <div id="convence-casero" style="display:none;" x-show="level1 === 'de-alquiler' && level2 === 'convence-casero'" x-bind:aria-hidden="not(level1 === 'de-alquiler' && level2 === 'convence-casero')"  class="subpage" x-transition.duration.300ms>
         <div class="topsub2">
             <h1 style="grid-area: titlebp">Convence a tu casero/a</h1>
             <p style="grid-area: p1bp">Siempre puedes intentar convencer a tu casero/a para que instale placas y revalorice el piso energéticamente (la calificación energética cada vez será de mayor valor y obligación). Además, podrá vender o alquilar más fácil y rápido ya que la casa “prácticamente no paga luz”.</p>
@@ -241,7 +241,7 @@
         </div>
     </div>
 
-        <div id="invierte-ahorros" x-show="level1 === 'de-alquiler' && level2 === 'invierte-ahorros'" x-bind:aria-hidden="not(level1 === 'de-alquiler' && level2 === 'invierte-ahorros')" class="subpage" x-transition.duration.300ms>
+        <div id="invierte-ahorros" style="display:none;" x-show="level1 === 'de-alquiler' && level2 === 'invierte-ahorros'" x-bind:aria-hidden="not(level1 === 'de-alquiler' && level2 === 'invierte-ahorros')" class="subpage" x-transition.duration.300ms>
         <div class="topsub2">
             <h1 style="grid-area: titlebp">Si tienes ahorros, desde 50 euros puedes...</h1>
             <p style="grid-area: p1bp">Desde 50 euros ya puedes invertir y convertirte en copropietaria de instalaciones renovables en otro lugar para reducir directamente tu factura o recibir un retorno económico. También puedes prestar tus ahorros a plataformas de inversión social para que otras personas instalen renovables y luego recuperarlos con algo de interés.</p>
@@ -262,7 +262,7 @@
         </div>
     </div>
 
-        <div id="autoconsumo-colectivo" x-show="level1 === 'de-alquiler' && level2 === 'autoconsumo-colectivo'" x-bind:aria-hidden="not(level1 === 'de-alquiler' && level2 === 'autoconsumo-colectivo')" class="subpage" x-transition.duration.300ms>
+        <div id="autoconsumo-colectivo" style="display:none;" x-show="level1 === 'de-alquiler' && level2 === 'autoconsumo-colectivo'" x-bind:aria-hidden="not(level1 === 'de-alquiler' && level2 === 'autoconsumo-colectivo')" class="subpage" x-transition.duration.300ms>
         <div class="topsub2">
             <h1 style="grid-area: titlebp">Si tienes un edificio haciendo autoconsumo a menos de 2 km...</h1>
             <p style="grid-area: p1bp">Si tienes algún vecino/a, colegio o edificio público que hace autoconsumo a menos de 2 km puedes enchufarte a ellos.</p>
@@ -283,7 +283,7 @@
         </div>
     </div>
 
-        <div id="presiona-ayuntamiento" x-show="level1 === 'de-alquiler' && level2 === 'presiona-ayuntamiento'" x-bind:aria-hidden="not(level1 === 'de-alquiler' && level2 === 'presiona-ayuntamiento')" class="subpage" x-transition.duration.300ms>
+        <div id="presiona-ayuntamiento" style="display:none;" x-show="level1 === 'de-alquiler' && level2 === 'presiona-ayuntamiento'" x-bind:aria-hidden="not(level1 === 'de-alquiler' && level2 === 'presiona-ayuntamiento')" class="subpage" x-transition.duration.300ms>
         <div class="topsub2">
             <h1 style="grid-area: titlebp">Pide a tu ayuntamiento que instale renovables para cubrir el 100% de la demanda energética del vecindario</h1>
             <p style="grid-area: p1bp">Presiona a tu ayuntamiento para que instale renovables que cubran la demanda de edificios públicos y de todo el vecindario. Pueden empezar con un autoconsumo colectivo desde sus tejados o ir mucho más allá, instalando renovables en su término municipal o creando una comunidad energética, donde ofrecer otros servicios a la ciudadanía (movilidad sostenible, eficiencia y rehabilitación energética, etc).</p>
@@ -305,7 +305,7 @@
     </div>
 
     
-	<div class="modal" x-show="showModal" :class="{ 'modal-visible-overflow': showModal }">
+	<div class="modal" x-show="showModal" style="display:none;" :class="{ 'modal-visible-overflow': showModal }">
 
 		<div class="modal-inside" x-show="showModal" x-data="{ 
                 modalDialog: 1,
@@ -371,7 +371,7 @@
 				</div>
 			</div>
 
-			<div x-show="modalDialog === 2" x-bind:aria-hidden="not(modalDialog === 2)">
+			<div x-show="modalDialog === 2" style="display:none;" x-bind:aria-hidden="not(modalDialog === 2)">
 				<h2>Configuración de privacidad</h2>
 				<p>Este sitio web utiliza cookies para obtener datos de navegación y de uso de la página por parte de los usuarios y usuarias. Puedes ver más información en nuestra <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/?tracking=deny_all#cookies">Política de Cookies</a>. A continuación puedes leer más sobre ellas y elegir cuáles aceptas y cuáles rechazas mientras estás en nuestra web.</p>
                 <div class="modal-bt-row">

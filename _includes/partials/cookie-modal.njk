@@ -1,5 +1,5 @@
 
-	<div class="modal" x-show="showModal" :class="{ 'modal-visible-overflow': showModal }">
+	<div class="modal" x-show="showModal" style="display:none;" :class="{ 'modal-visible-overflow': showModal }">
 
 		<div class="modal-inside" x-show="showModal" x-data="{ 
                 modalDialog: 1,
@@ -65,7 +65,7 @@
 				</div>
 			</div>
 
-			<div x-show="modalDialog === 2" x-bind:aria-hidden="not(modalDialog === 2)">
+			<div x-show="modalDialog === 2" style="display:none;" x-bind:aria-hidden="not(modalDialog === 2)">
 				<h2>Configuración de privacidad</h2>
 				<p>Este sitio web utiliza cookies para obtener datos de navegación y de uso de la página por parte de los usuarios y usuarias. Puedes ver más información en nuestra <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/?tracking=deny_all#cookies">Política de Cookies</a>. A continuación puedes leer más sobre ellas y elegir cuáles aceptas y cuáles rechazas mientras estás en nuestra web.</p>
                 <div class="modal-bt-row">
