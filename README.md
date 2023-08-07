@@ -27,3 +27,11 @@ npm run test-server
 ```
 
 Después abrir el navegador en http://localhost:8888
+
+
+## Deployment
+
+```bash
+npm run build:local
+cp -R assets $HOME/Websites/es_greenpeace_org/code/wp-content/themes/guia-autoconsumo/
+```
