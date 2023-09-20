@@ -369,11 +369,27 @@ const delayedOutbrain = function(){
 
     const clickedButton = e.detail.button;
 
-    gtag("event", "Click", {
+    gtag("event", "click", {
         'event_category': "Autoconsumo",
         'event_label': clickedButton,
         'value': 0
     });
+
+});
+
+/**
+ * On clics in thank you buttons, new
+ *  $dispatch('thankyou:share', { method: 'Facebook' });
+ *  $dispatch('thankyou:share', { method: 'Whatsapp' });
+ *  $dispatch('thankyou:share', { method: 'Twitter' });
+ */
+document.addEventListener('thankyou:share', function (e) {
+
+    gtag("event", "share", {
+        "method": e.detail.method
+    });
+
+    // console.log("share", e.detail);
 
 });
 
