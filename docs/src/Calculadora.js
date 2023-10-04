@@ -15,8 +15,9 @@ class Calculadora {
         this.porcentaje_consumo = porcentaje_consumo;
         this.provincia = provincia;
         this.orientacion_tejado = orientacion_tejado;
-        this.precio_medio_pannel = 1700;
-        this.ahorrokWh = 0.118;
+        this.precio_medio_pannel = 1400;
+        this.ahorrokWh = 0.271;
+        this.ahorrokWhMercadoLibre = 0.271;
         this.co2_kWh = 0.16;
     }
 
@@ -257,7 +258,7 @@ class Calculadora {
         if (this.coeficiente_orientacion_tejado() === 0) {
             return 0;
         }
-        return this.energia_a_cubrir() / (this.coeficiente_orientacion_tejado() * this.valor_zona_climatica());
+        return this.energia_a_cubrir() / (this.coeficiente_orientacion_tejado() * this.valor_zona_climatica()) * 1.2;
     }
 
     /**
@@ -268,7 +269,7 @@ class Calculadora {
         if (this.coeficiente_orientacion_tejado() === 0) {
             return 0;
         }
-        return Math.round(this.potencia_necesaria_para_consumo_deseado() * 1000 / 450);
+        return Math.ceil(this.potencia_necesaria_para_consumo_deseado() * 1000 / 550);
     }
 
     /**
@@ -291,6 +292,18 @@ class Calculadora {
             return 0;
         }
         return Math.round(this.energia_a_cubrir() * this.ahorrokWh);
+    }
+
+
+    /**
+     * Ahorro anual esperado mercado libre (€)
+     * @returns {number}
+     */
+    ahorro_anual_esperado_mercado_libre() {
+        if (this.coeficiente_orientacion_tejado() === 0) {
+            return 0;
+        }
+        return Math.round(this.energia_a_cubrir() * this.ahorrokWhMercadoLibre);
     }
 
     /**
@@ -332,7 +345,7 @@ let probar = function (calc) {
         },
         "Constantes (no visibles)": {
             "Precio médio del pannel": calc.precio_medio_pannel,
-            "Ahorro kWh": calc.ahorrokWh,
+            "Ahorro kWh mercado libre": calc.ahorrokWhMercadoLibre,
             "Co2 por kWh": calc.co2_kWh
         },
         "Variables (no visibles)": {
@@ -344,7 +357,7 @@ let probar = function (calc) {
             "Potencia necesaria de tu instalacion  para cubrir el consumo deseado (kWp)": calc.potencia_necesaria_para_consumo_deseado(),
             "Nº de paneles a instalar": calc.numero_paneles_a_instalar(),
             "Coste de tu instalacion (€) (aproximado)": calc.coste_de_tu_instalacion(),
-            "Ahorro anual esperado (€)": calc.ahorro_anual_esperado(),
+            "Ahorro anual esperado mercado libre (€)": calc.ahorro_anual_esperado_mercado_libre(),
             "Años amortizacion ": calc.anos_amortizacion(),
             "Emisiones": calc.emissiones(),
         }
@@ -357,7 +370,9 @@ let probar = function (calc) {
  *  Calculadora(consumo_anual, porcentaje_consumo, provincia, orientacion_tejado)
  */
 
-let calc1 = new Calculadora(3300, 100, "Toledo", "Sur");
+// let calc1 = new Calculadora(3300, 100, "Toledo", "Sur");
+
+let calc1 = new Calculadora(3200, 60, "Madrid", "Sur");
 
 probar(calc1);
 
