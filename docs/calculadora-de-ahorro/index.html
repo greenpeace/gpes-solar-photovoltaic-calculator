@@ -426,7 +426,7 @@
 
         <div class="result_box_large result_box_large_grid">
             <div style="grid-area: icon-info; margin-top: 5px;"><a href="javascript:void(0);" x-on:click="ahorro_anual_esperado = ! ahorro_anual_esperado"><img src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/img/i.svg" width="19" height="19" alt="Más información" /></a></div>
-            <div style="grid-area: result; margin-left:40px;"  class="strong_result"><span x-text="calculadora.ahorro_anual_esperado();"></span>€</div>
+            <div style="grid-area: result; margin-left:40px;"  class="strong_result"><span x-text="calculadora.ahorro_anual_esperado_mercado_libre();"></span>€</div>
             <div style="grid-area: footnote"  class="footnote">Ahorro anual esperado</div>
             <div style="grid-area: moreinfo" x-show="ahorro_anual_esperado" style="display:none;" x-transition.duration.300ms x-bind:aria-hidden="not(ahorro_anual_esperado)" class="ahorro_anual_esperado">
                 <p>El ahorro anual dependerá principalmente del consumo eléctrico que hagas (si desplazas tus consumos a las horas en las que tus paneles producen), de la capacidad de producción de tus paneles y de la evolución del precio de la luz. Recuerda que puedes reducir aún más tu factura de la luz compensando los excedentes que produces y no usas. Para ello hay varias opciones: "compensación simplificada" o "batería virtual".</p>

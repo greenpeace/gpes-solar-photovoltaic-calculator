@@ -102,8 +102,8 @@ async function sendToHubspot(formValues, calculadora) {
                 "value": calculadora.orientacion_tejado
             },
             {
-                "name": "calculadora_ahorro_anual_esperado",
-                "value": calculadora.ahorro_anual_esperado()
+                "name": "calculadora_ahorro_anual_esperado_mercado_libre",
+                "value": calculadora.ahorro_anual_esperado_mercado_libre()
             },
             {
                 "name": "calculadora_numero_paneles_a_instalar",
