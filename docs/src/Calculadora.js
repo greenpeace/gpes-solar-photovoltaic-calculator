@@ -16,7 +16,6 @@ class Calculadora {
         this.provincia = provincia;
         this.orientacion_tejado = orientacion_tejado;
         this.precio_medio_pannel = 1400;
-        this.ahorrokWh = 0.271;
         this.ahorrokWhMercadoLibre = 0.271;
         this.co2_kWh = 0.16;
     }
@@ -284,18 +283,6 @@ class Calculadora {
     }
 
     /**
-     * Ahorro anual esperado (€)
-     * @returns {number}
-     */
-    ahorro_anual_esperado() {
-        if (this.coeficiente_orientacion_tejado() === 0) {
-            return 0;
-        }
-        return Math.round(this.energia_a_cubrir() * this.ahorrokWh);
-    }
-
-
-    /**
      * Ahorro anual esperado mercado libre (€)
      * @returns {number}
      */
@@ -314,7 +301,7 @@ class Calculadora {
         if (this.coeficiente_orientacion_tejado() === 0 || this.porcentaje_consumo === 0) {
             return 0;
         }
-        return Math.round(((this.coste_de_tu_instalacion() / this.ahorro_anual_esperado()) + Number.EPSILON) * 10) / 10;
+        return Math.round(((this.coste_de_tu_instalacion() / this.ahorro_anual_esperado_mercado_libre()) + Number.EPSILON) * 10) / 10;
     }
 
     /**
