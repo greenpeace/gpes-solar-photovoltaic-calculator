@@ -30,7 +30,7 @@
     <div class="support-grid" id="givepage" x-show="screen === 'givepage'" style="display:none;" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.duration.300ms>
         <div>
             <h2>Apoya la campaña</h2>
-            <p>En Greenpeace trabajamos para proteger nuestros bosques y defender su biodiversidad. Únete ahora y súmate a la lucha por un planeta sano y en paz.</p>
+            <p>En Greenpeace trabajamos para que la energía que consumimos sea 100% renovable y esté en manos de las personas, no de las grandes empresas. ¡Únete a la lucha! Hazte socio/a</p>
             <div class="line-of-buttons">
                 <a href="https://es.greenpeace.org/es/que-puedes-hacer-tu/donaciones/" class="colored-button" x-on:click.prevent="$dispatch('thankyou:buttons', { button: 'yes_to_give' }); await delay(1000); window.location.href = $el.getAttribute('href');">Hazte socio/a</a>
             </div>
