@@ -33,5 +33,7 @@ Después abrir el navegador en http://localhost:8888
 
 ```bash
 npm run build:local
+npm run build:prod
 cp -R assets $HOME/Websites/es_greenpeace_org/code/wp-content/themes/guia-autoconsumo/
+cp -R src $HOME/Websites/es_greenpeace_org/code/wp-content/themes/guia-autoconsumo/
 ```
