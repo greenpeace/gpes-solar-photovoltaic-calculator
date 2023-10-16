@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descarga tu guía de autoconsumo</title>
+    <style>
+        :root{--text-color:#000;--text-color2:rgba(42, 178, 11, 1);--text-color3:#fff;--text-error:red;--font-family:"Source Sans 3",sans-serif;--background-gray:rgba(242, 242, 242, 1);--background-yellow:#fbce16;--background-top-menu:#fff;--active-color:#fff7d9;--back-button-color:rgba(177, 178, 181, 1);--footnote-color:rgba(144, 144, 144, 1);--color:#999;--checked-color:rgba(42, 178, 11, 1);--bg-color:#e8e8e8}@media (prefers-contrast:more){:root{--text-color2:rgba(26, 102, 9, 1);--background-gray:rgba(249, 249, 249, 1);--background-yellow:#f9edb9;--active-color:#fefbef;--footnote-color:rgba(0, 0, 0, 1);--checked-color:rgba(26, 102, 9, 1)}}body{margin:0;padding:0;font-family:var(--font-family)}@media screen{.sr-only{display:none}}menu{padding:0;margin:0}#topmenu{background-color:var(--background-top-menu);display:grid;grid-template-columns:10fr 67px;grid-template-rows:repeat(2,1fr);grid-column-gap:0;grid-row-gap:0;box-shadow:0 2px 5px 0 rgba(0,0,0,.1)}.title{grid-column-start:1;grid-column-end:2;grid-row-start:1;grid-row-end:2;margin-left:27px;margin-top:15px;font-weight:700}.logo{width:140px;grid-column-start:1;grid-column-end:2;grid-row-start:2;grid-row-end:3;margin-left:27px;margin-top:3px;margin-bottom:3px}.logo img{max-width:100%}.hamburger{grid-column-start:2;grid-column-end:3;grid-row-start:1;grid-row-end:3;margin-top:27px;margin-right:27px}.hamburger,.hamburger img{width:40px;height:26px}#topmenu .autoconsumo,#topmenu .calculadora,#topmenu .descarga{display:none}#sidemenu{background:#fbce16;color:var(--text-color);height:100vh;width:100vw;position:fixed;top:0;z-index:9999}#sidemenu a{color:var(--text-color);text-decoration:none}#insidemenu{display:grid;grid-template-columns:10fr 67px;grid-template-rows:repeat(1,1fr);grid-column-gap:0;grid-row-gap:0;align-items:start}.topinside{grid-column-start:1;grid-column-end:2;grid-row-start:1;grid-row-end:2;margin-left:27px;margin-top:16px}.close2{grid-column-start:2;grid-column-end:3;grid-row-start:1;grid-row-end:2;margin-top:27px}.title2{font-weight:700}.logo2{width:140px;margin-top:10px}.logo2 img{max-width:100%}.menulinks{margin-top:2rem}.menulinks div{padding:10px 0;font-size:1.3rem}.menulinks div:nth-child(1),.menulinks div:nth-child(2){border-bottom:1px solid #000}@media screen and (min-width:813px){.hamburger,.title{display:none}#topmenu .autoconsumo,#topmenu .calculadora,#topmenu .descarga{display:inline-block}#topmenu{grid-template-columns:5fr 7fr 5fr 4fr;grid-template-rows:repeat(1,1fr);height:50px;background-color:var(--background-yellow)}.logo{grid-column-start:1;grid-column-end:2;grid-row-start:1;grid-row-end:2;margin-top:10px}.autoconsumo{grid-column-start:2;grid-column-end:3;grid-row-start:1;grid-row-end:2;margin-top:12px}.calculadora{grid-column-start:3;grid-column-end:4;grid-row-start:1;grid-row-end:2;margin-top:12px}.descarga{grid-column-start:4;grid-column-end:4;grid-row-start:1;grid-row-end:2;margin-top:12px}#topmenu a{text-decoration:none;color:var(--text-color);font-weight:700}}@media screen and (min-width:1024px){#topmenu{width:960px;margin:auto}}:root{--animate-duration:1s;--animate-delay:1s;--animate-repeat:1}.modal{overflow:auto;background-color:rgba(0,0,0,.5)}.modal-inside{background-color:#fff;width:80%;text-align:left;padding:1rem 1.5rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.7);margin:auto;border-radius:10px;border:1px solid #000}.modal-inside h2{color:var(--text-color2);font-size:1.5rem}.modal-inside p{margin:.5rem 0}.modal-inside a{color:var(--links-color);font-weight:700;text-decoration:underline}.modal-inside .popup-yes{background-color:var(--checked-color);color:var(--text-color3);font-weight:700;text-transform:uppercase}.modal-inside .popup-no{background-color:var(--background-gray)}.modal-inside label{font-weight:var(--bold-font-weight);display:inline;font-weight:700}.modal-bt-row{display:flex;justify-content:center;padding:.5rem 0 1.5rem;gap:15px}.modal-bt-row button{padding:.75rem;border:none;border-radius:10px;color:var(--second-color);padding:10px 15px;font-family:var(--headers-font);font-size:1.1rem}@media screen and (max-width:440px){.modal-bt-row{flex-direction:column}}.modal-bt-row .popup-no{color:var(--light-text-color)}@media (min-width:480px){.modal-inside{max-width:450px}}.download-grid{display:grid;grid-template-columns:auto;grid-template-areas:"title-guide" "text" "main-image" "cover" "form-container"}.title-guide{grid-area:title-guide;margin:15px 27px;line-height:2.3rem}p{font-size:1.125rem}.text{grid-area:text;margin:0 27px;font-size:1.125rem}.main-image{grid-area:main-image;background-color:var(--background-gray);padding:27px 27px 0}.cover{grid-area:cover;background-color:var(--background-gray);margin:0 27px;font-size:1.125rem}.form-container{background-color:var(--background-yellow);grid-area:form-container;padding:30px 30px 100px}h2{font-size:1.23rem;color:var(--text-color2)}label{display:block;margin-bottom:4px;margin-left:4px}.privacynotice{margin-top:1.3rem}input[type=checkbox]{margin-left:-3px}label[for=privacy]{margin:1rem 0 .8rem}.thankyoubuttons a{text-decoration:none;color:var(--text-color2)}.share-grid,.support-grid,.thank-you-grid{display:none}.thank-you-grid{display:grid;height:calc(100vh - 83px);align-items:center;justify-content:center}.thank-you-grid>div{width:320px;text-align:center}.share-grid{display:grid;height:calc(100vh - 83px);align-items:center;justify-content:center}.share-grid>div{width:320px;text-align:center}.support-grid{display:grid;height:calc(100vh - 83px);align-items:center;justify-content:center}.support-grid>div{width:320px;text-align:center}@media screen and (min-width:813px){.download-grid{max-width:960px;margin:auto;margin-top:30px;column-gap:27px;grid-template-areas:"title-guide form-container" "main-image form-container" "text form-container" "cover form-container"}.main-image,.title-guide{text-align:center;background-color:var(--background-top-menu)}.cover{background-color:var(--background-top-menu)}h2{font-size:1.5rem}.cover p{margin-top:0}}#signup{max-width:100%}.error-message{color:var(--text-error);margin-left:.2rem}input{border:1px solid #495057;background-color:var(--background-yellow);padding:.5rem 1rem;font-family:var(--font-family);font-size:1rem;border-radius:5px}input[type=email],input[type=tel],input[type=text]{box-sizing:border-box;width:100%}.form-group{margin-bottom:10px}.privacynotice{font-size:.94rem}.privacycontainer{margin-bottom:1rem}.colored-button{background-color:var(--text-color);font-weight:700;text-transform:uppercase;color:var(--text-color3);font-family:var(--font-family);font-size:1.1rem;padding:8px 20px;border:none;border-radius:10px}a.colored-button{text-decoration:none}.colored-button.yes{background-color:var(--text-color2)}.line-of-buttons{display:flex;justify-content:center;gap:30px;margin-top:30px}.thankyoubuttons{display:flex;justify-content:center;gap:30px;margin:30px 0}.form-container>h2{color:var(--text-color)}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap" onload="this.rel='stylesheet'" >
+    <link rel="preload" as="style" href="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/css/global.css" onload="this.rel='stylesheet'" />
+    <link rel="preload" as="style" href="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/css/guide.css" onload="this.rel='stylesheet'" />
+        <!-- Statistics I -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NL9SM5MNP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+        });
+        gtag('js', new Date());
+
+        window.googleTrackingConfig = {
+            'custom_map': {
+                'dimension1': 'ExistingOrNew',
+                'dimension2': 'CookiePrivacyVariant'
+            }
+        };
+        const enableGoogleOptimize = false;
+    </script>
+    <!-- / Statistics I -->
+
+
+    <script src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/js/analytics.js" defer></script>
+    <script src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/js/cookieTrackingManager.js" defer></script>
+    <script src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/js/scripts.js" defer></script>
+    <script src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/js/form.js" defer></script>
+    <script src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/js/send-simple.js" defer></script>
+    <script src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/js/alpine.min.js" defer></script>
+    <meta name="description" content="Cómo puedo hacer autoconsumo solar" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Descarga tu guía de autoconsumo solar" />
+    <meta property="og:url" content="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/descarga-tu-guia/" />
+    <meta property="og:description" content="Ni rica, ni experta y sin tejado. Autoproducir tu propia energía ya es para todos. ¡Descúbrelo en nuestra guía de autoconsumo solar!" />
+    <meta property="og:site_name" content="Autoconsumo solar" />
+    <meta property="og:image" content="https://es.greenpeace.org/es/wp-content/uploads/sites/3/2023/10/03guia-de-autoconsumo.jpg" />
+
+    <link rel="canonical" href="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/descarga-la-guia/" />
+    
+
+</head>
+
+<body class="page-descarga" x-data="{
+    screen: 'landingpage',
+    showModal: false
+}">
+        <menu id="topmenu">
+        <div class="title">Guía de autoconsumo solar</div>
+        <div class="logo"><img src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/img/greenpeace.svg" alt="Greenpeace" width="184" height="29" /></div>
+    </menu>
+    <menu id="sidemenu" hidden="hidden" class="animate__faster">
+        
+        <div id="insidemenu">
+            <div class="topinside">
+                <div class="title2">Guía de autoconsumo solar</div>
+                <div class="logo2"><img src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/img/greenpeace.svg" alt="Greenpeace" width="184" height="29" /></div>
+                <div class="menulinks">
+
+                </div>
+            </div>
+
+            <div class="close2">
+                <a href="javascript:void(0);" onclick="leave('#sidemenu', 'slideOutLeft');">
+                    <img src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/img/close.svg" alt="Cerrar" width="26" height="26" />
+                </a>
+            </div>
+
+        </div>
+    </menu>
+
+    <div class="download-grid" id="formpage" x-show="screen === 'landingpage'" x-bind:aria-hidden="not(screen === 'landingpage')"  x-transition.opacity.duration.400ms>
+
+        <h1 class="title-guide">Descarga la guía de autoconsumo solar</h1>
+
+        <div class="text">
+            <p>¿Tiemblas cada vez que llega la factura de la luz?  ¿Tienes miedo a una nueva crisis energética?  ¿Llevas tiempo preguntándote si eso de ponerse placas para autoproducirse tu propia electricidad renovable podría ser la solución pero no sabes cómo dar el paso?
+            </p>
+            <p>Autoproducir tu propia energía puede parecer complicado y caro, pero ya es una realidad para millones de familias porque no es ni lo uno ni lo otro.</p>
+            <p><strong>¿Sabías que ni siquiera es necesario tener un tejado en propiedad para hacerlo?</strong></p>
+        </div>
+
+        <style>
+            #imgCover {
+                max-height: 320px;
+                width: auto;
+            }
+        </style>
+
+        <div class="main-image">
+            <img id="imgCover" src="https://es.greenpeace.org/es/wp-content/uploads/sites/3/2023/10/portad2-640.png" width="617" height="640" alt="Portada del descargable" />
+        </div>
+        
+        <div class="cover">
+            <p>En Greenpeace hemos elaborado una sencilla y completa guía en la que podrás encontrar la opción que más se ajusta a tus necesidades. Descubre los pasos a seguir para liberarte de los abusivos incrementos de las compañías eléctricas y contribuir a la lucha contra el cambio climático.</p>
+        </div>
+
+        <div class="form-container">
+            <h2>Rellena el formulario y recibirás la guía GRATIS en tu email.</h2>
+
+                        <script>
+                window.last_abtest_variant = "";
+            </script>
+            <form id="signup" class="form" novalidate x-on:submit.prevent="" x-init="populate_utms()" x-data="{
+                values : {
+                    utm_medium: '',
+                    utm_source: '',
+                    utm_campaign: '',
+                    utm_content: '',
+                    utm_term: '',
+                    gclid: '',
+                    ip: '',
+                    uagent: '',
+                    hs_language: 'es',
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    id_number: '',
+                    phone_number: '',
+                    privacy: false,
+                    is_contact: false,
+                },
+                show_errors: false,
+                errors: { 
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    id_number: '',
+                    phone_number: '',
+                    privacy: '',
+                    form_sent: ''
+                },
+                async populate_utms(){
+                    const utmValues = await stringParams();
+                    this.values.utm_medium = utmValues.utm_medium;
+                    this.values.utm_source = utmValues.utm_source;
+                    this.values.utm_campaign = utmValues.utm_campaign;
+                    this.values.utm_content = utmValues.utm_content;
+                    this.values.utm_term = utmValues.utm_term;
+                    this.values.gclid = utmValues.gclid;
+                }, 
+                validate(){
+                    this.required('first_name');
+                    this.required('last_name');
+                    this.is_required_email('email');
+                    /* this.is_required_id_number('id_number'); */
+                    this.is_required_phone('phone_number');
+                    this.is_checked('privacy');
+                },
+                is_valid(){
+                    let valid = true;
+                    for ( const i in this.errors ){
+                        if ( this.errors[i] != ''){
+                            valid = false;
+                        }
+                    }
+                    return valid;
+                },
+                async submit_form(){
+                    this.errors.form_sent = 'Yes';
+                    const answer = await sendToHubspot(this.values);
+                    if (answer) {
+                        screen = 'thankyoupage';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                },
+                async is_new_email(){
+                    if ( this.errors.email ==='' ){
+                        const rawResponse = await fetch('https://apis.greenpeace.es/email-info/?' + new URLSearchParams({
+                            email: this.values.email
+                        }));
+                        const content = await rawResponse.json();
+                        this.values.is_contact = content.is_contact;
+                    } else {
+                        this.values.is_contact = false;
+                        await console.log('Invalid email');
+                    }
+                },
+                required(field_name) {
+                    if ( this.values[field_name].trim().length < 2) {
+                        this.errors[field_name] = 'Campo obligatorio';
+                    } else {
+                        this.errors[field_name] = '';
+                    }
+                },
+                is_required_email(field_name) {
+                    if ( this.values[field_name].trim().length < 2) {
+                        this.errors[field_name] = 'Campo obligatorio';
+                    } else if ( !isValidEmail(this.values[field_name] ) ) {
+                        this.errors[field_name] = 'Un email válido por favor, ej. nombre@dominio.tld';
+                    } else {
+                        this.errors[field_name] = '';
+                    }
+                },
+                is_required_phone(field_name) {
+                    if ( this.values[field_name].trim().length < 2) {
+                        this.errors[field_name] = 'Campo obligatorio';
+                    } else if ( this.values[field_name].trim().length >= 1 && !isValidPhone( this.values[field_name] )) {
+                        this.errors[field_name] = 'Tu número de teléfono español por favor';
+                    } else {
+                        this.errors[field_name] = '';
+                    }
+                },
+                /* is_required_id_number(field_name) {
+                    if ( this.values[field_name].trim().length < 2) {
+                        this.errors[field_name] = 'Campo obligatorio';
+                    } else if ( !isValidIdNumber( this.values[field_name]) ){
+                        this.errors[field_name] = 'Un DNI o NIE españoles. Por ejemplo 82451384H o X6909535J.';
+                    } else {
+                        this.errors[field_name] = '';
+                    }
+                }, */
+                is_checked(field_name) {
+                    if ( this.values[field_name] === false ) {
+                        this.errors[field_name] = 'Falta aceptar la política de privacidad';
+                    } else {
+                        this.errors[field_name] = '';
+                    }
+                }
+            }">
+                <input type="hidden" name="utm_medium" id="utm_medium" x-model="values.utm_medium" />
+                <input type="hidden" name="utm_source" id="utm_source" x-model="values.utm_source" />
+                <input type="hidden" name="utm_campaign" id="utm_campaign" x-model="values.utm_campaign" />
+                <input type="hidden" name="utm_content" id="utm_content" x-model="values.utm_content" />
+                <input type="hidden" name="utm_term" id="utm_term" x-model="values.utm_term" />
+                <input type="hidden" name="en_txn6" id="gclid" x-model="values.gclid" />
+                <input type="hidden" name="en_txn7" id="ip" x-model="values.ip" />
+                <input type="hidden" name="en_txn8" id="uagent" x-model="values.uagent" />
+                <input type="hidden" name="last_abtest_variant" id="last_abtest_variant" value="" />
+                <input type="hidden" name="hs_language" id="hs_language" x-model="values.hs_language" value="es" />
+                <div class="form-group">
+                    <label for="first_name" class="d-none">Nombre <sup title="Campo obligatório">*</sup></label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" required="required" maxlength="40" autocomplete="given-name" x-model="values.first_name" x-on:input="required('first_name'); $store.fname = $el.value" />
+                    <div class="error-message" x-text="errors.first_name" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
+                </div>
+                <div class="form-group">
+                    <label for="last_name" class="d-none">Apellidos <sup title="Campo obligatório">*</sup> </label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required="required" maxlength="40" autocomplete="family-name" x-model="values.last_name" x-on:input="required('last_name')" />
+                    <div class="error-message" x-text="errors.last_name" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="d-none">Email <sup title="Campo obligatório">*</sup></label>
+                    <input type="email" class="form-control" id="email" name="email" required="required" maxlength="50" autocomplete="email" x-model="values.email" x-on:input="is_required_email('email'); $store.email = $el.value" x-on:change="is_new_email()"  />
+                    <div class="error-message" x-text="errors.email" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
+                </div>
+                <!--<div class="form-group">
+                    <label for="id_number" class="d-none"> <sup title="Campo obligatório">*</sup> <span class="sr-only"></span></label>
+                    <input type="text" class="form-control" id="id_number" name="id_number" required="required" maxlength="12" placeholder="" x-model="values.id_number" x-on:input="is_required_id_number('id_number')" />
+                    <div class="error-message" x-text="errors.id_number"  x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
+                </div> -->
+                <div class="form-group">
+                    <label for="phone_number" class="d-none">Teléfono <sup title="Campo obligatório">*</sup> <span class="sr-only">Ej. 623456789</span></label>
+                    <input type="tel" class="form-control" id="phone_number" name="phone_number" maxlength="15" autocomplete="tel-national" required="required" x-model="values.phone_number" x-on:input="is_required_phone('phone_number')" />
+                    <div class="error-message" x-text="errors.phone_number" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
+                </div>
+                <div class="privacynotice" data-nosnippet="true">
+                    Quiero recibir información acerca de las campañas de Greenpeace y formas de participación. Al firmar, acepto la política de privacidad. Desde GREENPEACE ESPAÑA trataremos los datos aportados en calidad de Responsable del tratamiento con la finalidad de gestionar nuestra relación contigo, en pro de nuestros objetivos fundacionales, en base al consentimiento o a la ejecución de un acuerdo. Puedes ejercer tus derechos enviando un email a contacto.es@greenpeace.org con el asunto “Protección de Datos”. <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/" class="privacy_policy_link_form">Más información.</a>
+                </div>
+                <div class="privacycontainer">
+                    <label for="privacy">
+                        <input type="checkbox" id="privacy" name="privacy" value="Y" required="required" x-model="values.privacy" x-on:change="is_checked('privacy')" />
+                        <span id="iaccept">Acepto la política de privacidad <sup title="Campo obligatório">*</sup></span>
+                        <div class="error-message" x-text="errors.privacy"  x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
+                    </label>
+                </div>
+                <div class="buttoncontainer">
+                    <button type="submit" class="colored-button" x-on:click="show_errors = true; validate(); is_valid() && submit_form()"> Descarga la guía » </button>	
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="thank-you-grid" id="thankyoupage" x-show="screen === 'thankyoupage'" style="display:none;" x-bind:aria-hidden="not(screen === 'thankyoupage')" x-transition.duration.300ms>
+        <div>
+            <h2>Disfruta de tu guía, <span x-text="$store.fname"></span></h2>
+            <p>Ya te hemos enviado la guía a <span x-text="$store.email">[...]</span></p>
+            <p>¿Quieres compartirla con tus contactos? ¡Ayúdalos a iniciarse en el autoconsumo solar!</p>
+            <div class="line-of-buttons">
+                <button type="button" class="colored-button yes" x-on:click="screen = 'sharepage'; $dispatch('thankyou:buttons', { button: 'yes_to_share' });">Si</button>
+                <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'no_to_share' });">No</button>
+            </div>
+        </div>
+    </div>
+    <div class="share-grid" id="sharepage" x-show="screen === 'sharepage'" style="display:none;" x-bind:aria-hidden="not(screen === 'sharepage')" x-transition.duration.300ms>
+        <div>
+            <h2>Comparte esta guía</h2>
+            <p>Ayuda a otra gente a consumir su propia energía solar.</p>
+            <div class="thankyoubuttons">
+                <a href="https://api.whatsapp.com/send?text=%C2%BFYa%20sabes%20c%C3%B3mo%20podr%C3%ADas%20pasarte%20al%20autoconsumo%20solar%3F%20Pues%20es%20muy%20sencillo%20con%20esta%20gu%C3%ADa.%20%C2%A1Desc%C3%A1rgala%20gratis%21%20https://greenpeace.es/autoconsumo-wp" target="_blank" x-on:click="$dispatch('thankyou:share', { method: 'Whatsapp' });" aria-label="Whatsapp">
+                    <img src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/img/whatsapp.svg" width="41" height="41" alt="Whatsapp" />
+                </a>
+                <a href="http://www.facebook.com/sharer.php?u=https://greenpeace.es/autoconsumo-fb" target="_blank" x-on:click="$dispatch('thankyou:share', { method: 'Facebook' });" aria-label="Facebook">
+                    <img src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/img/facebook.svg" width="41" height="41" alt="Facebook" />
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=%C2%BFYa%20sabes%20c%C3%B3mo%20podr%C3%ADas%20pasarte%20al%20autoconsumo%20solar%3F%20Pues%20es%20muy%20sencillo%20con%20esta%20gu%C3%ADa.%20%C2%A1Desc%C3%A1rgala%20gratis%21%20https://greenpeace.es/autoconsumo-tw&amp;source=webclient" target="_blank" x-on:click="$dispatch('thankyou:share', { method: 'Twitter' });" aria-label="Twitter">
+                    <img src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/img/twitter.svg" width="41" height="41" alt="Twitter" />
+                </a>
+            </div>
+            <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'skip_to_donations' });">Saltar »</button>
+        </div>
+    </div>
+    <div class="support-grid" id="givepage" x-show="screen === 'givepage'" style="display:none;" x-bind:aria-hidden="not(screen === 'givepage')" x-transition.duration.300ms>
+        <div>
+            <h2>Apoya la campaña</h2>
+            <p>En Greenpeace trabajamos para que la energía que consumimos sea 100% renovable y esté en manos de las personas, no de las grandes empresas. ¡Únete a la lucha! Hazte socio/a</p>
+            <div class="line-of-buttons">
+                <a href="https://es.greenpeace.org/es/que-puedes-hacer-tu/donaciones/" class="colored-button" x-on:click.prevent="$dispatch('thankyou:buttons', { button: 'yes_to_give' }); await delay(1000); window.location.href = $el.getAttribute('href');">Hazte socio/a</a>
+            </div>
+        </div>
+    </div>
+
+
+	<div class="modal" x-show="showModal" style="display:none;" :class="{ 'modal-visible-overflow': showModal }">
+
+		<div class="modal-inside" x-show="showModal" x-data="{ 
+                modalDialog: 1,
+                init(){
+                    cookieTrackingManager.read();
+                    if ( cookieTrackingManager.needToAskConsent() ) {
+                        this.showModal = true;
+                        setTimeout(function(){
+                            document.getElementById('butyes').focus();
+                         }, 1000);
+                    } else {
+                        trackingScripts.initAll();
+                    }
+                },
+                values: {
+                    cookiesAnalitics: false,
+                    cookiesSegmentation: false,
+                    cookiesAdvertisement: false,
+                    cookiesMandatory: true
+                },
+                accept(){
+                    cookieTrackingManager.consent.allowAll = true;
+                    delete(cookieTrackingManager.consent.denyAll);
+                    cookieTrackingManager.write();
+                    trackingScripts.initAll();
+                    this.showModal = false;
+                },
+                configure(){
+                    this.modalDialog = 2;
+                },
+                acceptAll(){
+                    cookieTrackingManager.consent.allowAll = true;
+                    delete(cookieTrackingManager.consent.denyAll);
+                    cookieTrackingManager.write();
+                    trackingScripts.initAll();
+                    this.showModal = false;
+                },
+                refuseAll(){
+                    cookieTrackingManager.consent.denyAll = true;
+                    delete(cookieTrackingManager.consent.allowAll);
+                    cookieTrackingManager.erraseAll(); 
+                    trackingScripts.initAll();
+                    this.showModal = false;
+                },
+                okSelected(){
+                    cookieTrackingManager.consent.cats = {};
+                    cookieTrackingManager.consent.cats.analytics = this.values.cookiesAnalitics;
+                    cookieTrackingManager.consent.cats.segmentation = this.values.cookiesSegmentation;
+                    cookieTrackingManager.consent.cats.advertisement = this.values.cookiesAdvertisement;
+                    cookieTrackingManager.write();
+                    trackingScripts.initAll();
+                    this.showModal = false;
+                }
+            }">
+
+			<div x-show="modalDialog === 1" x-bind:aria-hidden="not(modalDialog === 1)">
+				<h2>Tu privacidad nos importa</h2>
+				<p>En Greenpeace utilizamos cookies propias y de terceros para mejorar y personalizar tu experiencia en nuestra web, así como con fines analíticos, para ofrecer funciones de redes sociales y mostrarte publicidad personalizada en base a un perfil elaborado a partir de tus hábitos de navegación. Para más información puedes consultar nuestra política de cookies <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/?tracking=deny_all#cookies" x-on:click="checkPolicy(); $dipatch('cookies:checkpolicy')" aria-label="política de privacidad">AQUÍ</a>.</p>
+				<p>Puedes aceptar todas las cookies mediante el botón “Aceptar” o puedes aceptarlas de forma concreta, modificar su selección o rechazar su uso pulsando en “Configuración de Privacidad”."</p>
+				<div class="modal-bt-row">
+					<button class="popup-yes" id="butyes" x-on:click="accept(); $dispatch('cookies:accept');">Aceptar</button>
+					<button class="popup-no" x-on:click="configure(); $dispatch('cookies:config');">Configuración de privacidad</button>
+				</div>
+			</div>
+
+			<div x-show="modalDialog === 2" style="display:none;" x-bind:aria-hidden="not(modalDialog === 2)">
+				<h2>Configuración de privacidad</h2>
+				<p>Este sitio web utiliza cookies para obtener datos de navegación y de uso de la página por parte de los usuarios y usuarias. Puedes ver más información en nuestra <a target="_blank" href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/?tracking=deny_all#cookies">Política de Cookies</a>. A continuación puedes leer más sobre ellas y elegir cuáles aceptas y cuáles rechazas mientras estás en nuestra web.</p>
+                <div class="modal-bt-row">
+					<button class="popup-yes" x-on:click="acceptAll(); $dispatch('cookies:acceptall');">Aceptar todas</button>
+					<button class="popup-no" x-on:click="refuseAll(); $dispatch('cookies:denytall');">Rechazar todas</button>
+				</div>
+                <form>
+                    <div>
+                        <input type="checkbox" value="" id="cookiesAnalitics" x-model="values.cookiesAnalitics">
+                        <label for="cookiesAnalitics">
+                            Cookies analíticas
+                        </label>
+                        <p>Permiten analizar el comportamiento de los usuarios/as en nuestra página de manera anónima</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="" id="cookiesSegmentation" x-model="values.cookiesSegmentation">
+                        <label for="cookiesSegmentation">
+                            Cookies de segmentación
+                        </label>
+                        <p>Permiten a nuestra web ofrecer contenido optimizado y personalizado</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="" id="cookiesAdvertisement" x-model="values.cookiesAdvertisement">
+                        <label for="cookiesAdvertisement">
+                            Cookies publicitarias
+                        </label>
+                        <p>Permiten analizar la eficacia de la publicidad online y mostrar anuncios relevantes en otros sitios</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="" id="cookiesMandatory" checked="" disabled="" x-model="values.cookiesMandatory">
+                        <label>
+                           Cookies esenciales
+                        </label>
+                        <p>Permiten a la página funcionar correctamente y recordar las preferencias de cookies de los usuarios y usuarias</p>
+                    </div>
+                    <div class="modal-bt-row">
+					    <button type="button" class="popup-yes" x-on:click="okSelected(); $dispatch('cookies:ok')"> &nbsp; OK &nbsp; </button>
+				    </div>
+                </form>
+			</div>
+
+		</div>
+
+	</div><!-- / Modal overlay -->
+
+
+<div id="twitterAds"></div><div id="hubspotEmbed"></div>
+
+</body>
+
+</html>

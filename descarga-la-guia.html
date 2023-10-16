@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "partials/head-guia-no-menu.njk" %}
+</head>
+
+<body class="page-descarga" x-data="{
+    screen: 'landingpage',
+    showModal: false
+}">
+    {% include "partials/menu-guia-no-menu.njk" %}
+
+    <div class="download-grid" id="formpage" x-show="screen === 'landingpage'" x-bind:aria-hidden="not(screen === 'landingpage')"  x-transition.opacity.duration.400ms>
+
+        <h1 class="title-guide">Descarga la guía de autoconsumo solar</h1>
+
+        <div class="text">
+            <p>¿Tiemblas cada vez que llega la factura de la luz?  ¿Tienes miedo a una nueva crisis energética?  ¿Llevas tiempo preguntándote si eso de ponerse placas para autoproducirse tu propia electricidad renovable podría ser la solución pero no sabes cómo dar el paso?
+            </p>
+            <p>Autoproducir tu propia energía puede parecer complicado y caro, pero ya es una realidad para millones de familias porque no es ni lo uno ni lo otro.</p>
+            <p><strong>¿Sabías que ni siquiera es necesario tener un tejado en propiedad para hacerlo?</strong></p>
+        </div>
+
+        <style>
+            #imgCover {
+                max-height: 320px;
+                width: auto;
+            }
+        </style>
+
+        <div class="main-image">
+            <img id="imgCover" src="https://es.greenpeace.org/es/wp-content/uploads/sites/3/2023/10/portad2-640.png" width="617" height="640" alt="Portada del descargable" />
+        </div>
+        
+        <div class="cover">
+            <p>En Greenpeace hemos elaborado una sencilla y completa guía en la que podrás encontrar la opción que más se ajusta a tus necesidades. Descubre los pasos a seguir para liberarte de los abusivos incrementos de las compañías eléctricas y contribuir a la lucha contra el cambio climático.</p>
+        </div>
+
+        <div class="form-container">
+            <h2>Rellena el formulario y recibirás la guía GRATIS en tu email.</h2>
+
+            {% include "partials/form-guide.njk" %}
+        </div>
+
+    </div>
+
+{% include "partials/thank-you.njk" %}
+
+{% include "partials/cookie-modal.njk" %}
+
+<div id="twitterAds"></div><div id="hubspotEmbed"></div>
+
+</body>
+
+</html>
