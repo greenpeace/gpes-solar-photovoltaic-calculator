@@ -167,6 +167,14 @@ const trackingScripts = {
  */
  document.addEventListener('form:submit', function (e) {
     const existingOrNew = e.detail.was_contact ? 'Existing' :'New';
+
+    let includesPhone;
+    if ( document.getElementById("phone_number").value ) {
+        includesPhone = "Yes";
+    } else {
+        includesPhone = "No";
+    }
+
     gtag("event", "Signup", {
         "event_category": 'Autoconsumo',
         "event_label" : "?FIXME",
@@ -179,7 +187,7 @@ const trackingScripts = {
     if ( existingOrNew == "New"){
         gtag('event', "generate_lead", {
             "currency" : "EUR",
-            "value":  5
+            "value": includesPhone === "Yes" ? 5 : 1.5
         });
     }
 
@@ -206,12 +214,10 @@ const trackingScripts = {
     adwordsEnhacedConversion(1053230267); // Display
 
     const adwordsConversion = function(conversion_id, conversion_label) {
-        if ( cookieTrackingManager.canItrack("advertisement") ) {
-            gtag('event', 'conversion', {
-                'send_to': 'AW-' + conversion_id + '/' + conversion_label,
-                'value': 1.00
-            });
-        }
+        gtag('event', 'conversion', {
+            'send_to': 'AW-' + conversion_id + '/' + conversion_label,
+            'value': 1.00
+        });
     };
 
     adwordsConversion( 1053230267,"bRpeCJuYw_gCELuJnPYD"); // Display
