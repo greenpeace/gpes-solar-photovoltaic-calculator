@@ -14,26 +14,100 @@
     <link rel="preload" as="style" href="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/css/global.css" onload="this.rel='stylesheet'" />
     <link rel="preload" as="style" href="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/css/calculator.css" onload="this.rel='stylesheet'" />
         <!-- Statistics I -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NL9SM5MNP"></script>
+
+    <!-- Mixpanel functions -->
+    <script>
+        const setCookie = function (cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        };
+        const getCookie = function (name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return "";
+        };
+        const generateUUID = function() {
+            var array = new Uint8Array(16);
+            try {
+                window.crypto.getRandomValues(array);
+            } catch (error) {
+                return;
+            }
+        
+            array[6] = (array[6] & 0x0f) | 0x40; // Version 4
+            array[8] = (array[8] & 0x3f) | 0x80; // Variant 10
+        
+            var pad = function (num) {
+                return (num < 16 ? '0' : '') + num.toString(16);
+            };
+        
+            var uuid = '';
+            for (var i = 0; i < 16; i++) {
+                if (i == 4 || i == 6 || i == 8 || i == 10) {
+                    uuid += '-';
+                }
+                uuid += pad(array[i]);
+            }
+            return uuid;
+        }
+        if  (getCookie('gp_anonymous_id')) {
+            window.uuid = getCookie('gp_anonymous_id');
+        } else {
+            window.uuid = generateUUID();
+            window.addEventListener("load", function(){
+                if (cookieTrackingManager.canItrack("analytics")){
+                    setCookie("gp_anonymous_id", window.uuid, 365 * 2);
+                }
+            });
+        }
+    </script>
+    <!-- /Mixpanel functions -->
+
+    <!-- Mixpanel container -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://sst.es.greenpeace.org/mbryqjru.js?st='+i+dl+'';f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','WJL33446');
+    </script>
+    <!-- /Mixpanel container -->   
+
+    <!-- Add if not using Mixpanel container <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NL9SM5MNP"></script> -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied'
-        });
+            gtag('consent', 'default', {
+              'ad_storage': 'denied', // V1
+              'analytics_storage': 'denied', // V1
+              'ad_user_data' : 'denied', // V2
+              'ad_personalization':'denied' // V2
+            });
         gtag('js', new Date());
 
         window.googleTrackingConfig = {
             'custom_map': {
                 'dimension1': 'ExistingOrNew',
                 'dimension2': 'CookiePrivacyVariant'
-            }
-        };
-        const enableGoogleOptimize = false;
-    </script>
-    <!-- / Statistics I -->
+            },
+            'page_type' : 'Custom Page'
 
+        };
+        if (window.performance) {
+            document.addEventListener("DOMContentLoaded", function(event) {
+                window.timeSinceDomLoaded = Math.round(performance.now());
+            });
+            window.addEventListener("load", function(event) {
+                window.timeSinceEventLoad = Math.round(performance.now());
+            });
+        }
+    </script>
+
+    <script src="https://es.greenpeace.org/es/wp-content/themes/gp/assets/js/sha256.min.js" defer></script>
+    <!-- / Statistics I -->
 
     <script src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/js/analytics.js" defer></script>
     <script src="https://greenpeace.github.io/gpes-solar-photovoltaic-calculator/assets/js/cookieTrackingManager.js" defer></script>
@@ -552,6 +626,7 @@
                 modalDialog: 1,
                 init(){
                     cookieTrackingManager.read();
+                    trackingScripts.getPageData();
                     if ( cookieTrackingManager.needToAskConsent() ) {
                         this.showModal = true;
                         setTimeout(function(){
@@ -571,7 +646,9 @@
                     cookieTrackingManager.consent.allowAll = true;
                     delete(cookieTrackingManager.consent.denyAll);
                     cookieTrackingManager.write();
+                    cookieTrackingManager.writeEvent();
                     trackingScripts.initAll();
+                    setCookie('gp_anonymous_id', window.uuid, 365 * 2);
                     this.showModal = false;
                 },
                 configure(){
@@ -581,7 +658,9 @@
                     cookieTrackingManager.consent.allowAll = true;
                     delete(cookieTrackingManager.consent.denyAll);
                     cookieTrackingManager.write();
+                    cookieTrackingManager.writeEvent();
                     trackingScripts.initAll();
+                    setCookie('gp_anonymous_id', window.uuid, 365 * 2);
                     this.showModal = false;
                 },
                 refuseAll(){
@@ -597,7 +676,11 @@
                     cookieTrackingManager.consent.cats.segmentation = this.values.cookiesSegmentation;
                     cookieTrackingManager.consent.cats.advertisement = this.values.cookiesAdvertisement;
                     cookieTrackingManager.write();
+                    cookieTrackingManager.writeEvent();
                     trackingScripts.initAll();
+                    if ( cookieTrackingManager.consent.cats.analytics ) {
+                        setCookie('gp_anonymous_id', window.uuid, 365 * 2);
+                    }
                     this.showModal = false;
                 }
             }">
