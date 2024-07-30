@@ -44,6 +44,6 @@ module.exports = function() {
       assets : assetsVal,
       src: srcVal,
       development_site : development_siteVal,
-      version: "0.1"
+      version: "0.5"
     };
   };

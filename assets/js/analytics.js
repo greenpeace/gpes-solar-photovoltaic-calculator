@@ -307,9 +307,9 @@ document.addEventListener('form:click', function (e) {
             'event': 'form_started',
             'form_goal': 'Download',
             'form_plugin': 'no_plugin',
-            'form_title': 'Guía olas de calor',
-            'form_id': 'a455a58b-57cd-4fe8-82b7-804abc7f4c69',
-            'salesforce_campaign': '701W7000005nPopIAE'
+            'form_title': 'Autoconsumo calculadora solar',
+            'form_id': 'ba075237-2a48-4b98-8d3a-e3ee285b2110',
+            'salesforce_campaign': '701080000012NzmAAE'
         });
     }
     formAlreadyStarted = true;
@@ -354,9 +354,9 @@ document.addEventListener('form:click', function (e) {
         'event' : 'form_submitted',
         'form_goal' : 'Petition Signup',
         'form_plugin' : 'none',
-        'form_title': 'Guía olas de calor',
-        'form_id': 'a455a58b-57cd-4fe8-82b7-804abc7f4c69',
-        'salesforce_campaign': '701W7000005nPopIAE'
+        'form_title': 'Autoconsumo calculadora solar',
+        'form_id': 'ba075237-2a48-4b98-8d3a-e3ee285b2110',
+        'salesforce_campaign': '701080000012NzmAAE'
     });
 
     if ( existingOrNew == "New"){
