@@ -2,6 +2,62 @@
 /* eslint-disable no-undef */
 /* jshint esversion:6 */
 
+/* jshint browser: true, esversion: 6 */
+/* global cookieTrackingManager, console, jQuery, _hsq, gtag, spanishRemarketing, fbq, obApi, googleTrackingConfig, cookieManageUI, hyperSegments, dynamicSegmentation */
+
+const getConsentString = function() {
+    let consentString = "";
+    consentString += cookieTrackingManager.canItrack("analytics").toString();
+    consentString += ",";
+    consentString += cookieTrackingManager.canItrack("segmentation").toString();
+    consentString += ",";
+    consentString += cookieTrackingManager.canItrack("advertisement").toString();
+    return consentString;
+};
+
+const storeUTMParameters = function() {
+    // Parse the current URL
+    var url = new URL(window.location.href);
+
+    // List of common UTM parameters
+    var utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+    var hasUTMParams = false;
+
+    // Iterate over each UTM parameter and check if it exists in the URL
+    for (var i = 0; i < utmParams.length; i++) {
+        var value = url.searchParams.get(utmParams[i]);
+        if (value !== null) {
+            hasUTMParams = true;
+            // If the UTM parameter exists, store it in local storage with the prefix "gtm_"
+            localStorage.setItem("gtm_" + utmParams[i], value);
+        }
+    }
+
+    if (hasUTMParams) {
+        // Store the current timestamp
+        localStorage.setItem("gtm_timestamp", Date.now());
+    } else {
+        // Check the timestamp if there are no UTM parameters in the URL
+        var storedTimestamp = localStorage.getItem("gtm_timestamp");
+        if (storedTimestamp !== null) {
+            var currentTime = Date.now();
+            var thirtyMinutesInMillis = 30 * 60 * 1000;
+            if (currentTime - storedTimestamp > thirtyMinutesInMillis) {
+                // Timestamp is older than 30 minutes, clear all UTM parameters and timestamp
+                for (var i = 0; i < utmParams.length; i++) {
+                    localStorage.removeItem("gtm_" + utmParams[i]);
+                }
+                localStorage.removeItem("gtm_timestamp");
+            } else {
+                // Update the timestamp to the current time
+                localStorage.setItem("gtm_timestamp", currentTime);
+            }
+        }
+    }
+};
+
+
 const trackingScripts = {
 
     /**
@@ -14,8 +70,31 @@ const trackingScripts = {
      */
     initAll: function () {
     
+        let consentObject = {};
+
         if (cookieTrackingManager.canItrack("analytics")) {
-            gtag('consent', 'update', {'analytics_storage': 'granted'});        
+            consentObject['analytics_storage'] = 'granted'; // V1
+        } else {
+            consentObject['analytics_storage'] = 'denied'; // V1
+        }
+
+        if (cookieTrackingManager.canItrack("advertisement")) {
+            consentObject['ad_storage'] = 'granted'; // V1
+            consentObject['ad_user_data'] = 'granted'; // V2
+        } else {
+            consentObject['ad_storage'] = 'denied'; // V1
+            consentObject['ad_user_data'] = 'denied'; // V2
+        }
+
+        if (cookieTrackingManager.canItrack("segmentation") && cookieTrackingManager.canItrack("advertisement") ) {
+            consentObject['ad_personalization'] = 'granted'; // V2
+        } else {
+            consentObject['ad_personalization'] = 'denied'; // V2
+        }
+
+        gtag('consent', 'update', consentObject);
+    
+        if (cookieTrackingManager.canItrack("analytics")) {
             this.googleAnalyticsFooter();
             this.googleTagManager();
             this.hotjar();
@@ -23,10 +102,7 @@ const trackingScripts = {
             this.googleAnalyticsFooter();
         }
 
-        if (cookieTrackingManager.canItrack("segmentation")) { /* empty */ }
-        
         if (cookieTrackingManager.canItrack("advertisement")) {
-            gtag('consent', 'update', {'ad_storage': 'granted'});
             this.facebook();
             this.twitter();
             this.outbrain();
@@ -49,10 +125,68 @@ const trackingScripts = {
      */
     googleAnalyticsFooter: function () {
 
+        let contentLabels =[];
+        let contentTags =[];
+
         if ( typeof gtag === "function") {           
             gtag('config', 'G-7NL9SM5MNP', googleTrackingConfig);
         }
+
+        setTimeout(function(){
+            if (typeof(window.timeSinceDomLoaded) === "number") {
+                gtag('event', 'timing_complete', {
+                    'name': 'DOMContentLoaded',
+                    'value': window.timeSinceDomLoaded,
+                    'event_category': 'Loading'
+                });            
+            }
+
+            if (typeof(window.timeSinceEventLoad) === "number") {
+                gtag('event', 'timing_complete', {
+                    'name': 'load',
+                    'value': window.timeSinceEventLoad,
+                    'event_category': 'Loading'
+                });
+            }    
+        }, 5000);
                         
+    },
+
+        /**
+     * Retrieves and formats page data to be pushed into the dataLayer object.
+     * This function extracts various data points from the URL parameters, document properties,
+     * and the googleTrackingConfig object. It then formats the data and pushes it into the dataLayer
+     * object for further tracking and analysis.
+     */
+    getPageData: function () {
+    
+        // Extract URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Helper function to format date in the format YYYY-MM-DD
+        function dateFormat(d) {
+            const fd = d.split("-");
+            return fd[2] + "-" + fd[1] + "-" + fd[0];
+        }
+
+        if (typeof dataLayer === "object") {
+            dataLayer.push({
+                'nro' : 'Spain',
+                'office': 'Spain',
+                'page_title': document.title,
+                'page_language': document.documentElement.lang,
+                'page_platform' : '11ty',
+                'page_type' : googleTrackingConfig.page_type ? googleTrackingConfig.page_type : '',
+                'page_tags': googleTrackingConfig.tags ? googleTrackingConfig.tags.split(",") : [],
+                'page_categories': googleTrackingConfig.categories ? googleTrackingConfig.categories.split(",") : [],
+                'page_author': googleTrackingConfig.author ? googleTrackingConfig.author : '',
+                'page_date' : googleTrackingConfig.post_date ? dateFormat(googleTrackingConfig.post_date) : '',
+                'referring_project' : urlParams.has('global_project') ? urlParams.get('global_project') : '',
+                'global_project' : googleTrackingConfig.global_project ? googleTrackingConfig.global_project : '',
+                'global_project_id' : googleTrackingConfig.global_project_id ? googleTrackingConfig.global_project_id : '',
+                'local_project' : googleTrackingConfig.local_project ? googleTrackingConfig.local_project : ''
+            });
+        }
     },
 
     /**
@@ -163,6 +297,25 @@ const trackingScripts = {
 
 
 /**
+/**
+ * On form start
+ */
+let formAlreadyStarted = false;
+document.addEventListener('form:click', function (e) {
+    if ( !formAlreadyStarted ) {
+        dataLayer.push({
+            'event': 'form_started',
+            'form_goal': 'Download',
+            'form_plugin': 'no_plugin',
+            'form_title': 'Autoconsumo calculadora solar',
+            'form_id': 'ba075237-2a48-4b98-8d3a-e3ee285b2110',
+            'salesforce_campaign': '701080000012NzmAAE'
+        });
+    }
+    formAlreadyStarted = true;
+});
+
+/**
  * On form submit sucessfuly
  */
  document.addEventListener('form:submit', function (e) {
@@ -184,13 +337,35 @@ const trackingScripts = {
         "has_zip" : false
     });
 
+    if ( cookieTrackingManager.canItrack("analytics") && cookieTrackingManager.canItrack("segmentation") ) {
+        dataLayer.push({
+            'event' : 'user_identified',
+            'distinct_id' : sha256( document.querySelector("#email").value.trim().toLowerCase() ),
+            'registration_type' : 'Lead',
+            'consent_analytics' : cookieTrackingManager.canItrack("analytics").toString().toUpperCase(),
+            'consent_segmentation' : cookieTrackingManager.canItrack("segmentation").toString().toUpperCase(),
+            'consent_marketing' : cookieTrackingManager.canItrack("advertisement").toString().toUpperCase(),
+            'user_type' : 'profiled'
+        });                            
+    }
+
+    // Sends form submit event to Mixpanel
+    dataLayer.push({
+        'event' : 'form_submitted',
+        'form_goal' : 'Petition Signup',
+        'form_plugin' : 'none',
+        'form_title': 'Autoconsumo calculadora solar',
+        'form_id': 'ba075237-2a48-4b98-8d3a-e3ee285b2110',
+        'salesforce_campaign': '701080000012NzmAAE'
+    });
+
     if ( existingOrNew == "New"){
         gtag('event', "generate_lead", {
             "currency" : "EUR",
             "value": includesPhone === "Yes" ? 5 : 1.5
         });
     }
-
+    
     if ( typeof(fbq) == "function" && cookieTrackingManager.canItrack("advertisement") ) {
         fbq('track', 'PageView');
         fbq('track', 'Lead');
@@ -301,6 +476,7 @@ const delayedOutbrain = function(){
         'event_category': 'CookiePrivacy',
         'non_interaction': true
     });
+
     if ( document.location.href.includes("descarga") ){
         delayedOutbrain();
     }
@@ -393,6 +569,11 @@ document.addEventListener('thankyou:share', function (e) {
 
     gtag("event", "share", {
         "method": e.detail.method
+    });
+
+    dataLayer.push({
+        'event': 'page_shared',
+        'channel': e.detail.method
     });
 
     // console.log("share", e.detail);

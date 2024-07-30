@@ -11,6 +11,24 @@ const cookieTrackingManager = {
     },
 
     /**
+     * Testing function that allows to restore the defaults for consent data
+     */
+    restoreDefault: function () {
+
+        this.consent = {
+            updated: 20200123,
+            allowAll: true,
+            denyAll: false,
+            cats: {
+                analytics: true,
+                segmentation: true,
+                advertisement: false
+            }
+        };
+
+    },
+
+    /**
      * Reads the stored cookie preferences
      * @returns {object} Returns stored cookie preferences or {}
      */
@@ -21,7 +39,7 @@ const cookieTrackingManager = {
             return {};
         }
         const consentObject = JSON.parse(consentString);
-        cookieTrackingManager.consent = consentObject;
+        this.consent = consentObject;
 
     },
 
@@ -30,16 +48,40 @@ const cookieTrackingManager = {
      */
     write: function () {
 
-        cookieTrackingManager.consent.updated = cookieTrackingManager.getCurrentDay();
-        const consentString = JSON.stringify(cookieTrackingManager.consent);
+        this.consent.updated = this.getCurrentDay();
+        const consentString = JSON.stringify(this.consent);
         localStorage.cookieSettings = consentString;
 
     },
 
     /**
+     * Writes an event to the dataLayer object if it exists.
+     * The event contains information about the user's consent for different categories of tracking.
+     */
+    writeEvent: function () {
+        if (typeof dataLayer === "object") {
+            dataLayer.push({
+                'event': 'consent_given',
+                'consent_analytics': this.canItrack('analytics').toString().toUpperCase(),
+                'consent_segmentation': this.canItrack('segmentation').toString().toUpperCase(),
+                'consent_marketing': this.canItrack('advertisement').toString().toUpperCase()
+            });
+        }
+    },
+
+    /**
+     * Erases a specific cookie by name and domain
+     * @param {string} name The name of the cookie to be erased
+     * @param {string} domain The domain of the cookie to be erased
+     */
+    erraseCookie: function (name, domain) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+    },
+
+    /**
      * Errase all cookies for users that do not want to be tracked, and write their preferences
      */
-     erraseAll: function () {
+    erraseAll: function () {
 
         const cookies = document.cookie.split(";");
         for (let i = 0; i < cookies.length; i++) {
@@ -59,7 +101,7 @@ const cookieTrackingManager = {
             sessionStorage.removeItem(key);
         });
 
-        cookieTrackingManager.write();
+        this.write();
 
     },
 
@@ -84,28 +126,28 @@ const cookieTrackingManager = {
             return false;
         }
 
-        if (typeof (cookieTrackingManager.consent.updated) === "number") {
+        if (typeof (this.consent.updated) === "number") {
 
-            if (cookieTrackingManager.daysSinceConsent() > 365 * 2) {
+            if (this.daysSinceConsent() > 365 * 2) {
                 return false;
             }
 
         }
 
-        if (cookieTrackingManager.consent.denyAll === true) {
+        if (this.consent.denyAll === true) {
             return false;
         }
-        if (cookieTrackingManager.consent.allowAll === true) {
+        if (this.consent.allowAll === true) {
             return true;
         }
 
-        if (cookieTrackingManager.consent.cats !== undefined) {
-            if (cookieTrackingManager.consent.cats[category] === true) {
+        if (this.consent.cats !== undefined) {
+            if (this.consent.cats[category] === true) {
                 return true;
-            } else if (cookieTrackingManager.consent.cats[category] === false) {
+            } else if (this.consent.cats[category] === false) {
                 return false;
             } else {
-                console.error("cookieTrackingManager cookie category does not exist");
+                console.error("This cookie category does not exist: ", category);
             }
         }
 
@@ -145,15 +187,15 @@ const cookieTrackingManager = {
      */
     daysSinceConsent: function () {
 
-        if (typeof (cookieTrackingManager.consent.updated) === "number") {
+        if (typeof (this.consent.updated) === "number") {
 
             const now = new Date();
 
-            const consentUpdatedString = cookieTrackingManager.consent.updated.toString();
+            const consentUpdatedString = this.consent.updated.toString();
             const year = Number(consentUpdatedString.substring(0, 4));
             const month = Number(consentUpdatedString.substring(4, 6)) - 1;
             const day = Number(consentUpdatedString.substring(6, 8));
-            const updatedDate = new Date(year, month, day); // Values from cookieTrackingManager.consent.updated
+            const updatedDate = new Date(year, month, day); // Values from this.consent.updated
 
             const milisecondsSinceConsent = now - updatedDate;
             const daysSinceConsent = milisecondsSinceConsent / 1000 / 60 / 60 / 24;
@@ -179,16 +221,18 @@ const cookieTrackingManager = {
             }
         }
         
-        if (typeof (cookieTrackingManager.consent.updated) !== "number") {
+        if (typeof (this.consent.updated) !== "number") {
             return true;
         } else {
-            if (cookieTrackingManager.daysSinceConsent() > 365 * 2) {
+            if (this.daysSinceConsent() > 365 * 2) {
                 return true;
             } else {
                 return false;
             }
         }
 
+        console.error("Can't determine if I need to ask for consent");
+        return true;
     }
 
 };

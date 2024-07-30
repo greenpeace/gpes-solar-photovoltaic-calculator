@@ -130,27 +130,27 @@
                 <input type="hidden" name="hs_language" id="hs_language" x-model="values.hs_language" value="es" />
                 <div class="form-group">
                     <label for="first_name" class="d-none">Nombre <sup title="Campo obligatório">*</sup></label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" required="required" maxlength="40" autocomplete="given-name" x-model="values.first_name" x-on:input="required('first_name'); $store.fname = $el.value" />
+                    <input type="text" class="form-control" id="first_name" name="first_name" required="required" maxlength="40" autocomplete="given-name" x-model="values.first_name" x-on:input="required('first_name'); $store.fname = $el.value"  x-on:click="$dispatch('form:click');" />
                     <div class="error-message" x-text="errors.first_name" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="form-group">
                     <label for="last_name" class="d-none">Apellidos <sup title="Campo obligatório">*</sup> </label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" required="required" maxlength="40" autocomplete="family-name" x-model="values.last_name" x-on:input="required('last_name')" />
+                    <input type="text" class="form-control" id="last_name" name="last_name" required="required" maxlength="40" autocomplete="family-name" x-model="values.last_name" x-on:input="required('last_name')"  x-on:click="$dispatch('form:click');" />
                     <div class="error-message" x-text="errors.last_name" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="d-none">Email <sup title="Campo obligatório">*</sup></label>
-                    <input type="email" class="form-control" id="email" name="email" required="required" maxlength="50" autocomplete="email" x-model="values.email" x-on:input="is_required_email('email'); $store.email = $el.value" x-on:change="is_new_email()"  />
+                    <input type="email" class="form-control" id="email" name="email" required="required" maxlength="50" autocomplete="email" x-model="values.email" x-on:input="is_required_email('email'); $store.email = $el.value" x-on:change="is_new_email()"  x-on:click="$dispatch('form:click');" />
                     <div class="error-message" x-text="errors.email" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <!--<div class="form-group">
                     <label for="id_number" class="d-none">{{ form.label_id_number }} <sup title="Campo obligatório">*</sup> <span class="sr-only">{{ form.example_id_number }}</span></label>
-                    <input type="text" class="form-control" id="id_number" name="id_number" required="required" maxlength="12" placeholder="{{ form.label_id_number }}" x-model="values.id_number" x-on:input="is_required_id_number('id_number')" />
+                    <input type="text" class="form-control" id="id_number" name="id_number" required="required" maxlength="12" placeholder="{{ form.label_id_number }}" x-model="values.id_number" x-on:input="is_required_id_number('id_number')"  x-on:click="$dispatch('form:click');" />
                     <div class="error-message" x-text="errors.id_number"  x-show="show_errors" x-bind:aria-hidden="not(show_errors)"></div>
                 </div> -->
                 <div class="form-group">
                     <label for="phone_number" class="d-none">Teléfono <sup title="Campo obligatório">*</sup> <span class="sr-only">Ej. 623456789</span></label>
-                    <input type="tel" class="form-control" id="phone_number" name="phone_number" maxlength="15" autocomplete="tel-national" required="required" x-model="values.phone_number" x-on:input="is_required_phone('phone_number')" />
+                    <input type="tel" class="form-control" id="phone_number" name="phone_number" maxlength="15" autocomplete="tel-national" required="required" x-model="values.phone_number" x-on:input="is_required_phone('phone_number')"  x-on:click="$dispatch('form:click');" />
                     <div class="error-message" x-text="errors.phone_number" x-show="show_errors" style="display:none;" x-bind:aria-hidden="not(show_errors)"></div>
                 </div>
                 <div class="privacynotice" data-nosnippet="true">

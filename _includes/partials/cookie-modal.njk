@@ -5,6 +5,7 @@
                 modalDialog: 1,
                 init(){
                     cookieTrackingManager.read();
+                    trackingScripts.getPageData();
                     if ( cookieTrackingManager.needToAskConsent() ) {
                         this.showModal = true;
                         setTimeout(function(){
@@ -24,7 +25,9 @@
                     cookieTrackingManager.consent.allowAll = true;
                     delete(cookieTrackingManager.consent.denyAll);
                     cookieTrackingManager.write();
+                    cookieTrackingManager.writeEvent();
                     trackingScripts.initAll();
+                    setCookie('gp_anonymous_id', window.uuid, 365 * 2);
                     this.showModal = false;
                 },
                 configure(){
@@ -34,7 +37,9 @@
                     cookieTrackingManager.consent.allowAll = true;
                     delete(cookieTrackingManager.consent.denyAll);
                     cookieTrackingManager.write();
+                    cookieTrackingManager.writeEvent();
                     trackingScripts.initAll();
+                    setCookie('gp_anonymous_id', window.uuid, 365 * 2);
                     this.showModal = false;
                 },
                 refuseAll(){
@@ -50,7 +55,11 @@
                     cookieTrackingManager.consent.cats.segmentation = this.values.cookiesSegmentation;
                     cookieTrackingManager.consent.cats.advertisement = this.values.cookiesAdvertisement;
                     cookieTrackingManager.write();
+                    cookieTrackingManager.writeEvent();
                     trackingScripts.initAll();
+                    if ( cookieTrackingManager.consent.cats.analytics ) {
+                        setCookie('gp_anonymous_id', window.uuid, 365 * 2);
+                    }
                     this.showModal = false;
                 }
             }">
