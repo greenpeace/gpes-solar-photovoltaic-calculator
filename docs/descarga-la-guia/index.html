@@ -366,7 +366,8 @@
         <div>
             <h2>Disfruta de tu guía, <span x-text="$store.fname"></span></h2>
             <p>Ya te hemos enviado la guía a <span x-text="$store.email">[...]</span></p>
-            <p>¿Quieres compartirla con tus contactos? ¡Ayúdalos a iniciarse en el autoconsumo solar!</p>
+            <p>Revisa tus bandejas de entrada para empezar a consumir mejor. Si no encuentras la guía o has tenido algún problema para descargarla, escríbenos a <a target="_blank" href="mailto:contacto.es@greenpeace.org">contacto.es@greenpeace.org</a>.</p>
+            <p>¿Quieres compartirla con tus contactos? Así les ayudarás a que ellos también puedan consumir mejor.</p>
             <div class="line-of-buttons">
                 <button type="button" class="colored-button yes" x-on:click="screen = 'sharepage'; $dispatch('thankyou:buttons', { button: 'yes_to_share' });">Si</button>
                 <button type="button" class="colored-button" x-on:click="screen = 'givepage'; $dispatch('thankyou:buttons', { button: 'no_to_share' });">No</button>
