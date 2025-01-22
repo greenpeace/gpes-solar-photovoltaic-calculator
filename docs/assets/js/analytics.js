@@ -104,7 +104,6 @@ const trackingScripts = {
 
         if (cookieTrackingManager.canItrack("advertisement")) {
             this.facebook();
-            this.twitter();
             this.outbrain();
             this.tiktok();
         }
@@ -251,18 +250,6 @@ const trackingScripts = {
 
         fbq('init', '1055834218174209'); // De GPI
         fbq('track', "PageView");
-        
-    },
-    
-    /**
-     * Twitter initialization
-     */
-    twitter: function () {
-            
-            !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-            },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
-            a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-            twq('config','nx9ab');
         
     },
     
@@ -424,15 +411,6 @@ document.addEventListener('form:click', function (e) {
     if ( existingOrNew === "New"){
         tiktokConversion("Subscribe");
     }
-
-    const twitterConversion = function() {
-        if ( typeof(twttr) == "object" && typeof(twttr.conversion.trackPid) == "function" && cookieTrackingManager.canItrack("advertisement") ) {
-            twq('event', 'tw-nx9ab-ockx6', {
-            });
-        }
-    };
-    twitterConversion();
-
 });
 
 /**
