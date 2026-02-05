@@ -106,6 +106,7 @@ const trackingScripts = {
             this.facebook();
             this.outbrain();
             this.tiktok();
+            this.pinterest();
         }
         
         if (cookieTrackingManager.canItrack("segmentation") && cookieTrackingManager.canItrack("advertisement") ) {
@@ -267,6 +268,27 @@ const trackingScripts = {
     },
 
     /**
+     * Pinterest initialization and page view
+     */
+    pinterest: function () {
+
+        !function(e){if(!window.pintrk){window.pintrk = function () {
+            window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+              n=window.pintrk;n.queue=[],n.version="3.0";var
+              t=document.createElement("script");t.async=!0,t.src=e;var
+              r=document.getElementsByTagName("script")[0];
+              r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+            // pintrk('load', '2613333829408', {em: '<user_email_address>'});
+            pintrk('load', '2613333829408', {});
+            pintrk('page');
+
+            pintrk('track', 'pagevisit', {
+                event_id: 'eventId0001'
+            });
+
+      },
+
+    /**
      * Tiktok initialization and page view
      */
      tiktok: function(){
@@ -398,6 +420,16 @@ document.addEventListener('form:click', function (e) {
         }
 	};
     outbrainConversion("FIRMA");
+
+    const pinterestSignupConversion = function(){
+        if ( typeof(pintrk) === "function" && cookieTrackingManager.canItrack("advertisement") ) {
+            pintrk('track', 'lead', {
+                event_id: 'eventId0001',
+                lead_type: 'Newsletter'
+            });
+        }
+    };
+    pinterestSignupConversion();
     
     // TODO Implement enhanced conversion using Tiktok
 
